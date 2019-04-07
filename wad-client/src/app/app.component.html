@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <a mat-button
+     routerLink="/"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: true}">Home</a>
+  <a mat-button
+     routerLink="/products"
+     routerLinkActive="active">Products</a>
+</mat-toolbar>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+<router-outlet #routerOutlet="outlet"></router-outlet>
+</div>

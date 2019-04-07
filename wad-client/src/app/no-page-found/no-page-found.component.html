@@ -1,0 +1,22 @@
+
+<div class="row m-t-20">
+  <div class="col-xs-12 col-md-4 col-centered">
+    <mat-card class="no-page-found">
+      <mat-card-header>
+        <mat-card-title>No page found!</mat-card-title>
+        <mat-card-subtitle>Incorrect link</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="http://www.quickmeme.com/img/72/723f54b0b433ea20c75af23136e84c5b166284ddbcabfe865014b7c4ce9c257e.jpg">
+      <mat-card-content>
+        <p>
+          Next time you should enter a valid link in the search bar.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}">Home</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

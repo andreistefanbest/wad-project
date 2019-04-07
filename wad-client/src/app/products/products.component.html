@@ -1,0 +1,17 @@
+<mat-list>
+  <div class="row" *ngFor="let product of products; let i = index">
+    <div class="col-xs-12 col-md-4">
+      <mat-list-item>
+        {{product.name}}: {{product.unitPrice}} lei
+      </mat-list-item>
+    </div>
+    <div class="col-xs-12 col-md-2">
+      <mat-form-field class="input">
+        <input matInput
+               placeholder="Quantity"
+               type="text"
+               [(ngModel)]="inputs[i]">
+      </mat-form-field>
+    </div>
+  </div>
+</mat-list>

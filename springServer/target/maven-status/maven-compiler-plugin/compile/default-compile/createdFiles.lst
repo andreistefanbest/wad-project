@@ -1,0 +1,6 @@
+wad\Main.class
+wad\user\entities\User.class
+wad\user\UserService.class
+wad\user\UserServiceImpl.class
+wad\user\entities\UserRepository.class
+wad\user\UserController.class
