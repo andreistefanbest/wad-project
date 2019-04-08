@@ -6,17 +6,22 @@
       <mat-form-field class="input">
         <input matInput
                placeholder="example@example.com"
-               type="email"
-               [(ngModel)]="existingUser"
-        >
+               [formControl]="emailFormControlLogIn"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="(emailFormControlLogIn.hasError('email') && !emailFormControlLogIn.hasError('required'))
+                                                || emailFormControlLogIn.invalid">
+          {{errorMessageMail}}
+        </mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
         <input matInput
                placeholder="Password"
-               type="password"
-               [(ngModel)]="existingUserPass"
-        >
+               [formControl]="passLogInControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passLogInControl.hasError('required') || passLogInControl.invalid">
+          {{errorMessagePassword}}
+        </mat-error>
       </mat-form-field>
       <br>
       <button mat-stroked-button (click)="logIn($event)">Log In</button>
@@ -37,21 +42,31 @@
         <input matInput
                placeholder="Full Name"
                type="text"
-               [(ngModel)]="newUserName">
+               [formControl]="nameControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="nameControl.hasError('required') || nameControl.invalid">
+          {{errorMessageName}}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="input">
         <input matInput
                placeholder="example@example.com"
-               type="email"
-               [(ngModel)]="newUserMail">
+               [formControl]="emailFormControlSignIn"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="(emailFormControlSignIn.hasError('email') && !emailFormControlSignIn.hasError('required'))
+                        || emailFormControlLogIn.invalid">
+          {{errorMessageMail}}
+        </mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
         <input matInput
                placeholder="Password"
-               type="password"
-               [(ngModel)]="newUserPass"
-        >
+               [formControl]="passSignInControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passSignInControl.hasError('required') || passSignInControl.invalid">
+          {{errorMessagePassword}}
+        </mat-error>
       </mat-form-field>
       <br>
       <button mat-stroked-button (click)="signIn($event)">Create new account</button>

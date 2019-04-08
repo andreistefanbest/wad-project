@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {slideInAnimation} from './animations';
 import {RouterOutlet} from '@angular/router';
+import {slideInAnimation} from './animations';
 
 @Component({
   selector: 'app-root',

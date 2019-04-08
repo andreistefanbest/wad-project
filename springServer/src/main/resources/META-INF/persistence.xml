@@ -4,6 +4,10 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>wad.user.entities.User</class>
     <class>wad.user.entities.Product</class>
+    <class>wad.phone.entities.Brands</class>
+    <class>wad.phone.entities.PhoneTypes</class>
+    <class>wad.phone.entities.Phones</class>
+    <class>wad.phone.entities.Specs</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/wad_project?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
