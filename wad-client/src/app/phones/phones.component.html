@@ -1,3 +1,55 @@
-<p>
-  {{phonesJSON}}
-</p>
+<div class="container">
+  <div class="row m-b-30">
+    <div *ngFor="let phone of phonesDS" class="col-xs-12 col-md-4  m-t-20">
+      <mat-card class="custom-tile">
+        <mat-card-header>
+          <mat-card-title>{{phone.name}}</mat-card-title>
+          <mat-card-subtitle>{{phone.brandId.name + ' ' + phone.typeId.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{phone.imageLink}}">
+        <mat-card-content>
+          <mat-card class="m-b-10">{{'Release Date: ' + (phone.releaseDate | date)}}</mat-card>
+          <mat-accordion class="m-t-10">
+            <mat-expansion-panel >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Specs
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list role="list">
+                <mat-list-item *ngIf="phone.specsId.ramType" role="listitem">
+                  {{'Ram Type: ' + phone.specsId.ramType}}
+                </mat-list-item>
+                <mat-list-item *ngIf="phone.specsId.ramCapacity > 0" role="listitem">
+                  {{'Ram Capacity: ' + phone.specsId.ramCapacity}}
+                </mat-list-item>
+                <mat-list-item *ngIf="phone.specsId.cpu" role="listitem">
+                  {{'CPU: ' + phone.specsId.cpu}}
+                </mat-list-item>
+                <mat-list-item *ngIf="phone.specsId.clockSpeed > 0" role="listitem">
+                  {{'Clock Speed: ' + phone.specsId.clockSpeed}}
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                  {{'Bluetooth: ' + (phone.specsId.bluetooth ? 'yes' : 'no')}}
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                  {{'Network Support: ' + phone.specsId.networkSupport}}
+                </mat-list-item>
+                <mat-list-item *ngIf="phone.specsId.storageCapacity > 0" role="listitem">
+                  {{'Storage Capacity: ' + phone.specsId.storageCapacity}}
+                </mat-list-item>
+              </mat-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <mat-card class="price m-t-10 text-right">
+            {{'Price: ' + phone.price + ' lei'}}
+          </mat-card>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-raised-button color="primary" (click)="buyPhone(phone)">Buy</a>
+          <a mat-raised-button (click)="addReview(phone)">Add Review</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

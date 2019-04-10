@@ -5,9 +5,9 @@ import {ProductsComponent} from './products/products.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 
 const appRoutes: Routes = [
-  {path: '', component: LoginComponent, data: {animation: 'test1'}},
-  {path: 'products', component: ProductsComponent, data: {animation: 'test2'}},
-  {path: '**', component: NoPageFoundComponent}
+  {path: '', component: LoginComponent, data: {animation: 'a'}},
+  {path: 'products', component: ProductsComponent, data: {animation: 'b'}},
+  {path: '**', component: NoPageFoundComponent, data: {animation: 'c'}}
 ]
 
 @NgModule({

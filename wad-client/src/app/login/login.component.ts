@@ -1,16 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from './login.service';
-import {FormControl, FormGroupDirective, NgForm, ValidationErrors, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import {FormControl, Validators} from '@angular/forms';
 import {take} from 'rxjs/operators';
+import {ErrorStateMatcherImpl} from '../utils/error-state-matcher-impl';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-login',
@@ -29,7 +22,7 @@ export class LoginComponent implements OnInit {
   passSignInControl: FormControl;
   nameControl: FormControl;
 
-  matcher: MyErrorStateMatcher;
+  matcher: ErrorStateMatcherImpl;
 
   constructor(private loginService: LoginService) {
   }
@@ -53,7 +46,7 @@ export class LoginComponent implements OnInit {
     this.nameControl = new FormControl('', [
       Validators.required
     ]);
-    this.matcher = new MyErrorStateMatcher();
+    this.matcher = new ErrorStateMatcherImpl();
   }
 
   logIn(event: MouseEvent) {

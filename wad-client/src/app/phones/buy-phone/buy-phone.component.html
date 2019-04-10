@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 mat-dialog-title>{{phone.name}}</h1>
+
+
+      <mat-horizontal-stepper labelPosition="bottom">
+        <mat-step [stepControl]="nameFormGroup">
+          <form [formGroup]="nameFormGroup">
+            <ng-template matStepLabel>Fill out receiver full name</ng-template>
+            <mat-form-field>
+              <input matInput
+                     placeholder="Full Name"
+                     formControlName="nameCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="addressFormGroup">
+          <form [formGroup]="addressFormGroup">
+            <ng-template matStepLabel>Fill out receiver address</ng-template>
+            <mat-icon class="m-r-10">map</mat-icon>
+            <mat-form-field class="m-r-20">
+              <input matInput
+                     placeholder="Country"
+                     formControlName="countryCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <mat-icon class="m-r-10">place</mat-icon>
+            <mat-form-field>
+              <input matInput
+                     placeholder="County"
+                     formControlName="countyCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <br>
+            <mat-icon class="m-r-10">my_location</mat-icon>
+            <mat-form-field class="m-r-20">
+              <input matInput
+                     placeholder="City"
+                     formControlName="cityCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <mat-icon class="m-r-10">nature_people</mat-icon>
+            <mat-form-field>
+              <input matInput
+                     placeholder="Street"
+                     formControlName="streetCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <br>
+            <mat-icon class="m-r-10">hotel</mat-icon>
+            <mat-form-field class="m-r-20">
+              <input matInput
+                     placeholder="Building"
+                     formControlName="buildingCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <mat-icon class="m-r-10">local_phone</mat-icon>
+            <mat-form-field>
+              <input matInput
+                     placeholder="Phone"
+                     formControlName="phoneCrtl"
+                     [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          Are you sure you want to place the order? Please ensure details are correct!
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button color="primary" [mat-dialog-close]="phone.price">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
