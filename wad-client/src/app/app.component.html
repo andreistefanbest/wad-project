@@ -1,3 +1,4 @@
+<ngx-loading-bar></ngx-loading-bar>
 <nav mat-tab-nav-bar>
   <a mat-tab-link
      routerLink="/"
@@ -12,6 +13,9 @@
   <a mat-tab-link
      routerLink="/phones"
      routerLinkActive="active">Mobile Phones</a>
+  <a mat-tab-link
+     routerLink="/history"
+     routerLinkActive="active">History of purchases</a>
 </nav>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
 <router-outlet #routerOutlet="outlet"></router-outlet>

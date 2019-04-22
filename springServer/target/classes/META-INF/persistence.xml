@@ -8,6 +8,9 @@
     <class>wad.phone.entities.PhoneTypes</class>
     <class>wad.phone.entities.Phones</class>
     <class>wad.phone.entities.Specs</class>
+    <class>wad.user.entities.Address</class>
+    <class>wad.user.entities.Purchase</class>
+    <class>wad.product.entities.Purchase2</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/wad_project?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

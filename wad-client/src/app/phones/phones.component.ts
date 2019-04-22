@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {PhonesService} from './phones.service';
 import {take} from 'rxjs/operators';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {BuyPhoneComponent} from './buy-phone/buy-phone.component';
 import {AddReviewComponent} from './add-review/add-review.component';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-phones',
@@ -11,13 +12,15 @@ import {AddReviewComponent} from './add-review/add-review.component';
   styleUrls: ['./phones.component.css']
 })
 export class PhonesComponent implements OnInit {
-  private static DIALOG_WIDTH = '50%';
+  private static DIALOG_WIDTH = '40%';
 
   tileProperties: {};
   phonesDS: any;
 
   constructor(private phonesService: PhonesService,
-              public dialog: MatDialog) {
+              private userService: UserService,
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar) {
     this.tileProperties = {
       cols: 1,
       rows: 1
@@ -37,6 +40,16 @@ export class PhonesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result === undefined) {
+        return;
+      }
+
+      this.userService.buyPhone(result).pipe(take(1)).subscribe((purchase) => {
+        // @ts-ignore
+        this.snackBar.open('Purchase successful! Id: ' + purchase.id, '', {
+          duration: 3500,
+        });
+      });
     });
   }
 

@@ -2,6 +2,7 @@
 package wad.user;
 
 import org.springframework.stereotype.Service;
+import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
 /**
@@ -14,4 +15,5 @@ public interface UserService {
 
     User signIn(String name, String mail, String password) throws Exception;
     int logIn(String mail, String password) throws Exception;
+    Purchase buyPhone(Purchase purchase) throws Exception;
 }

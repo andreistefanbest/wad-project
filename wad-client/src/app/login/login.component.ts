@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from './login.service';
+import {UserService} from '../user.service';
 import {FormControl, Validators} from '@angular/forms';
 import {take} from 'rxjs/operators';
 import {ErrorStateMatcherImpl} from '../utils/error-state-matcher-impl';
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   matcher: ErrorStateMatcherImpl;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: UserService) {
   }
 
   public ngOnInit(): void {

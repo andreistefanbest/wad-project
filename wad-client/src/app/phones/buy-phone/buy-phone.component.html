@@ -4,85 +4,97 @@
       <h1 mat-dialog-title>{{phone.name}}</h1>
 
 
-      <mat-horizontal-stepper labelPosition="bottom">
+      <mat-horizontal-stepper labelPosition="bottom" linear>
         <mat-step [stepControl]="nameFormGroup">
-          <form [formGroup]="nameFormGroup">
-            <ng-template matStepLabel>Fill out receiver full name</ng-template>
-            <mat-form-field>
-              <input matInput
-                     placeholder="Full Name"
-                     formControlName="nameCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
+          <form [formGroup]="nameFormGroup" class="m-t-10">
+            <ng-template matStepLabel>Fill out receiver details</ng-template>
+            <mat-card class="m-t-20 m-b-20">
+              <mat-icon class="m-r-10">account_circle</mat-icon>
+              <mat-form-field class="m-r-20 m-b-30">
+                <input matInput
+                       placeholder="Full Name"
+                       formControlName="nameCtrl"
+                       [errorStateMatcher]="matcher"
+                        required>
+              </mat-form-field>
+              <mat-icon class="m-r-10">local_phone</mat-icon>
+              <mat-form-field>
+                <input matInput
+                       placeholder="Phone"
+                       formControlName="phoneCrtl"
+                       [errorStateMatcher]="matcher"
+                       required>
+              </mat-form-field>
+            </mat-card>
             <div>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-stroked-button matStepperNext>Next</button>
             </div>
           </form>
         </mat-step>
         <mat-step [stepControl]="addressFormGroup">
-          <form [formGroup]="addressFormGroup">
+          <form [formGroup]="addressFormGroup" class="m-t-10">
             <ng-template matStepLabel>Fill out receiver address</ng-template>
-            <mat-icon class="m-r-10">map</mat-icon>
-            <mat-form-field class="m-r-20">
-              <input matInput
-                     placeholder="Country"
-                     formControlName="countryCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
-            <mat-icon class="m-r-10">place</mat-icon>
-            <mat-form-field>
-              <input matInput
-                     placeholder="County"
-                     formControlName="countyCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
-            <br>
-            <mat-icon class="m-r-10">my_location</mat-icon>
-            <mat-form-field class="m-r-20">
-              <input matInput
-                     placeholder="City"
-                     formControlName="cityCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
-            <mat-icon class="m-r-10">nature_people</mat-icon>
-            <mat-form-field>
-              <input matInput
-                     placeholder="Street"
-                     formControlName="streetCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
-            <br>
-            <mat-icon class="m-r-10">hotel</mat-icon>
-            <mat-form-field class="m-r-20">
-              <input matInput
-                     placeholder="Building"
-                     formControlName="buildingCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
-            <mat-icon class="m-r-10">local_phone</mat-icon>
-            <mat-form-field>
-              <input matInput
-                     placeholder="Phone"
-                     formControlName="phoneCrtl"
-                     [errorStateMatcher]="matcher">
-            </mat-form-field>
+            <mat-card class="m-t-20 m-b-20">
+              <mat-icon class="m-r-10">map</mat-icon>
+              <mat-form-field class="m-r-20">
+                <input matInput
+                       placeholder="Country"
+                       formControlName="countryCrtl"
+                       [errorStateMatcher]="matcher"
+                       required>
+              </mat-form-field>
+              <mat-icon class="m-r-10">place</mat-icon>
+              <mat-form-field>
+                <input matInput
+                       placeholder="County"
+                       formControlName="countyCrtl"
+                       [errorStateMatcher]="matcher"
+                       required>
+              </mat-form-field>
+              <br>
+              <mat-icon class="m-r-10">my_location</mat-icon>
+              <mat-form-field class="m-r-20">
+                <input matInput
+                       placeholder="City"
+                       formControlName="cityCrtl"
+                       [errorStateMatcher]="matcher"
+                       required>
+              </mat-form-field>
+              <mat-icon class="m-r-10">nature_people</mat-icon>
+              <mat-form-field>
+                <input matInput
+                       placeholder="Street"
+                       formControlName="streetCrtl"
+                       [errorStateMatcher]="matcher"
+                       required>
+              </mat-form-field>
+              <br>
+              <mat-icon class="m-r-10">hotel</mat-icon>
+              <mat-form-field class="m-r-20 m-b-30">
+                <input matInput
+                       placeholder="Building"
+                       formControlName="buildingCrtl"
+                       [errorStateMatcher]="matcher"
+                       required>
+              </mat-form-field>
+            </mat-card>
             <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-stroked-button matStepperPrevious class="m-r-8">Back</button>
+              <button mat-stroked-button matStepperNext (click)="cannPurchase($event)">Next</button>
             </div>
           </form>
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          Are you sure you want to place the order? Please ensure details are correct!
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-          </div>
+          <mat-card class="m-t-20 m-b-20" matBadge="!" matBadgeColor="warn">
+            Are you sure you want to place the order? Please ensure details are correct!
+          </mat-card>
+          <button mat-stroked-button matStepperPrevious (click)="cantPurchase($event)">Back</button>
         </mat-step>
       </mat-horizontal-stepper>
-      <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button color="primary" [mat-dialog-close]="phone.price">Ok</button>
+      <div mat-dialog-actions style="float: right;">
+        <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!canPurchase" [mat-dialog-close]="purchase">Ok</button>
       </div>
     </div>
   </div>

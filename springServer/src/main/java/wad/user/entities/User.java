@@ -2,11 +2,17 @@
 package wad.user.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -29,6 +35,13 @@ public class User implements Serializable {
     
     @Column(name = "mail")
     private String mail;
+
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Address address;
+    
+    @Column(name = "phone")
+    private String phone;
     
     @Column(name = "password")
     private String password;
@@ -89,6 +102,22 @@ public class User implements Serializable {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

@@ -20,13 +20,13 @@
                 <mat-list-item *ngIf="phone.specsId.ramType" role="listitem">
                   {{'Ram Type: ' + phone.specsId.ramType}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.ramCapacity > 0" role="listitem">
+                <mat-list-item *ngIf="phone.specsId.ramCapacity" role="listitem">
                   {{'Ram Capacity: ' + phone.specsId.ramCapacity}}
                 </mat-list-item>
                 <mat-list-item *ngIf="phone.specsId.cpu" role="listitem">
                   {{'CPU: ' + phone.specsId.cpu}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.clockSpeed > 0" role="listitem">
+                <mat-list-item *ngIf="phone.specsId.clockSpeed" role="listitem">
                   {{'Clock Speed: ' + phone.specsId.clockSpeed}}
                 </mat-list-item>
                 <mat-list-item role="listitem">
@@ -35,7 +35,7 @@
                 <mat-list-item role="listitem">
                   {{'Network Support: ' + phone.specsId.networkSupport}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.storageCapacity > 0" role="listitem">
+                <mat-list-item *ngIf="phone.specsId.storageCapacity" role="listitem">
                   {{'Storage Capacity: ' + phone.specsId.storageCapacity}}
                 </mat-list-item>
               </mat-list>

@@ -14,4 +14,13 @@
       </mat-form-field>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 m-l-10">
+      <button class="m-t-10" mat-stroked-button class="m-l-10" (click)="calculate($event)">Calculate</button>
+      <mat-card class="m-t-10" *ngIf="showSum">
+        Total sum: {{sum}}
+      </mat-card>
+      <button class="m-t-10" mat-raised-button color="primary" *ngIf="showSum" (click)="buy($event)">Buy</button>
+    </div>
+  </div>
 </mat-list>

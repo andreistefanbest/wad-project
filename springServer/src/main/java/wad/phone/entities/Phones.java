@@ -13,8 +13,6 @@ import java.util.Date;
 @Entity
 @Table(name = "phones")
 public class Phones implements Serializable {
-
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,9 +20,6 @@ public class Phones implements Serializable {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "price")
-    private double price;
 
     @Column(name = "image_link")
     private String imageLink;
@@ -45,6 +40,9 @@ public class Phones implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Brands brandId;
 
+    @Column(name = "price")
+    private Double price;
+
     public Phones() {
     }
 
@@ -52,7 +50,7 @@ public class Phones implements Serializable {
         this.id = id;
     }
 
-    public Phones(Integer id, String name, double price, String imageLink, Date releaseDate) {
+    public Phones(Integer id, String name, Double price, String imageLink, Date releaseDate) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -76,13 +74,6 @@ public class Phones implements Serializable {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public String getImageLink() {
         return imageLink;
@@ -149,4 +140,11 @@ public class Phones implements Serializable {
         return "wad.phone.entities.Phones[ id=" + id + " ]";
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

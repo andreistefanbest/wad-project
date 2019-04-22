@@ -3,8 +3,7 @@ package wad.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import wad.user.entities.User;
-import wad.user.entities.UserRepository;
+import wad.user.entities.*;
 import wad.utils.StringUtils;
 
 /**
@@ -17,6 +16,12 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PurchaseRepository purchaseRepository;
+
+    @Autowired
+    private AddressRepository addressRepository;
     
     @Override
     public User signIn(String name, String mail, String password) throws Exception {
@@ -42,6 +47,12 @@ public class UserServiceImpl implements UserService {
         }
         
         return success ? 1 : 0;
+    }
+
+    @Override
+    public Purchase buyPhone(Purchase purchase) throws Exception {
+        purchase.setAddressId(addressRepository.save(purchase.getAddress()).getId());
+        return purchaseRepository.save(purchase);
     }
 
 }

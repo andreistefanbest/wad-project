@@ -4,6 +4,7 @@ package wad.phone.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.List;
 @Table(name = "specs")
 public class Specs implements Serializable {
 
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +23,7 @@ public class Specs implements Serializable {
     private Integer id;
 
     @Column(name = "ram_capacity")
-    private int ramCapacity;
+    private Integer ramCapacity;
 
     @Column(name = "ram_type")
     private String ramType;
@@ -30,16 +32,16 @@ public class Specs implements Serializable {
     private String cpu;
 
     @Column(name = "clock_speed")
-    private double clockSpeed;
+    private Double clockSpeed;
 
     @Column(name = "bluetooth")
-    private boolean bluetooth;
+    private Boolean bluetooth;
 
     @Column(name = "network_support")
     private String networkSupport;
 
     @Column(name = "storage_capacity")
-    private int storageCapacity;
+    private Integer storageCapacity;
 
     public Specs() {
     }
@@ -48,7 +50,7 @@ public class Specs implements Serializable {
         this.id = id;
     }
 
-    public Specs(Integer id, int ramCapacity, String ramType, String cpu, double clockSpeed, boolean bluetooth, String networkSupport, int storageCapacity) {
+    public Specs(Integer id, Integer ramCapacity, String ramType, String cpu, Double clockSpeed, Boolean bluetooth, String networkSupport, Integer storageCapacity) {
         this.id = id;
         this.ramCapacity = ramCapacity;
         this.ramType = ramType;
@@ -67,11 +69,11 @@ public class Specs implements Serializable {
         this.id = id;
     }
 
-    public int getRamCapacity() {
+    public Integer getRamCapacity() {
         return ramCapacity;
     }
 
-    public void setRamCapacity(int ramCapacity) {
+    public void setRamCapacity(Integer ramCapacity) {
         this.ramCapacity = ramCapacity;
     }
 
@@ -91,19 +93,19 @@ public class Specs implements Serializable {
         this.cpu = cpu;
     }
 
-    public double getClockSpeed() {
+    public Double getClockSpeed() {
         return clockSpeed;
     }
 
-    public void setClockSpeed(double clockSpeed) {
+    public void setClockSpeed(Double clockSpeed) {
         this.clockSpeed = clockSpeed;
     }
 
-    public boolean getBluetooth() {
+    public Boolean getBluetooth() {
         return bluetooth;
     }
 
-    public void setBluetooth(boolean bluetooth) {
+    public void setBluetooth(Boolean bluetooth) {
         this.bluetooth = bluetooth;
     }
 
@@ -115,11 +117,11 @@ public class Specs implements Serializable {
         this.networkSupport = networkSupport;
     }
 
-    public int getStorageCapacity() {
+    public Integer getStorageCapacity() {
         return storageCapacity;
     }
 
-    public void setStorageCapacity(int storageCapacity) {
+    public void setStorageCapacity(Integer storageCapacity) {
         this.storageCapacity = storageCapacity;
     }
 

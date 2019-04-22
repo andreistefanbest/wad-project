@@ -3,6 +3,7 @@ package wad.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
 /**
@@ -28,5 +29,10 @@ public class UserController {
     @PostMapping("logIn")
     public int logIn(@RequestParam String mail, @RequestParam String password) throws Exception {
         return userService.logIn(mail, password);
+    }
+
+    @PutMapping("buyPhone")
+    public Purchase buyPhone(@RequestBody Purchase purchase) throws Exception {
+        return userService.buyPhone(purchase);
     }
 }
