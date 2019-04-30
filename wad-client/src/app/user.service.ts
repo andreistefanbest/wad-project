@@ -30,4 +30,8 @@ export class UserService {
   public buyPhone(purchase: {}) {
     return this.http.put(this.PATH_TO_CONTROLLER + 'buyPhone', purchase);
   }
+
+  public getUser(id: number) {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'getUser?id=' + id);
+  }
 }

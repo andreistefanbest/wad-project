@@ -12,6 +12,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 import {PhonesModule} from './phones/phones.module';
 import {CommonsModule} from './commons.module';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HistoryComponent} from './products/history/history.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
@@ -28,6 +29,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     HttpClientModule,
     PhonesModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
     AppRoutingModule,
     LoadingBarHttpClientModule
   ],

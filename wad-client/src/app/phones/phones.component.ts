@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {PhonesService} from './phones.service';
 import {take} from 'rxjs/operators';
-import {MatDialog, MatSnackBar} from '@angular/material';
+import {MatBottomSheet, MatBottomSheetRef, MatDialog, MatSnackBar} from '@angular/material';
 import {BuyPhoneComponent} from './buy-phone/buy-phone.component';
 import {AddReviewComponent} from './add-review/add-review.component';
 import {UserService} from '../user.service';
+import {SortComponent} from './sort/sort.component';
+import {GlobalConstants} from '../utils/GlobalConstants';
 
 @Component({
   selector: 'app-phones',
@@ -20,7 +22,8 @@ export class PhonesComponent implements OnInit {
   constructor(private phonesService: PhonesService,
               private userService: UserService,
               public dialog: MatDialog,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private bottomSheet: MatBottomSheet) {
     this.tileProperties = {
       cols: 1,
       rows: 1
@@ -34,6 +37,10 @@ export class PhonesComponent implements OnInit {
   }
 
   buyPhone(phone) {
+    if (localStorage.getItem(GlobalConstants.LOGGED_USER_KEY) == null) {
+      alert('You must be logged in to buy a phone!');
+      return;
+    }
     const dialogRef = this.dialog.open(BuyPhoneComponent, {
       width: PhonesComponent.DIALOG_WIDTH,
       data: phone
@@ -64,7 +71,23 @@ export class PhonesComponent implements OnInit {
     });
   }
 
-  testSort() {
-    this.phonesDS = this.phonesDS.sort((p1, p2) => p1.price - p2.price);
+  onSort() {
+    const sortSheet: MatBottomSheetRef = this.bottomSheet.open(SortComponent);
+    sortSheet.afterDismissed().subscribe((res) => {
+      switch (res) {
+        case 'name':
+          this.phonesDS = this.phonesDS.sort((p1, p2) => p1.name.localeCompare(p2.name));
+          break;
+        case 'price':
+          this.phonesDS = this.phonesDS.sort((p1, p2) => p1.price - p2.price);
+          break;
+        case 'price-desc':
+          this.phonesDS = this.phonesDS.sort((p1, p2) => p2.price - p1.price);
+          break;
+        case 'type':
+          this.phonesDS = this.phonesDS.sort((p1, p2) => p1.typeId.name.localeCompare(p2.typeId.name));
+          break;
+      }
+    });
   }
 }

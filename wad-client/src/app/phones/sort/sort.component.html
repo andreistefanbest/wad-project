@@ -1,0 +1,17 @@
+<mat-nav-list>
+  <a href="#" mat-list-item (click)="sort($event, 'name')">
+    <span mat-line>By name</span>
+  </a>
+
+  <a href="#" mat-list-item (click)="sort($event,'price')">
+    <span mat-line>By price</span>
+  </a>
+
+  <a href="#" mat-list-item (click)="sort($event,'price-desc')">
+    <span mat-line>By price descending</span>
+  </a>
+
+  <a href="#" mat-list-item (click)="sort($event,'type')">
+    <span mat-line>By type</span>
+  </a>
+</mat-nav-list>

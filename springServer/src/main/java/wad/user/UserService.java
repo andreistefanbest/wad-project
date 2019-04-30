@@ -14,6 +14,7 @@ import wad.user.entities.User;
 public interface UserService {
 
     User signIn(String name, String mail, String password) throws Exception;
-    int logIn(String mail, String password) throws Exception;
+    User logIn(String mail, String password) throws Exception;
     Purchase buyPhone(Purchase purchase) throws Exception;
+    User getUser(Integer id) throws Exception;
 }

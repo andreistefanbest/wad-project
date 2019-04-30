@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!productsPage">
+<div class="container">
   <div class="row m-t-20">
     <div class="col-xs-12 col-md-4 col-centered text-center">
       <label>Log in with existing account</label>
@@ -16,6 +16,7 @@
       <br>
       <mat-form-field class="input">
         <input matInput
+               type="password"
                placeholder="Password"
                [formControl]="passLogInControl"
                [errorStateMatcher]="matcher">
@@ -62,6 +63,7 @@
       <mat-form-field class="input">
         <input matInput
                placeholder="Password"
+               type="password"
                [formControl]="passSignInControl"
                [errorStateMatcher]="matcher">
         <mat-error *ngIf="passSignInControl.hasError('required') || passSignInControl.invalid">
@@ -70,6 +72,20 @@
       </mat-form-field>
       <br>
       <button mat-stroked-button (click)="signIn($event)">Create new account</button>
+    </div>
+  </div>
+
+  <div class="row m-t-20">
+    <div class="col-xs-12 col-md-4 col-centered text-center">
+      <mat-divider class="m-t-20"></mat-divider>
+    </div>
+  </div>
+
+  <div class="row m-t-20">
+    <div class="col-xs-12 com-md-1 col-centered text-center">
+      <button mat-stroked-button
+              (click)="logOut()"
+              [disabled]="!loggedIn">Log out</button>
     </div>
   </div>
 </div>

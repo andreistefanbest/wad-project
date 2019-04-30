@@ -13,12 +13,15 @@ import { BuyPhoneComponent } from './buy-phone/buy-phone.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import {UserService} from '../user.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SortComponent } from './sort/sort.component';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 @NgModule({
   declarations: [
     PhonesComponent,
     BuyPhoneComponent,
     AddReviewComponent,
+    SortComponent,
   ],
   imports: [
     CommonsModule,
@@ -28,6 +31,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDialogModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatBottomSheetModule,
     PhonesRoutingModule
   ],
   providers: [
@@ -36,7 +40,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   ],
   entryComponents: [
     BuyPhoneComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    SortComponent
   ]
 })
 export class PhonesModule { }

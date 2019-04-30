@@ -3,6 +3,9 @@ import {UserService} from '../user.service';
 import {FormControl, Validators} from '@angular/forms';
 import {take} from 'rxjs/operators';
 import {ErrorStateMatcherImpl} from '../utils/error-state-matcher-impl';
+import {GlobalConstants} from '../utils/GlobalConstants';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -23,8 +26,11 @@ export class LoginComponent implements OnInit {
   nameControl: FormControl;
 
   matcher: ErrorStateMatcherImpl;
+  loggedIn: boolean;
 
-  constructor(private loginService: UserService) {
+  constructor(private loginService: UserService,
+              private snackBar: MatSnackBar,
+              private router: Router) {
   }
 
   public ngOnInit(): void {
@@ -47,6 +53,8 @@ export class LoginComponent implements OnInit {
       Validators.required
     ]);
     this.matcher = new ErrorStateMatcherImpl();
+
+    this.loggedIn = localStorage.getItem(GlobalConstants.LOGGED_USER_KEY) != null;
   }
 
   logIn(event: MouseEvent) {
@@ -70,7 +78,16 @@ export class LoginComponent implements OnInit {
 
     this.loginService.logIn(this.emailFormControlLogIn.value, this.passLogInControl.value).pipe(take(1))
       .subscribe((result) => {
-        console.log('Login ' + (result === 1 ? 'successful!' : 'failed!'));
+        if (result != null) {
+          localStorage.setItem(GlobalConstants.LOGGED_USER_KEY, JSON.stringify(result));
+          // @ts-ignore
+          this.snackBar.open('Welcome, ' + result.fullName + '!', '', {
+            duration: 2500,
+          });
+          this.router.navigate(['/phones']);
+        } else {
+          localStorage.removeItem(GlobalConstants.LOGGED_USER_KEY);
+        }
       });
   }
 
@@ -98,9 +115,22 @@ export class LoginComponent implements OnInit {
     }
 
     this.loginService.signIn(this.nameControl.value, this.emailFormControlSignIn.value, this.passSignInControl.value).pipe(take(1))
-      .subscribe((result: {userId: string}) => {
-        console.log('Success! New user Id is: ' + result.userId);
+      .subscribe((result) => {
+        localStorage.setItem(GlobalConstants.LOGGED_USER_KEY, JSON.stringify(result));
+        // @ts-ignore
+        this.snackBar.open('Welcome, ' + result.fullName + '!', '', {
+          duration: 2500,
+        });
+        this.router.navigate(['/phones']);
       });
   }
 
+  logOut() {
+    this.loggedIn = false;
+    // @ts-ignore
+    this.snackBar.open('See ya!', '', {
+      duration: 2500,
+    });
+    localStorage.removeItem(GlobalConstants.LOGGED_USER_KEY);
+  }
 }
