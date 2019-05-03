@@ -13,8 +13,11 @@ import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material
 import {PhonesModule} from './phones/phones.module';
 import {CommonsModule} from './commons.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort'
 import {HistoryComponent} from './products/history/history.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     ProductsComponent,
     HistoryComponent,
     LoginComponent,
+    PurchaseHistoryComponent,
     NoPageFoundComponent
   ],
   imports: [
@@ -30,6 +34,8 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     PhonesModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
     AppRoutingModule,
     LoadingBarHttpClientModule
   ],

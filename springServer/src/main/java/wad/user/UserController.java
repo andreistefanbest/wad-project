@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
+import java.util.List;
+
 /**
  *
  * @author Andrei Stefan
@@ -39,5 +41,10 @@ public class UserController {
     @PutMapping("buyPhone")
     public Purchase buyPhone(@RequestBody Purchase purchase) throws Exception {
         return userService.buyPhone(purchase);
+    }
+
+    @GetMapping("purchases")
+    public List<Purchase> getPurchases(@RequestParam Integer userId) throws Exception {
+        return userService.getPurchases(userId);
     }
 }

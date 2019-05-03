@@ -5,12 +5,14 @@ import {ProductsComponent} from './products/products.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {HistoryComponent} from './products/history/history.component';
 import {UserGuard} from './user.guard';
+import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'phones', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, data: {animation: 'a'}},
   {path: 'products', component: ProductsComponent, data: {animation: 'b'}},
   {path: 'history', canActivate: [UserGuard], component: HistoryComponent, data: {animation: 'x'}},
+  {path: 'purchase-history', canActivate: [UserGuard], component: PurchaseHistoryComponent, data: {animation: 'y'}},
   {path: '**', component: NoPageFoundComponent, data: {animation: 'c'}}
 ]
 

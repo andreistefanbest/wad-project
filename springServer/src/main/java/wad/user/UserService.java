@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
+import java.util.List;
+
 /**
  *
  * @author Andrei Stefan
@@ -17,4 +19,5 @@ public interface UserService {
     User logIn(String mail, String password) throws Exception;
     Purchase buyPhone(Purchase purchase) throws Exception;
     User getUser(Integer id) throws Exception;
+    List<Purchase> getPurchases(Integer userId) throws Exception;
 }

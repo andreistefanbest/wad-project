@@ -14,7 +14,6 @@ import {GlobalConstants} from '../utils/GlobalConstants';
   styleUrls: ['./phones.component.css']
 })
 export class PhonesComponent implements OnInit {
-  private static DIALOG_WIDTH = '40%';
 
   tileProperties: {};
   phonesDS: any;
@@ -42,7 +41,7 @@ export class PhonesComponent implements OnInit {
       return;
     }
     const dialogRef = this.dialog.open(BuyPhoneComponent, {
-      width: PhonesComponent.DIALOG_WIDTH,
+      width: (window.innerWidth < 760 ? '100%' : '40%'),
       data: phone
     });
 
@@ -62,7 +61,7 @@ export class PhonesComponent implements OnInit {
 
   addReview(phone) {
     const dialogRef = this.dialog.open(AddReviewComponent, {
-      width: PhonesComponent.DIALOG_WIDTH,
+      width: (window.innerWidth < 760 ? '100%' : '40%'),
       data: {
       }
     });

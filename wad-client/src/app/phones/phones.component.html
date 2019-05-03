@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row m-b-30">
-    <div *ngFor="let phone of phonesDS" class="col-xs-12 col-md-4  m-t-20">
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+    <div *ngFor="let phone of phonesDS" class="m-t-35 phone">
       <mat-card class="custom-tile">
         <mat-card-header>
           <mat-card-title>{{phone.name}}</mat-card-title>

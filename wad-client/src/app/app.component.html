@@ -8,14 +8,17 @@
     Home
   </a>
   <a mat-tab-link
-     routerLink="/products"
-     routerLinkActive="active">Products</a>
-  <a mat-tab-link
-     routerLink="/history"
+     routerLink="/purchase-history"
      routerLinkActive="active">History of purchases</a>
   <a mat-tab-link
      routerLink="/login"
      routerLinkActive="active">Log in / Sign in</a>
+  <a mat-tab-link
+     routerLink="/products"
+     routerLinkActive="active">Products - Lab</a>
+  <a mat-tab-link
+     routerLink="/history"
+     routerLinkActive="active">History of purchases - Lab</a>
 </nav>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
 <router-outlet #routerOutlet="outlet"></router-outlet>

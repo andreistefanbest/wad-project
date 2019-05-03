@@ -4,10 +4,14 @@ package wad.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import wad.phone.entities.PhonesRepository;
 import wad.user.entities.*;
 import wad.utils.StringUtils;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  *
@@ -25,6 +29,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private AddressRepository addressRepository;
+
+    @Autowired
+    private PhonesRepository phonesRepository;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -75,4 +82,16 @@ public class UserServiceImpl implements UserService {
         return purchaseRepository.save(purchase);
     }
 
+    @Override
+    public List<Purchase> getPurchases(Integer userId) throws Exception {
+        return StreamSupport.stream(purchaseRepository.findAll().spliterator(), false)
+                .filter(p -> p.getUserId().equals(userId))
+                .map(this::withPhone)
+                .collect(Collectors.toList());
+    }
+
+    private Purchase withPhone(Purchase p) {
+        p.setPhone(phonesRepository.findById(p.getPhoneId()).get());
+        return p;
+    }
 }

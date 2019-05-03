@@ -1,3 +1,9 @@
+.phone {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 300px;
+}
+
 .price {
   font-size: 16px !important;
   font-weight: bold;
@@ -6,6 +12,10 @@
 
 .m-b-30 {
   margin-bottom: 30px !important;
+}
+
+.m-t-35 {
+  margin-top: 35px !important;
 }
 
 .fab-container {

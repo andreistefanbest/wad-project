@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import {GlobalConstants} from './utils/GlobalConstants';
 
 @Injectable()
 export class UserService {
@@ -33,5 +34,13 @@ export class UserService {
 
   public getUser(id: number) {
     return this.http.get(this.PATH_TO_CONTROLLER + 'getUser?id=' + id);
+  }
+
+  public getPurchases(userId: number) {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'purchases?userId=' + userId);
+  }
+
+  public getCurrentUser() {
+    return JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY));
   }
 }
