@@ -1,17 +1,22 @@
 <mat-nav-list>
-  <a href="#" mat-list-item (click)="sort($event, 'name')">
+  <h5 class="">Sort</h5>
+  <a href="#" mat-list-item (click)="onItemChosen($event, 'name')">
     <span mat-line>By name</span>
   </a>
 
-  <a href="#" mat-list-item (click)="sort($event,'price')">
+  <a href="#" mat-list-item (click)="onItemChosen($event,'price')">
     <span mat-line>By price</span>
   </a>
 
-  <a href="#" mat-list-item (click)="sort($event,'price-desc')">
+  <a href="#" mat-list-item (click)="onItemChosen($event,'price-desc')">
     <span mat-line>By price descending</span>
   </a>
 
-  <a href="#" mat-list-item (click)="sort($event,'type')">
+  <a href="#" mat-list-item (click)="onItemChosen($event,'type')">
     <span mat-line>By type</span>
+  </a>
+  <mat-divider></mat-divider>
+  <a href="#" class="m-t-5" mat-list-item (click)="onItemChosen($event,'compare')">
+    <span mat-line class="text-center">Comparison mode</span>
   </a>
 </mat-nav-list>

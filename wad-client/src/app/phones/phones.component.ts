@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PhonesService} from './phones.service';
 import {take} from 'rxjs/operators';
-import {MatBottomSheet, MatBottomSheetRef, MatDialog, MatSnackBar} from '@angular/material';
+import {MatBottomSheet, MatBottomSheetRef, MatCheckboxChange, MatDialog, MatSnackBar} from '@angular/material';
 import {BuyPhoneComponent} from './buy-phone/buy-phone.component';
 import {AddReviewComponent} from './add-review/add-review.component';
 import {UserService} from '../user.service';
@@ -16,6 +16,7 @@ import {GlobalConstants} from '../utils/GlobalConstants';
 export class PhonesComponent implements OnInit {
 
   tileProperties: {};
+  comparisonMode = false;
   phonesDS: any;
 
   constructor(private phonesService: PhonesService,
@@ -86,6 +87,28 @@ export class PhonesComponent implements OnInit {
         case 'type':
           this.phonesDS = this.phonesDS.sort((p1, p2) => p1.typeId.name.localeCompare(p2.typeId.name));
           break;
+        case 'compare':
+          this.comparisonMode = true;
+          break;
+      }
+    });
+  }
+
+  onCompareSelect(phone: any, event: MatCheckboxChange) {
+    phone.isSelected = event.checked;
+  }
+
+  exitComparisonMode() {
+    this.comparisonMode = false;
+    this.phonesDS.forEach(phone => phone.isSelected = false);
+  }
+
+  compare() {
+    this.comparisonMode = false;
+    const dialogRef = this.dialog.open(AddReviewComponent, {
+      width: (window.innerWidth < 760 ? '100%' : '90%'),
+      data: {
+        phones: this.phonesDS.filter(phone => phone.isSelected)
       }
     });
   }

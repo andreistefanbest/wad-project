@@ -13,7 +13,7 @@ export class SortComponent implements OnInit {
   ngOnInit() {
   }
 
-  sort($event: MouseEvent, name: string) {
+  onItemChosen($event: MouseEvent, name: string) {
     this.bottomSheetRef.dismiss(name);
     event.preventDefault();
   }

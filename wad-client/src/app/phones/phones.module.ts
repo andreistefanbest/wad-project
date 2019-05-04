@@ -15,6 +15,8 @@ import {UserService} from '../user.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SortComponent } from './sort/sort.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
     MatBadgeModule,
     MatSnackBarModule,
     MatBottomSheetModule,
+    MatCheckboxModule,
+    MatChipsModule,
     PhonesRoutingModule
   ],
   providers: [

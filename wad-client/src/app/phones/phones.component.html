@@ -1,8 +1,9 @@
 <div class="container">
   <div class="d-flex flex-row flex-wrap justify-content-around">
     <div *ngFor="let phone of phonesDS" class="m-t-35 phone">
-      <mat-card class="custom-tile">
+      <mat-card [ngClass]="{'mat-elevation-z5': phone.isSelected}">
         <mat-card-header>
+          <mat-checkbox *ngIf="comparisonMode" (change)="onCompareSelect(phone, $event)" class="ml-auto"></mat-checkbox>
           <mat-card-title>{{phone.name}}</mat-card-title>
           <mat-card-subtitle>{{phone.brandId.name + ' ' + phone.typeId.name}}</mat-card-subtitle>
         </mat-card-header>
@@ -59,4 +60,11 @@
           (click)="onSort()">
     <mat-icon>sort</mat-icon>
   </button>
+</div>
+
+<div *ngIf="comparisonMode" class="d-flex flex-row comparison-opts">
+  <mat-chip-list>
+    <mat-chip color="primary" class="mat-elevation-z24" (click)="compare()" selected>Compare</mat-chip>
+    <mat-chip color="warn" class="mat-elevation-z24" (click)="exitComparisonMode()" selected>Cancel</mat-chip>
+  </mat-chip-list>
 </div>
