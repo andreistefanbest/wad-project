@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+    <div *ngFor="let phone of phonesDS" class="m-t-35 phone">
+      <mat-card>
+        <div class="d-flex flex-row align-items-center">
+          <label class="m-r-10">{{phone.name}}</label>
+          <button mat-stroked-button class="ml-auto m-r-10" color="primary">Update <mat-icon>save</mat-icon></button>
+          <button mat-stroked-button color="warn">Delete <mat-icon>clear</mat-icon></button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="fab-container">
+  <button mat-fab color="accent" class="fab-toggler"
+          (click)="add()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

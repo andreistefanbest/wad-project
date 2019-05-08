@@ -19,9 +19,8 @@ export class BuyPhoneComponent implements OnInit {
   purchase: {};
   canPurchase: boolean;
 
-  constructor(private dialogRef: MatDialogRef<BuyPhoneComponent>,
+  constructor(@Inject(MAT_DIALOG_DATA) private phone,
               private formBuilder: FormBuilder,
-              @Inject(MAT_DIALOG_DATA) private phone,
               private userService: UserService) {
 
   }
@@ -88,10 +87,6 @@ export class BuyPhoneComponent implements OnInit {
         building: this.addressFormGroup.controls.buildingCrtl.value,
       }
     };
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 
   cantPurchase($event: MouseEvent) {

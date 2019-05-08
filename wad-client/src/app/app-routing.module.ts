@@ -6,6 +6,7 @@ import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {HistoryComponent} from './products/history/history.component';
 import {UserGuard} from './user.guard';
 import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
+import {ManagementComponent} from './management/management.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'phones', pathMatch: 'full'},
@@ -13,6 +14,8 @@ const appRoutes: Routes = [
   {path: 'products', component: ProductsComponent, data: {animation: 'b'}},
   {path: 'history', canActivate: [UserGuard], component: HistoryComponent, data: {animation: 'x'}},
   {path: 'purchase-history', canActivate: [UserGuard], component: PurchaseHistoryComponent, data: {animation: 'y'}},
+  {path: 'management', component: ManagementComponent, data: {animation: 'z'}},
+  {path: 'statistics', component: PurchaseHistoryComponent, data: {animation: 'i'}},
   {path: '**', component: NoPageFoundComponent, data: {animation: 'c'}}
 ]
 

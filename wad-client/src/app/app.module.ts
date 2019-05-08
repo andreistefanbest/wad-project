@@ -18,6 +18,8 @@ import {MatSortModule} from '@angular/material/sort'
 import {HistoryComponent} from './products/history/history.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
+import {ManagementComponent} from './management/management.component';
+import {StatisticsComponent} from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {PurchaseHistoryComponent} from './purchase-history/purchase-history.comp
     HistoryComponent,
     LoginComponent,
     PurchaseHistoryComponent,
+    ManagementComponent,
+    StatisticsComponent,
     NoPageFoundComponent
   ],
   imports: [

@@ -3,10 +3,11 @@ import {PhonesService} from './phones.service';
 import {take} from 'rxjs/operators';
 import {MatBottomSheet, MatBottomSheetRef, MatCheckboxChange, MatDialog, MatSnackBar} from '@angular/material';
 import {BuyPhoneComponent} from './buy-phone/buy-phone.component';
-import {AddReviewComponent} from './add-review/add-review.component';
+import {ReviewsComponent} from './reviews/reviews.component';
 import {UserService} from '../user.service';
 import {SortComponent} from './sort/sort.component';
 import {GlobalConstants} from '../utils/GlobalConstants';
+import {CompareComponent} from './compare/compare.component';
 
 @Component({
   selector: 'app-phones',
@@ -60,14 +61,10 @@ export class PhonesComponent implements OnInit {
     });
   }
 
-  addReview(phone) {
-    const dialogRef = this.dialog.open(AddReviewComponent, {
-      width: (window.innerWidth < 760 ? '100%' : '40%'),
-      data: {
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
+  displayReviews(phone) {
+    this.dialog.open(ReviewsComponent, {
+      width: (window.innerWidth < 760 ? '100%' : '70%'),
+      data: { phone }
     });
   }
 
@@ -104,12 +101,17 @@ export class PhonesComponent implements OnInit {
   }
 
   compare() {
-    this.comparisonMode = false;
-    const dialogRef = this.dialog.open(AddReviewComponent, {
+    if (this.phonesDS.filter(phone => phone.isSelected).length < 2) {
+      alert('Select at least 2 phones to compare.');
+      return;
+    }
+    const dialogRef = this.dialog.open(CompareComponent, {
       width: (window.innerWidth < 760 ? '100%' : '90%'),
       data: {
         phones: this.phonesDS.filter(phone => phone.isSelected)
       }
     });
+
+    this.exitComparisonMode();
   }
 }

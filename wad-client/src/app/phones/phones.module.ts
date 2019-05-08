@@ -10,20 +10,24 @@ import {PhonesComponent} from './phones.component';
 import {PhonesService} from './phones.service';
 import {CommonsModule} from '../commons.module';
 import { BuyPhoneComponent } from './buy-phone/buy-phone.component';
-import { AddReviewComponent } from './add-review/add-review.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 import {UserService} from '../user.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SortComponent } from './sort/sort.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
+import { CompareComponent } from './compare/compare.component';
+import { ExistsPipe } from './compare/exists.pipe';
 
 @NgModule({
   declarations: [
     PhonesComponent,
     BuyPhoneComponent,
-    AddReviewComponent,
+    ReviewsComponent,
     SortComponent,
+    CompareComponent,
+    ExistsPipe,
   ],
   imports: [
     CommonsModule,
@@ -44,8 +48,9 @@ import {MatChipsModule} from '@angular/material/chips';
   ],
   entryComponents: [
     BuyPhoneComponent,
-    AddReviewComponent,
-    SortComponent
+    ReviewsComponent,
+    SortComponent,
+    CompareComponent
   ]
 })
 export class PhonesModule { }

@@ -48,14 +48,14 @@
         </mat-card-content>
         <mat-card-actions>
           <a mat-raised-button color="primary" (click)="buyPhone(phone)">Buy</a>
-          <a mat-raised-button (click)="addReview(phone)">Add Review</a>
+          <a mat-raised-button (click)="displayReviews(phone)">Reviews</a>
         </mat-card-actions>
       </mat-card>
     </div>
   </div>
 </div>
 
-<div class="fab-container">
+<div *ngIf="!comparisonMode" class="fab-container">
   <button mat-fab color="accent" class="fab-toggler"
           (click)="onSort()">
     <mat-icon>sort</mat-icon>

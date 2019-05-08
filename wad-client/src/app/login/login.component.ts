@@ -80,13 +80,17 @@ export class LoginComponent implements OnInit {
       .subscribe((result) => {
         if (result != null) {
           localStorage.setItem(GlobalConstants.LOGGED_USER_KEY, JSON.stringify(result));
+          this.loginService.userChanged.emit();
           // @ts-ignore
           this.snackBar.open('Welcome, ' + result.fullName + '!', '', {
             duration: 2500,
           });
           this.router.navigate(['/phones']);
         } else {
-          localStorage.removeItem(GlobalConstants.LOGGED_USER_KEY);
+          // @ts-ignore
+          this.snackBar.open('Wrong username of password!', '', {
+            duration: 2500,
+          });
         }
       });
   }
@@ -117,6 +121,7 @@ export class LoginComponent implements OnInit {
     this.loginService.signIn(this.nameControl.value, this.emailFormControlSignIn.value, this.passSignInControl.value).pipe(take(1))
       .subscribe((result) => {
         localStorage.setItem(GlobalConstants.LOGGED_USER_KEY, JSON.stringify(result));
+        this.loginService.userChanged.emit();
         // @ts-ignore
         this.snackBar.open('Welcome, ' + result.fullName + '!', '', {
           duration: 2500,
@@ -132,5 +137,6 @@ export class LoginComponent implements OnInit {
       duration: 2500,
     });
     localStorage.removeItem(GlobalConstants.LOGGED_USER_KEY);
+    this.loginService.userChanged.emit();
   }
 }

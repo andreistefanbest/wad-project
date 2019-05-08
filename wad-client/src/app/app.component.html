@@ -10,6 +10,12 @@
   <a mat-tab-link
      routerLink="/purchase-history"
      routerLinkActive="active">History of purchases</a>
+  <a *ngIf="userType === 'admin'" mat-tab-link
+     routerLink="/management"
+     routerLinkActive="active">Management</a>
+  <a *ngIf="userType === 'owner'" mat-tab-link
+     routerLink="/statistics"
+     routerLinkActive="active">Statistics</a>
   <a mat-tab-link
      routerLink="/login"
      routerLinkActive="active">Log in / Sign in</a>
