@@ -81,7 +81,7 @@ export class PhonesComponent implements OnInit {
         case 'price-desc':
           this.phonesDS = this.phonesDS.sort((p1, p2) => p2.price - p1.price);
           break;
-        case 'type':
+        case 'bluetooth':
           this.phonesDS = this.phonesDS.sort((p1, p2) => p1.typeId.name.localeCompare(p2.typeId.name));
           break;
         case 'compare':

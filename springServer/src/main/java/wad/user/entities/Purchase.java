@@ -1,6 +1,7 @@
 
 package wad.user.entities;
 
+import org.hibernate.annotations.Formula;
 import wad.phone.entities.Phones;
 
 import javax.persistence.*;
@@ -56,6 +57,9 @@ public class Purchase implements Serializable {
     @ManyToOne(optional = false)
     @Transient
     private User user;
+
+    @Formula("(select p.price from phones p where p.id = phone_id)")
+    private Double price;
 
     public Purchase() {
     }
@@ -149,6 +153,14 @@ public class Purchase implements Serializable {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     @Override

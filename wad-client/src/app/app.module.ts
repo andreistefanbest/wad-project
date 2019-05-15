@@ -9,7 +9,7 @@ import {ProductsService} from './products/products.service';
 import {LoginComponent} from './login/login.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {AppRoutingModule} from './app-routing.module';
-import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
+import {ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 import {PhonesModule} from './phones/phones.module';
 import {CommonsModule} from './commons.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -19,7 +19,12 @@ import {HistoryComponent} from './products/history/history.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
 import {ManagementComponent} from './management/management.component';
-import {StatisticsComponent} from './statistics/statistics.component';
+import {AddEditPhoneComponent} from './management/add-edit-phone/add-edit-phone.component';
+import {MatDialogModule} from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MDBRootModule} from 'angular-bootstrap-md';
+import {StatisticsModule} from './statistics/statistics.module';
 
 @NgModule({
   declarations: [
@@ -29,23 +34,33 @@ import {StatisticsComponent} from './statistics/statistics.component';
     LoginComponent,
     PurchaseHistoryComponent,
     ManagementComponent,
-    StatisticsComponent,
+    AddEditPhoneComponent,
     NoPageFoundComponent
   ],
   imports: [
     CommonsModule,
     HttpClientModule,
     PhonesModule,
+    StatisticsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
     AppRoutingModule,
-    LoadingBarHttpClientModule
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    LoadingBarHttpClientModule,
+    MDBRootModule
+  ],
+  entryComponents: [
+    AddEditPhoneComponent
   ],
   providers: [
     UserService,
     ProductsService,
+    MatNativeDateModule,
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
   bootstrap: [AppComponent]

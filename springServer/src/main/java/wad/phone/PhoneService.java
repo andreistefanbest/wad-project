@@ -14,4 +14,8 @@ public interface PhoneService {
     List<PhoneTypes> getPhoneTypes() throws Exception;
     List<Specs> getSpecs() throws Exception;
 
+    Phones add(Phones p) throws Exception;
+    Phones update(Phones p) throws Exception;
+    void delete(Integer id) throws Exception;
+
 }

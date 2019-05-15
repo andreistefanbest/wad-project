@@ -2,6 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ProductsService} from './products.service';
 import {count, take} from 'rxjs/operators';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-products',
@@ -11,11 +12,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private products: any;
   private inputs: [];
+  loggedIn: boolean;
   showSum: boolean;
   sum: number;
 
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService,
+              private userService: UserService) {
     this.subscription = new Subscription();
+    this.loggedIn = this.userService.getCurrentUser() != null;
   }
 
   ngOnDestroy(): void {
@@ -42,6 +46,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   buy($event: MouseEvent) {
+    if (!this.loggedIn) {
+      alert('You must be logged in in order to place an order.');
+      return;
+    }
     let counter = 0;
     this.inputs.forEach((item, index) => {
       // @ts-ignore

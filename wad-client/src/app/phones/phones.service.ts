@@ -12,4 +12,20 @@ export class PhonesService {
   public getPhones() {
     return this.http.get(this.PATH_TO_CONTROLLER + 'getPhones');
   }
+
+  public getBrands() {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'brands');
+  }
+
+  public add(phone) {
+    return this.http.post(this.PATH_TO_CONTROLLER + 'phone', phone);
+  }
+
+  public update(phone) {
+    return this.http.put(this.PATH_TO_CONTROLLER + 'phone', phone);
+  }
+
+  public delete(id: number) {
+    return this.http.delete(this.PATH_TO_CONTROLLER + 'phone?id=' + id);
+  }
 }

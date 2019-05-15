@@ -5,7 +5,7 @@
         {{product.name}}: {{product.unitPrice}} lei
       </mat-list-item>
     </div>
-    <div class="col-xs-12 col-md-2">
+    <div *ngIf="loggedIn" class="col-xs-12 col-md-2">
       <mat-form-field class="input">
         <input matInput
                placeholder="Quantity"

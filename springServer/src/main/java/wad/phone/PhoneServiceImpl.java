@@ -1,6 +1,7 @@
 package wad.phone;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import wad.phone.entities.*;
 
@@ -21,6 +22,9 @@ public class PhoneServiceImpl implements PhoneService {
 
     @Autowired
     private SpecsRepository specsRepository;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Brands> getBrands() throws Exception {
@@ -52,5 +56,22 @@ public class PhoneServiceImpl implements PhoneService {
         specsRepository.findAll().forEach(result::add);
 
         return result;
+    }
+
+    @Override
+    public Phones add(Phones p) throws Exception {
+        p.setSpecsId(specsRepository.save(p.getSpecsId()));
+        return phonesRepository.save(p);
+    }
+
+    @Override
+    public Phones update(Phones p) throws Exception {
+        p.setSpecsId(specsRepository.save(p.getSpecsId()));
+        return phonesRepository.save(p);
+    }
+
+    @Override
+    public void delete(Integer id) throws Exception {
+        jdbcTemplate.update("DELETE FROM PHONES WHERE ID = " + id);
     }
 }
