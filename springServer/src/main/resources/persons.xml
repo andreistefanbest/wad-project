@@ -1,0 +1,324 @@
+<persons>
+    <person>
+    <name>Andrei Stefan</name>
+    <gender>male</gender>
+    <website>andrei.com</website>
+    <address>str. Veteranilor, nr. 19</address>
+        <telephone>0711111111</telephone>
+        <email>andrei@gmail.com</email>
+        <formal-background>
+            <schools>
+                <school>
+                    <name>FILS</name>
+                    <subjects>
+                        <subject>
+                            <name>Theoretical Mechanics</name>
+                            <keywords>TM</keywords>
+                            <year>1</year>
+                            <grade>7</grade>
+                        </subject>
+                        <subject>
+                            <name>Mathematics for engineers I</name>
+                            <keywords>ME1</keywords>
+                            <year>2</year>
+                            <grade>10</grade>
+                        </subject>
+                        <subject>
+                            <name>Operating System</name>
+                            <keywords>OS</keywords>
+                            <year>2</year>
+                            <grade>9</grade>
+                    </subject>
+                </subjects>
+                <graduation-year>2020</graduation-year>
+            </school>
+        </schools>
+    </formal-background>
+    <informal-background>
+        <extra-courses>
+            <course>
+                <name>Sports</name>
+                <year>1</year>
+            </course>
+            <course>
+                <name>Information systems integration</name>
+                <year>4</year>
+            </course>
+        </extra-courses>
+        <awards>
+            <award>
+                <title>Best web project</title>
+                <year>3</year>
+            </award>
+        </awards>
+    </informal-background>
+    <memberships>
+        <membership>
+            <title>Best Bucharest member</title>
+            <description>-</description>
+            <period>2016-2020</period>
+        </membership>
+    </memberships>
+    <jobs>
+        <job>
+            <title>Full Stack Developer</title>
+            <description>Spring + Angular</description>
+            <period>2018-Present</period>
+        </job>
+    </jobs>
+    <interests>
+        <interest>computers</interest>
+    </interests>
+</person>
+
+    <person>
+        <name>Parvulescu Valeriu</name>
+        <gender>male</gender>
+        <website>vali.com</website>
+        <address>Magura Vulturului,nr. 9</address>
+        <telephone>0722222222</telephone>
+        <email>pvaleriu100@gmail.com</email>
+        <formal-background>
+            <schools>
+                <school>
+                    <name>FILS</name>
+                    <subjects>
+                        <subject>
+                            <name>Programming Languages</name>
+                            <keywords>PL</keywords>
+                            <year>1</year>
+                            <grade>10</grade>
+                        </subject>
+                        <subject>
+                            <name>Graphics Engineering</name>
+                            <keywords>GE</keywords>
+                            <year>1</year>
+                            <grade>8</grade>
+                        </subject>
+                        <subject>
+                            <name>Software Development Methods</name>
+                            <keywords>SDM</keywords>
+                            <year>4</year>
+                            <grade>6</grade>
+                        </subject>
+                    </subjects>
+                    <graduation-year>2020</graduation-year>
+                </school>
+            </schools>
+        </formal-background>
+        <informal-background>
+            <extra-courses>
+                <course>
+                    <name>Sports</name>
+                    <year>1</year>
+                </course>
+                <course>
+                    <name>Pedagogy</name>
+                    <year>2</year>
+                </course>
+
+                <course>
+                    <name>Mobile Applications</name>
+                    <year>4</year>
+                </course>
+            </extra-courses>
+            <awards>
+                <award>
+                    <title>10th place at Communication Session</title>
+                    <year>1</year>
+                </award>
+            </awards>
+        </informal-background>
+        <memberships>
+            <membership>
+                <title>EURO 2020 League members</title>
+                <description>Organising the EURO 2020 competition</description>
+                <period>2019-2020</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Junior Front End Developer</title>
+                <description>HTML + CSS + JS</description>
+                <period>2019 June-2019 August</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>cycling</interest>
+            <interest>football</interest>
+        </interests>
+    </person>
+
+
+
+    <person>
+        <name>Costea Andreea</name>
+        <gender>female</gender>
+        <website>andreea.com</website>
+        <address>str. Iancului, nr. 9</address>
+        <telephone>0733333333</telephone>
+        <email>andreeacos@yahoo.com</email>
+        <formal-background>
+            <schools>
+                <school>
+                    <name>FILS</name>
+                    <subjects>
+                        <subject>
+                            <name>Calculus 1</name>
+                            <keywords>C</keywords>
+                            <year>1</year>
+                            <grade>3</grade>
+                        </subject>
+                        <subject>
+                            <name>Linear Algebra</name>
+                            <keywords>LA</keywords>
+                            <year>1</year>
+                            <grade>8</grade>
+                        </subject>
+                        <subject>
+                            <name>Numerical Methods</name>
+                            <keywords>NM</keywords>
+                            <year>2</year>
+                            <grade>10</grade>
+                        </subject>
+                    </subjects>
+                    <graduation-year>2020</graduation-year>
+                </school>
+
+                <school>
+                    <name>Cibernetica</name>
+                    <subjects>
+                        <subject>
+                            <name>Educatie Fizica</name>
+                            <keywords>EF</keywords>
+                            <year>2</year>
+                            <grade>10</grade>
+                        </subject>
+                        <subject>
+                            <name>MicroEconomie</name>
+                            <keywords>MI</keywords>
+                            <year>2</year>
+                            <grade>10</grade>
+                        </subject>
+                        <subject>
+                            <name>Sistem Bancar</name>
+                            <keywords>SB</keywords>
+                            <year>2</year>
+                            <grade>9</grade>
+                        </subject>
+                    </subjects>
+                    <graduation-year>2023</graduation-year>
+                </school>
+            </schools>
+        </formal-background>
+        <informal-background>
+            <extra-courses>
+                <course>
+                    <name>Voluntariat</name>
+                    <year>2</year>
+                </course>
+                <course>
+                    <name>BioChimie</name>
+                    <year>3</year>
+                </course>
+            </extra-courses>
+            <awards>
+                <award>
+                    <title>Locul 1 Concurs Anteprenori</title>
+                    <year>1</year>
+                </award>
+            </awards>
+        </informal-background>
+        <memberships>
+            <membership>
+                <title>Liga ASE</title>
+                <description>-</description>
+                <period>2020-2023</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Business Analist</title>
+                <description>-</description>
+                <period>2021-Present</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>playing piano</interest>
+            <interest>listening to music</interest>
+        </interests>
+    </person>
+
+
+    <person>
+        <name>Andrei Stefan</name>
+        <gender>male</gender>
+        <website>andrei.com</website>
+        <address>str. Veteranilor, nr. 19</address>
+        <telephone>0711111111</telephone>
+        <email>andrei@gmail.com</email>
+        <formal-background>
+            <schools>
+                <school>
+                    <name>FILS</name>
+                    <subjects>
+                        <subject>
+                            <name>Theoretical Mechanics</name>
+                            <keywords>TM</keywords>
+                            <year>1</year>
+                            <grade>7</grade>
+                        </subject>
+                        <subject>
+                            <name>Mathematics for engineers I</name>
+                            <keywords>ME1</keywords>
+                            <year>2</year>
+                            <grade>10</grade>
+                        </subject>
+                        <subject>
+                            <name>Operating System</name>
+                            <keywords>OS</keywords>
+                            <year>2</year>
+                            <grade>9</grade>
+                        </subject>
+                    </subjects>
+                    <graduation-year>2020</graduation-year>
+                </school>
+            </schools>
+        </formal-background>
+        <informal-background>
+            <extra-courses>
+                <course>
+                    <name>Sports</name>
+                    <year>1</year>
+                </course>
+                <course>
+                    <name>Information systems integration</name>
+                    <year>4</year>
+                </course>
+            </extra-courses>
+            <awards>
+                <award>
+                    <title>Best web project</title>
+                    <year>3</year>
+                </award>
+            </awards>
+        </informal-background>
+        <memberships>
+            <membership>
+                <title>Best Bucharest member</title>
+                <description>-</description>
+                <period>2016-2020</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Full Stack Developer</title>
+                <description>Spring + Angular</description>
+                <period>2018-Present</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>computers</interest>
+        </interests>
+    </person>
+</persons>

@@ -3,6 +3,7 @@ package wad.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import wad.user.dto.PersonDTO;
 import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
@@ -46,5 +47,10 @@ public class UserController {
     @GetMapping("purchases")
     public List<Purchase> getPurchases(@RequestParam Integer userId) throws Exception {
         return userService.getPurchases(userId);
+    }
+
+    @GetMapping("persons")
+    public List<PersonDTO> getPersons() throws Exception {
+        return userService.fetchPersons();
     }
 }

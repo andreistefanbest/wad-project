@@ -2,6 +2,7 @@
 package wad.user;
 
 import org.springframework.stereotype.Service;
+import wad.user.dto.PersonDTO;
 import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
@@ -20,4 +21,6 @@ public interface UserService {
     Purchase buyPhone(Purchase purchase) throws Exception;
     User getUser(Integer id) throws Exception;
     List<Purchase> getPurchases(Integer userId) throws Exception;
+
+    List<PersonDTO> fetchPersons() throws Exception;
 }

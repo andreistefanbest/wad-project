@@ -5,14 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import wad.phone.entities.PhonesRepository;
+import wad.user.dto.PersonDTO;
 import wad.user.entities.*;
 import wad.utils.GenericService;
 import wad.utils.StringHasher;
+import wad.utils.PersonDAO;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * @author Andrei Stefan
@@ -41,6 +42,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private GenericService genericService;
+
+    @Autowired
+    private PersonDAO personDAO;
 
     @Override
     public User signIn(String name, String mail, String password) throws Exception {
@@ -96,6 +100,11 @@ public class UserServiceImpl implements UserService {
                 .filter(p -> p.getUserId().equals(userId))
                 .map(this::withPhone)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PersonDTO> fetchPersons() throws Exception {
+        return personDAO.read();
     }
 
     private Purchase withPhone(Purchase p) {
