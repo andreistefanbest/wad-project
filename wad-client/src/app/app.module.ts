@@ -14,7 +14,7 @@ import {PhonesModule} from './phones/phones.module';
 import {CommonsModule} from './commons.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort'
+import {MatSortModule} from '@angular/material/sort';
 import {HistoryComponent} from './products/history/history.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
@@ -26,7 +26,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MDBRootModule} from 'angular-bootstrap-md';
 import {StatisticsModule} from './statistics/statistics.module';
 import {FormControlErrorDisplayComponent} from './utils/form-control-error-display/form-control-error-display.component';
-import {CoolFormComponent} from './utils/cool-form/cool-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import {CoolFormComponent} from './utils/cool-form/cool-form.component';
     HistoryComponent,
     LoginComponent,
     FormControlErrorDisplayComponent,
-    CoolFormComponent,
     PurchaseHistoryComponent,
     ManagementComponent,
     AddEditPhoneComponent,
@@ -63,7 +61,6 @@ import {CoolFormComponent} from './utils/cool-form/cool-form.component';
   ],
   entryComponents: [
     AddEditPhoneComponent,
-    CoolFormComponent
   ],
   providers: [
     UserService,

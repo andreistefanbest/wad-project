@@ -45,4 +45,8 @@ export class UserService {
   public getCurrentUser() {
     return JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY));
   }
+
+  public getPersons() {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'persons');
+  }
 }
