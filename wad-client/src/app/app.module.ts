@@ -25,6 +25,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MDBRootModule} from 'angular-bootstrap-md';
 import {StatisticsModule} from './statistics/statistics.module';
+import {FormControlErrorDisplayComponent} from './utils/form-control-error-display/form-control-error-display.component';
+import {CoolFormComponent} from './utils/cool-form/cool-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import {StatisticsModule} from './statistics/statistics.module';
     ProductsComponent,
     HistoryComponent,
     LoginComponent,
+    FormControlErrorDisplayComponent,
+    CoolFormComponent,
     PurchaseHistoryComponent,
     ManagementComponent,
     AddEditPhoneComponent,
@@ -54,8 +58,12 @@ import {StatisticsModule} from './statistics/statistics.module';
     LoadingBarHttpClientModule,
     MDBRootModule
   ],
+  exports: [
+    FormControlErrorDisplayComponent
+  ],
   entryComponents: [
-    AddEditPhoneComponent
+    AddEditPhoneComponent,
+    CoolFormComponent
   ],
   providers: [
     UserService,

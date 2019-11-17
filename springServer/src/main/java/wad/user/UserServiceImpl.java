@@ -6,7 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import wad.phone.entities.PhonesRepository;
 import wad.user.entities.*;
-import wad.utils.StringUtils;
+import wad.utils.GenericService;
+import wad.utils.StringHasher;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -14,7 +15,6 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- *
  * @author Andrei Stefan
  * @since Mar 24, 2019
  */
@@ -36,55 +36,63 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private StringHasher stringHasher;
+
+    @Autowired
+    private GenericService genericService;
+
     @Override
     public User signIn(String name, String mail, String password) throws Exception {
         var user = new User();
         user.setFullName(name);
         user.setMail(mail);
-        user.setPassword(StringUtils.getHash(password));
+        user.setPassword(stringHasher.getHash(password));
         user.setUserType("basic");
-        
+
         return userRepository.save(user);
     }
 
     @Override
     public User logIn(String mail, String password) throws Exception {
-        for (var u : userRepository.findAll()) {
-            if (!u.getMail().equals(mail)) {
-                continue;
+        for (var user : userRepository.findAll()) {
+            if (matchMailAndPassword(mail, password, user)) {
+                return user;
             }
-            
-            if (u.getPassword().equals(StringUtils.getHash(password))) {
-                return u;
-            }
-
-            break;
         }
 
         return null;
     }
 
+    private boolean matchMailAndPassword(String mail, String password, User user) throws Exception {
+        return user.getMail().equals(mail) &&
+                user.getPassword().equals(stringHasher.getHash(password));
+    }
+
     @Override
     public User getUser(Integer id) throws Exception {
-        return userRepository.findById(id).get();
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
     @Transactional()
     public Purchase buyPhone(Purchase purchase) throws Exception {
-        var address = addressRepository.save(purchase.getAddress());
+        purchase.setAddressId(addressRepository.save(purchase.getAddress()).getId());
+        updateUserPurchaseDetails(purchase);
 
-        jdbcTemplate.update("UPDATE USER SET ADDRESS_ID = "
-                + address.getId() + ", PHONE = " + purchase.getReceiverPhone()
-                + " WHERE USER_ID = " + purchase.getUserId());
-
-        purchase.setAddressId(address.getId());
         return purchaseRepository.save(purchase);
+    }
+
+    private int updateUserPurchaseDetails(Purchase purchase) {
+        return jdbcTemplate.update("UPDATE USER SET ADDRESS_ID = "
+                + purchase.getAddressId() + ", PHONE = " + purchase.getReceiverPhone()
+                + " WHERE USER_ID = " + purchase.getUserId());
     }
 
     @Override
     public List<Purchase> getPurchases(Integer userId) throws Exception {
-        return StreamSupport.stream(purchaseRepository.findAll().spliterator(), false)
+        return genericService.fetchEntities(purchaseRepository)
+                .stream()
                 .filter(p -> p.getUserId().equals(userId))
                 .map(this::withPhone)
                 .collect(Collectors.toList());

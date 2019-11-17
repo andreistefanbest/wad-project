@@ -11,6 +11,9 @@ import wad.product.entities.Purchase2;
 import wad.product.entities.Purchase2Repository;
 import wad.user.entities.Product;
 import wad.user.entities.ProductRepository;
+import wad.utils.GenericService;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  *
@@ -26,13 +29,12 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private Purchase2Repository purchase2Repository;
 
+    @Autowired
+    private GenericService genericService;
+
     @Override
     public List<Product> getProducts() throws Exception {
-        List<Product> result = new ArrayList<>();
-        
-        productRepository.findAll().forEach(result::add);
-        
-        return result;
+        return genericService.fetchEntities(productRepository);
     }
 
     @Override
@@ -42,9 +44,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Purchase2> history(Integer userID) throws Exception {
-        var result = new ArrayList<Purchase2>();
-        purchase2Repository.findAll().forEach(result::add);
-
-        return result.stream().filter(e -> e.getUserId() == userID).collect(Collectors.toList());
+        return genericService.fetchEntities(purchase2Repository)
+                .stream()
+                .filter(e -> e.getUserId() == userID)
+                .collect(toList());
     }
 }

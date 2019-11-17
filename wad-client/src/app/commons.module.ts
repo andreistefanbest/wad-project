@@ -6,7 +6,8 @@ import {MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatTabsMo
 import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     BrowserModule,

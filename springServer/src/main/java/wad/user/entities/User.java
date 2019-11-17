@@ -1,8 +1,13 @@
 
 package wad.user.entities;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
+
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,26 +19,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Andrei Stefan
- * @since Mar 24, 2019
+ * @since July 24, 2019
  */
 @Entity
 @Table(name = "user")
+@Data
+@NoArgsConstructor
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
+    @NotNull
     private Integer userId;
     
     @Column(name = "full_name")
+    @NotNull
     private String fullName;
     
     @Column(name = "mail")
+    @Email
     private String mail;
 
     @JoinColumn(name = "address_id", referencedColumnName = "id")
@@ -44,105 +56,26 @@ public class User implements Serializable {
     private String phone;
     
     @Column(name = "password")
+    @Length(min=6, max=32)
     private String password;
     
     @Column(name = "user_type")
+    @NotNull
     private String userType;
 
-    public User() {
-    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    public User(Integer userId) {
-        this.userId = userId;
-    }
+        User user = (User) o;
 
-    public User(Integer userId, String fullName, String mail, String password, String userType) {
-        this.userId = userId;
-        this.fullName = fullName;
-        this.mail = mail;
-        this.password = password;
-        this.userType = userType;
-    }
+        return Objects.equals(userId, user.userId);
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (userId != null ? userId.hashCode() : 0);
-        return hash;
+        return userId != null ? userId.hashCode() : 0;
     }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
-            return false;
-        }
-        User other = (User) object;
-        if ((this.userId == null && other.userId != null) || (this.userId != null && !this.userId.equals(other.userId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" + "userId=" + userId + ", fullName=" + fullName + ", mail=" + mail + ", password=" + password + ", userType=" + userType + '}';
-    }
-
 }

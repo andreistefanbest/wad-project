@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
   matcher: ErrorStateMatcherImpl;
   loggedIn: boolean;
 
+  logInPressed: boolean;
+
   constructor(private loginService: UserService,
               private snackBar: MatSnackBar,
               private router: Router) {
@@ -58,6 +60,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(event: MouseEvent) {
+    this.logInPressed = true;
     let err = false;
     if (this.emailFormControlLogIn.hasError('email')) {
       this.emailFormControlLogIn.markAsDirty();

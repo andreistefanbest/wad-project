@@ -76,16 +76,8 @@ export class AddEditPhoneComponent implements OnInit {
   }
 
   private detailsUpdate() {
-    let err = false;
-    Object.keys(this.addEditFormGroup.controls).forEach((key) => {
-      if (this.addEditFormGroup.get(key).errors != null) {
-        err = true;
-        return;
-      }
-    });
-
-    this.canClose = !err;
-    if (err) {
+    this.canClose = this.addEditFormGroup.valid;
+    if (!this.addEditFormGroup.valid) {
       return;
     }
 
