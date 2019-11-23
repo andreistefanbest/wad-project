@@ -1,0 +1,34 @@
+<persons>
+    <person>
+        <name>Andrei Stefan</name>
+        <gender>male</gender>
+        <website>andrei.com</website>
+        <address>str. Veteranilor, nr. 19</address>
+        <telephone>0711111111</telephone>
+        <email>andrei@gmail.com</email>
+    </person>
+    <person>
+        <name>Parvulescu Valeriu</name>
+        <gender>male</gender>
+        <website>vali.com</website>
+        <address>Magura Vulturului,nr. 9</address>
+        <telephone>0722222222</telephone>
+        <email>pvaleriu100@gmail.com</email>
+    </person>
+    <person>
+        <name>Costea Andreea</name>
+        <gender>female</gender>
+        <website>andreea.com</website>
+        <address>str. Iancului, nr. 9</address>
+        <telephone>0733333333</telephone>
+        <email>andreeacos@yahoo.com</email>
+    </person>
+    <person>
+        <name>Andrei Stefan</name>
+        <gender>male</gender>
+        <website>andrei.com</website>
+        <address>str. Veteranilor, nr. 19</address>
+        <telephone>0711111111</telephone>
+        <email>andrei@yahoo.com</email>
+    </person>
+</persons>

@@ -10,4 +10,5 @@ public class SubjectDTO {
     String keyword;
     String year;
     String grade;
+    Boolean isTech;
 }

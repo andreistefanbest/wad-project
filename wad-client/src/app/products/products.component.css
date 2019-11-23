@@ -1,0 +1,8 @@
+.queries {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.red {
+  background-color: #ff5b58;
+}

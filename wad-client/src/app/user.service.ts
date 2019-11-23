@@ -29,11 +29,6 @@ export class UserService {
     return this.http.post(this.PATH_TO_CONTROLLER + 'logIn',
       undefined, {params: httpParams});
   }
-
-  public buyPhone(purchase: {}) {
-    return this.http.put(this.PATH_TO_CONTROLLER + 'buyPhone', purchase);
-  }
-
   public getUser(id: number) {
     return this.http.get(this.PATH_TO_CONTROLLER + 'getUser?id=' + id);
   }
@@ -48,5 +43,21 @@ export class UserService {
 
   public getPersons() {
     return this.http.get(this.PATH_TO_CONTROLLER + 'persons');
+  }
+
+  public getNumOfTechSubjects(mail) {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'tech-subjects?mail=' + mail);
+  }
+
+  public getNumOfProgramming() {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'programming');
+  }
+
+  public deleteJob(mail, jobName) {
+    return this.http.delete(this.PATH_TO_CONTROLLER + 'delete-job?mail=' + mail + '&jobTitle=' + jobName);
+  }
+
+  public addJob(mail, job) {
+    return this.http.post(this.PATH_TO_CONTROLLER + 'add-job', job, {params: new HttpParams().set('mail', mail)});
   }
 }

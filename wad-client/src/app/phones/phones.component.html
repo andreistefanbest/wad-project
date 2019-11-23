@@ -1,172 +1,203 @@
 <div class="container">
   <div class="d-flex flex-row flex-wrap justify-content-around">
     <div *ngFor="let person of persons" class="m-t-35 phone">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{person.name}}</mat-card-title>
-          <mat-card-subtitle>{{person.email}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <mat-accordion class="m-t-10">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Details
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-list role="list">
-                <mat-list-item role="listitem">
-                  {{'Phone: ' + person.telephone}}
-                </mat-list-item>
-                <mat-list-item role="listitem">
-                  {{'Gender: ' + person.gender}}
-                </mat-list-item>
-                <mat-list-item role="listitem">
-                  {{'Website: ' + person.website}}
-                </mat-list-item>
-                <mat-list-item role="listitem">
-                  {{'Address: ' + person.address}}
-                </mat-list-item>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <br>
-          <mat-accordion class="m-t-5">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Formal Background
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <label>Schools</label>
-              <mat-list role="list">
-                <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let school of person.schools">
-                  <mat-list-item>
-                    {{'Name: ' + school.name}}
+      <ng-container *ngIf="isLoggedPerson(person)">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{person.name}}</mat-card-title>
+            <mat-card-subtitle>{{person.email}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-accordion class="m-t-10">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Facebook
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list role="list">
+                  <mat-list-item role="listitem">
+                    {{'Phone: ' + person.telephone}}
                   </mat-list-item>
-                  <mat-list-item>
-                    {{'Graduation year: ' + school.year}}
+                  <mat-list-item role="listitem">
+                    {{'Gender: ' + person.gender}}
                   </mat-list-item>
-                  <mat-list role="list">
-                    <mat-card class="m-t-10 mat-elevation-z3"*ngFor="let subject of school.subjects">
-                      <mat-list-item>
-                        {{'Name: ' + subject.name}}
-                      </mat-list-item>
-                      <mat-list-item>
-                        {{'Keyword: ' + subject.keyword}}
-                      </mat-list-item>
-                      <mat-list-item>
-                        {{'Year: ' + subject.year}}
-                      </mat-list-item>
-                      <mat-list-item>
-                        {{'Grade: ' + subject.grade}}
-                      </mat-list-item>
-                    </mat-card>
-                  </mat-list>
-                </mat-card>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <br>
-          <mat-accordion class="m-t-10">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Informal Background
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <label>Extra courses</label>
-              <mat-list class="m-b-10" role="list">
-                <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let course of person.extraCourses">
-                  <mat-list-item>
-                    {{'Name: ' + course.name}}
+                  <mat-list-item role="listitem">
+                    {{'Website: ' + person.website}}
                   </mat-list-item>
-                  <mat-list-item>
-                    {{'Year: ' + course.year}}
+                  <mat-list-item role="listitem">
+                    {{'Address: ' + person.address}}
                   </mat-list-item>
-                </mat-card>
-              </mat-list>
-              <label>Awards</label>
-              <mat-list role="list">
-                <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let award of person.awards">
-                  <mat-list-item>
-                    {{'Title: ' + award.title}}
-                  </mat-list-item>
-                  <mat-list-item>
-                    {{'Year: ' + award.year}}
-                  </mat-list-item>
-                </mat-card>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <br>
-          <mat-accordion class="m-t-10">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Memberships
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-list class="m-b-10" role="list">
-                <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let membership of person.memberships">
-                  <mat-list-item>
-                    {{'Title: ' + membership.title}}
-                  </mat-list-item>
-                  <mat-list-item>
-                    {{'Description: ' + membership.description}}
-                  </mat-list-item>
-                  <mat-list-item>
-                    {{'Period: ' + membership.period}}
-                  </mat-list-item>
-                </mat-card>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <br>
-          <mat-accordion class="m-t-10">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Jobs
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-list class="m-b-10" role="list">
-                <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let job of person.jobs">
-                  <mat-list-item>
-                    {{'Title: ' + job.title}}
-                  </mat-list-item>
-                  <mat-list-item>
-                    {{'Description: ' + job.description}}
-                  </mat-list-item>
-                  <mat-list-item>
-                    {{'Period: ' + job.period}}
-                  </mat-list-item>
-                </mat-card>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <br>
-          <mat-accordion class="m-t-10">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Interests
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-list class="m-b-10" role="list">
-                <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let interest of person.interests">
-                  <mat-list-item>
-                    {{interest}}
-                  </mat-list-item>
-                </mat-card>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
-        </mat-card-content>
-        <mat-card-actions>
-<!--          <a mat-raised-button color="primary">Buy</a>-->
-        </mat-card-actions>
-      </mat-card>
+                </mat-list>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+            <mat-accordion class="m-t-10">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Transcript
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-accordion class="m-t-5">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Formal Background
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <label>Schools</label>
+                    <mat-list role="list">
+                      <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let school of person.schools">
+                        <mat-list-item>
+                          {{'Name: ' + school.name}}
+                        </mat-list-item>
+                        <mat-list-item>
+                          {{'Graduation year: ' + school.year}}
+                        </mat-list-item>
+                        <mat-list role="list">
+                          <mat-card class="m-t-10 mat-elevation-z3"*ngFor="let subject of school.subjects">
+                            <mat-list-item>
+                              {{'Name: ' + subject.name}}
+                            </mat-list-item>
+                            <mat-list-item>
+                              {{'Keyword: ' + subject.keyword}}
+                            </mat-list-item>
+                            <mat-list-item>
+                              {{'Year: ' + subject.year}}
+                            </mat-list-item>
+                            <mat-list-item>
+                              {{'Grade: ' + subject.grade}}
+                            </mat-list-item>
+                          </mat-card>
+                        </mat-list>
+                      </mat-card>
+                    </mat-list>
+                  </mat-expansion-panel>
+                </mat-accordion>
+                <br>
+                <mat-accordion class="m-t-10">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Informal Background
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <label>Extra courses</label>
+                    <mat-list class="m-b-10" role="list">
+                      <mat-card [ngClass]="{'m-t-10': true, 'mat-elevation-z5': true, 'green': course.isInLastThreeYears, 'yellow': !course.isInLastThreeYears}" *ngFor="let course of person.extraCourses">
+                        <mat-list-item>
+                          {{'Name: ' + course.name}}
+                        </mat-list-item>
+                        <mat-list-item>
+                          {{'Year: ' + course.year}}
+                        </mat-list-item>
+                      </mat-card>
+                    </mat-list>
+                    <label>Awards</label>
+                    <mat-list role="list">
+                      <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let award of person.awards">
+                        <mat-list-item>
+                          {{'Title: ' + award.title}}
+                        </mat-list-item>
+                        <mat-list-item>
+                          {{'Year: ' + award.year}}
+                        </mat-list-item>
+                      </mat-card>
+                    </mat-list>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+            <mat-accordion class="m-t-10">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Europass
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-accordion class="m-t-10">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Memberships
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list class="m-b-10" role="list">
+                      <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let membership of person.memberships">
+                        <mat-list-item>
+                          {{'Title: ' + membership.title}}
+                        </mat-list-item>
+                        <mat-list-item>
+                          {{'Description: ' + membership.description}}
+                        </mat-list-item>
+                        <mat-list-item>
+                          {{'Period: ' + membership.period}}
+                        </mat-list-item>
+                      </mat-card>
+                    </mat-list>
+                  </mat-expansion-panel>
+                </mat-accordion>
+                <br>
+                <mat-accordion class="m-t-10">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Jobs
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-card-actions>
+                      <a mat-raised-button color="primary" (click)="addJob(person.email)">Add job</a>
+                    </mat-card-actions>
+                    <mat-list class="m-b-10" role="list">
+                      <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let job of person.jobs">
+                        <mat-card-content>
+                          <mat-list-item>
+                            {{'Title: ' + job.title}}
+                          </mat-list-item>
+                          <mat-list-item>
+                            {{'Description: ' + job.description}}
+                          </mat-list-item>
+                          <mat-list-item>
+                            {{'Period: ' + job.period}}
+                          </mat-list-item>
+                        </mat-card-content>
+                        <mat-card-actions>
+                          <a mat-raised-button color="warn" (click)="deleteJob(person.email, job)">Delete</a>
+                        </mat-card-actions>
+                      </mat-card>
+                    </mat-list>
+                  </mat-expansion-panel>
+                </mat-accordion>
+                <br>
+                <mat-accordion class="m-t-10">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Interests
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list class="m-b-10" role="list">
+                      <mat-card class="m-t-10 mat-elevation-z5" *ngFor="let interest of person.interests">
+                        <mat-list-item>
+                          {{interest}}
+                        </mat-list-item>
+                      </mat-card>
+                    </mat-list>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="m-t-10 red">
+          <mat-card-content>
+            <label class="queries">Number of subjects related to technology:</label>
+            <label style="display: inline-block">{{numOfTechSubjects}}</label>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
     </div>
   </div>
 </div>

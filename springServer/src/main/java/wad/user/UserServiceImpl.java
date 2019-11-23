@@ -4,7 +4,7 @@ package wad.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import wad.phone.entities.PhonesRepository;
+import wad.user.dto.JobDTO;
 import wad.user.dto.PersonDTO;
 import wad.user.entities.*;
 import wad.utils.GenericService;
@@ -24,15 +24,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private PurchaseRepository purchaseRepository;
-
-    @Autowired
-    private AddressRepository addressRepository;
-
-    @Autowired
-    private PhonesRepository phonesRepository;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -78,37 +69,29 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id).orElse(null);
     }
 
-    @Override
-    @Transactional()
-    public Purchase buyPhone(Purchase purchase) throws Exception {
-        purchase.setAddressId(addressRepository.save(purchase.getAddress()).getId());
-        updateUserPurchaseDetails(purchase);
-
-        return purchaseRepository.save(purchase);
-    }
-
-    private int updateUserPurchaseDetails(Purchase purchase) {
-        return jdbcTemplate.update("UPDATE USER SET ADDRESS_ID = "
-                + purchase.getAddressId() + ", PHONE = " + purchase.getReceiverPhone()
-                + " WHERE USER_ID = " + purchase.getUserId());
-    }
-
-    @Override
-    public List<Purchase> getPurchases(Integer userId) throws Exception {
-        return genericService.fetchEntities(purchaseRepository)
-                .stream()
-                .filter(p -> p.getUserId().equals(userId))
-                .map(this::withPhone)
-                .collect(Collectors.toList());
-    }
 
     @Override
     public List<PersonDTO> fetchPersons() throws Exception {
         return personDAO.read();
     }
 
-    private Purchase withPhone(Purchase p) {
-        p.setPhone(phonesRepository.findById(p.getPhoneId()).get());
-        return p;
+    @Override
+    public Integer numOfTechSubjects(String mail) throws Exception {
+        return personDAO.numOfTechSubjects(mail);
+    }
+
+    @Override
+    public Integer numOfInterestedInProgramming() throws Exception {
+        return personDAO.numOfInterestedInProgramming();
+    }
+
+    @Override
+    public void deleteJob(String mail, String jobTitle) throws Exception {
+        personDAO.deleteJob(mail, jobTitle);
+    }
+
+    @Override
+    public void addJob(String mail, JobDTO dto) throws Exception {
+        personDAO.addJob(mail, dto);
     }
 }

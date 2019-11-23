@@ -1,26 +1,32 @@
-<mat-list>
-  <div class="row" *ngFor="let product of products; let i = index">
-    <div class="col-xs-12 col-md-4">
-      <mat-list-item>
-        {{product.name}}: {{product.unitPrice}} lei
-      </mat-list-item>
-    </div>
-    <div *ngIf="loggedIn" class="col-xs-12 col-md-2">
-      <mat-form-field class="input">
-        <input matInput
-               placeholder="Quantity"
-               type="text"
-               [(ngModel)]="inputs[i]">
-      </mat-form-field>
+<div class="container">
+  <mat-card class="m-t-20 red">
+    <mat-card-content>
+      <label class="queries">Number of users interested in programming:</label>
+      <label style="display: inline-block">{{numProgramming}}</label>
+    </mat-card-content>
+  </mat-card>
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+    <div *ngFor="let person of persons" class="m-t-35 phone">
+        <mat-card *ngIf="person.isInterestedInProgramming">
+          <mat-card-header>
+            <mat-card-title>{{person.name}}</mat-card-title>
+            <mat-card-subtitle>{{person.email}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-list class="m-b-10" role="list">
+              <ng-container *ngFor="let course of person.extraCourses">
+                <mat-card *ngIf="course.isInLastThreeYears" [ngClass]="{'m-t-10': true, 'mat-elevation-z5': true}">
+                  <mat-list-item>
+                    {{'Name: ' + course.name}}
+                  </mat-list-item>
+                  <mat-list-item>
+                    {{'Year: ' + course.year}}
+                  </mat-list-item>
+                </mat-card>
+              </ng-container>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-4 m-l-10">
-      <button class="m-t-10" mat-stroked-button class="m-l-10" (click)="calculate($event)">Calculate</button>
-      <mat-card class="m-t-10" *ngIf="showSum">
-        Total sum: {{sum}}
-      </mat-card>
-      <button class="m-t-10" mat-raised-button color="primary" *ngIf="showSum" (click)="buy($event)">Buy</button>
-    </div>
-  </div>
-</mat-list>
+</div>

@@ -1,0 +1,95 @@
+<persons>
+    <person>
+        <mail>andrei@gmail.com</mail>
+        <memberships>
+            <membership>
+                <title>Best Bucharest member</title>
+                <description>-</description>
+                <period>2016-2020</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Full Stack Developer</title>
+                <description>Spring + Angular</description>
+                <period>2018-Present</period>
+            </job>
+            <job>
+                <title>Gunoier</title>
+                <description>sapa, lopata, manusi</description>
+                <period>2007 June-present</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>programming</interest>
+        </interests>
+    </person>
+    <person>
+        <mail>pvaleriu100@gmail.com</mail>
+        <memberships>
+            <membership>
+                <title>EURO 2020 League members</title>
+                <description>Organising the EURO 2020 competition</description>
+                <period>2019-2020</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Junior Front End Developer</title>
+                <description>HTML + CSS + JS</description>
+                <period>2019 June-2019 August</period>
+            </job>
+            <job>
+                <title>Gunoier</title>
+                <description>sapa, lopata, manusi</description>
+                <period>2007 June-present</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>cycling</interest>
+            <interest>football</interest>
+        </interests>
+    </person>
+    <person>
+        <mail>andreeacos@yahoo.com</mail>
+        <memberships>
+            <membership>
+                <title>Liga ASE</title>
+                <description>-</description>
+                <period>2020-2023</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Business Analist</title>
+                <description>-</description>
+                <period>2021-Present</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>playing piano</interest>
+            <interest>listening to music</interest>
+        </interests>
+    </person>
+    <person>
+        <mail>andrei@yahoo.com</mail>
+        <memberships>
+            <membership>
+                <title>Best Bucharest member</title>
+                <description>-</description>
+                <period>2016-2020</period>
+            </membership>
+        </memberships>
+        <jobs>
+            <job>
+                <title>Full Stack Developer</title>
+                <description>Spring + Angular</description>
+                <period>2018-Present</period>
+            </job>
+        </jobs>
+        <interests>
+            <interest>programming</interest>
+            <interest>basketball</interest>
+        </interests>
+    </person>
+</persons>

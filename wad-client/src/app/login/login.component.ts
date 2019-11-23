@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {FormControl, Validators} from '@angular/forms';
 import {take} from 'rxjs/operators';
-import {ErrorStateMatcherImpl} from '../utils/error-state-matcher-impl';
 import {GlobalConstants} from '../utils/GlobalConstants';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
@@ -25,7 +24,6 @@ export class LoginComponent implements OnInit {
   passSignInControl: FormControl;
   nameControl: FormControl;
 
-  matcher: ErrorStateMatcherImpl;
   loggedIn: boolean;
 
   logInPressed: boolean;
@@ -54,7 +52,6 @@ export class LoginComponent implements OnInit {
     this.nameControl = new FormControl('', [
       Validators.required
     ]);
-    this.matcher = new ErrorStateMatcherImpl();
 
     this.loggedIn = localStorage.getItem(GlobalConstants.LOGGED_USER_KEY) != null;
   }

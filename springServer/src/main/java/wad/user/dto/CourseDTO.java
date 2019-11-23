@@ -8,4 +8,5 @@ import lombok.NoArgsConstructor;
 public class CourseDTO {
     String name;
     String year;
+    Boolean isInLastThreeYears;
 }

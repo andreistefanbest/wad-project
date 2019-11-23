@@ -2,8 +2,8 @@
 package wad.user;
 
 import org.springframework.stereotype.Service;
+import wad.user.dto.JobDTO;
 import wad.user.dto.PersonDTO;
-import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
 import java.util.List;
@@ -18,9 +18,15 @@ public interface UserService {
 
     User signIn(String name, String mail, String password) throws Exception;
     User logIn(String mail, String password) throws Exception;
-    Purchase buyPhone(Purchase purchase) throws Exception;
     User getUser(Integer id) throws Exception;
-    List<Purchase> getPurchases(Integer userId) throws Exception;
 
     List<PersonDTO> fetchPersons() throws Exception;
+
+    Integer numOfTechSubjects(String mail) throws Exception;
+
+    Integer numOfInterestedInProgramming() throws Exception;
+
+    void deleteJob(String mail, String jobTitle) throws Exception;
+
+    void addJob(String mail, JobDTO dto) throws Exception;
 }

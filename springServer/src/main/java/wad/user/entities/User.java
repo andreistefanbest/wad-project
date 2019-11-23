@@ -37,30 +37,21 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    @NotNull
     private Integer userId;
     
     @Column(name = "full_name")
-    @NotNull
     private String fullName;
     
     @Column(name = "mail")
-    @Email
     private String mail;
 
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private Address address;
-    
     @Column(name = "phone")
     private String phone;
     
     @Column(name = "password")
-    @Length(min=6, max=32)
     private String password;
     
     @Column(name = "user_type")
-    @NotNull
     private String userType;
 
     @Override

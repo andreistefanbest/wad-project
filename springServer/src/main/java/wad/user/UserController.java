@@ -3,8 +3,8 @@ package wad.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import wad.user.dto.JobDTO;
 import wad.user.dto.PersonDTO;
-import wad.user.entities.Purchase;
 import wad.user.entities.User;
 
 import java.util.List;
@@ -39,18 +39,28 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @PutMapping("buyPhone")
-    public Purchase buyPhone(@RequestBody Purchase purchase) throws Exception {
-        return userService.buyPhone(purchase);
-    }
-
-    @GetMapping("purchases")
-    public List<Purchase> getPurchases(@RequestParam Integer userId) throws Exception {
-        return userService.getPurchases(userId);
-    }
-
     @GetMapping("persons")
     public List<PersonDTO> getPersons() throws Exception {
         return userService.fetchPersons();
+    }
+
+    @GetMapping("tech-subjects")
+    public Integer numOfTechSubjects(@RequestParam String mail) throws Exception {
+        return userService.numOfTechSubjects(mail);
+    }
+
+    @GetMapping("programming")
+    public Integer numOfInterestedInProgramming() throws Exception {
+        return userService.numOfInterestedInProgramming();
+    }
+
+    @DeleteMapping("delete-job")
+    public void deleteJob(@RequestParam String mail, @RequestParam String jobTitle) throws Exception {
+        userService.deleteJob(mail, jobTitle);
+    }
+
+    @PostMapping("add-job")
+    public void addJob(@RequestParam String mail, @RequestBody JobDTO dto) throws Exception {
+        userService.addJob(mail, dto);
     }
 }

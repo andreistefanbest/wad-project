@@ -8,9 +8,12 @@
     Home
   </a>
   <a mat-tab-link
+     routerLink="/products"
+     routerLinkActive="active">Interested In programming</a>
+  <a mat-tab-link
      routerLink="/login"
      routerLinkActive="active">Log in / Sign in</a>
 </nav>
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
+<div [@routeAnimation]="getAnimationData(routerOutlet)" style="background-color: #fbfeff;">
 <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

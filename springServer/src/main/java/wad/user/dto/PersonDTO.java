@@ -14,6 +14,7 @@ public class PersonDTO {
     String address;
     String telephone;
     String email;
+    Boolean isInterestedInProgramming;
     List<SchoolDTO> schools;
     List<CourseDTO> extraCourses;
     List<AwardDTO> awards;
