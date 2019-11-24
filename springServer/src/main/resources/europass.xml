@@ -72,24 +72,30 @@
         </interests>
     </person>
     <person>
-        <mail>andrei@yahoo.com</mail>
+        <mail>irinadiac@yahoo.com</mail>
         <memberships>
             <membership>
-                <title>Best Bucharest member</title>
-                <description>-</description>
-                <period>2016-2020</period>
+                <title>Liga Studentilor Electronisti</title>
+                <description>Probably the best organization in Politehnica University</description>
+                <period>2014-2016</period>
             </membership>
         </memberships>
         <jobs>
             <job>
-                <title>Full Stack Developer</title>
-                <description>Spring + Angular</description>
-                <period>2018-Present</period>
+                <title>Database Administrator</title>
+                <description>-</description>
+                <period>2019-Present</period>
+            </job>
+			<job>
+                <title>Photoshop Designer</title>
+                <description>Various photos of artists designed in photoshop</description>
+                <period>2014-2017</period>
             </job>
         </jobs>
         <interests>
-            <interest>programming</interest>
-            <interest>basketball</interest>
+            <interest>climbing</interest>
+            <interest>skating</interest>
+			<interest>reading fashion magazines</interest>
         </interests>
     </person>
 </persons>

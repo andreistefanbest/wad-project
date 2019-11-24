@@ -9,7 +9,7 @@ import {LoginComponent} from './login/login.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
-import {HomeModule} from './phones/home.module';
+import {HomeModule} from './home/home.module';
 import {CommonsModule} from './commons.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';

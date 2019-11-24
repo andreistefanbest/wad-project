@@ -13,6 +13,20 @@
                             <grade>7</grade>
                         </subject>
                         <subject>
+                            <name>Web Application Development</name>
+                            <keywords>WAD</keywords>
+                            <year>2017</year>
+                            <grade>10</grade>
+                            <technology-like>true</technology-like>
+                        </subject>
+                        <subject>
+                            <name>Introduction to Information Technology</name>
+                            <keywords>IIT</keywords>
+                            <year>2013</year>
+                            <grade>9</grade>
+                            <technology-like>true</technology-like>
+                        </subject>
+                        <subject>
                             <name>Mathematics for engineers I</name>
                             <keywords>ME1</keywords>
                             <year>2016</year>
@@ -65,6 +79,20 @@
                             <name>Programming Languages</name>
                             <keywords>PL</keywords>
                             <year>2015</year>
+                            <grade>10</grade>
+                            <technology-like>true</technology-like>
+                        </subject>
+                        <subject>
+                            <name>Data Structures and Algorithms</name>
+                            <keywords>DSA</keywords>
+                            <year>2014</year>
+                            <grade>8</grade>
+                            <technology-like>true</technology-like>
+                        </subject>
+                        <subject>
+                            <name>Computer Architecture</name>
+                            <keywords>CA</keywords>
+                            <year>2016</year>
                             <grade>10</grade>
                             <technology-like>true</technology-like>
                         </subject>
@@ -136,6 +164,18 @@
                             <grade>10</grade>
                             <technology-like>true</technology-like>
                         </subject>
+                        <subject>
+                            <name>Physics 1</name>
+                            <keywords>PY 1</keywords>
+                            <year>2015</year>
+                            <grade>5</grade>
+                        </subject>
+                        <subject>
+                            <name>Signal Theory</name>
+                            <keywords>ST</keywords>
+                            <year>2017</year>
+                            <grade>9</grade>
+                        </subject>
                     </subjects>
                     <graduation-year>2020</graduation-year>
                 </school>
@@ -159,6 +199,19 @@
                             <name>Sistem Bancar</name>
                             <keywords>SB</keywords>
                             <year>2016</year>
+                            <grade>9</grade>
+                            <technology-like>true</technology-like>
+                        </subject>
+                        <subject>
+                            <name>MacroEconomie</name>
+                            <keywords>MA</keywords>
+                            <year>2015</year>
+                            <grade>10</grade>
+                        </subject>
+                        <subject>
+                            <name>Introducere in C++</name>
+                            <keywords>IIC</keywords>
+                            <year>2018</year>
                             <grade>9</grade>
                             <technology-like>true</technology-like>
                         </subject>
@@ -187,50 +240,63 @@
         </informal-background>
     </person>
     <person>
-        <mail>andrei@yahoo.com</mail>
+        <mail>irinadiac@yahoo.com</mail>
         <formal-background>
             <schools>
                 <school>
                     <name>FILS</name>
                     <subjects>
                         <subject>
-                            <name>Theoretical Mechanics</name>
+                            <name>Chemistry 1</name>
                             <keywords>TM</keywords>
                             <year>2015</year>
                             <grade>7</grade>
                         </subject>
                         <subject>
-                            <name>Mathematics for engineers I</name>
-                            <keywords>ME1</keywords>
-                            <year>2016</year>
-                            <grade>10</grade>
-                        </subject>
-                        <subject>
-                            <name>Operating System</name>
-                            <keywords>OS</keywords>
-                            <year>2016</year>
-                            <grade>9</grade>
+                            <name>Functional Programming</name>
+                            <keywords>FP</keywords>
+                            <year>2017</year>
+                            <grade>8</grade>
                             <technology-like>true</technology-like>
                         </subject>
+                        <subject>
+                            <name>Data Transmission</name>
+                            <keywords>DT</keywords>
+                            <year>2014</year>
+                            <grade>6</grade>
+                        </subject>
+                        <subject>
+                            <name>Software Development Techniques</name>
+                            <keywords>SDT</keywords>
+                            <year>2017</year>
+                            <grade>8</grade>
+                            <technology-like>true</technology-like>
+                        </subject>
+                        <subject>
+                            <name>Electromagnetism</name>
+                            <keywords>ELM</keywords>
+                            <year>2018</year>
+                            <grade>6</grade>
+                        </subject>
                     </subjects>
-                    <graduation-year>2020</graduation-year>
+                    <graduation-year>2019</graduation-year>
                 </school>
             </schools>
         </formal-background>
         <informal-background>
             <extra-courses>
                 <course>
-                    <name>Sports</name>
-                    <year>2015</year>
+                    <name>Baze de date 3</name>
+                    <year>2014</year>
                 </course>
                 <course>
-                    <name>Information systems integration</name>
-                    <year>2018</year>
+                    <name>Fractali</name>
+                    <year>2015</year>
                 </course>
             </extra-courses>
             <awards>
                 <award>
-                    <title>Best web project</title>
+                    <title>Third place Hackathon</title>
                     <year>2017</year>
                 </award>
             </awards>
