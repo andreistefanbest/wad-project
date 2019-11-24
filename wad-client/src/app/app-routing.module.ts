@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {ProductsComponent} from './products/products.component';
+import {ProgrammingComponent} from './programming/programming.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'phones', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, data: {animation: 'a'}},
-  {path: 'products', component: ProductsComponent, data: {animation: 'b'}},
+  {path: 'programming', component: ProgrammingComponent, data: {animation: 'b'}},
   {path: '**', component: NoPageFoundComponent, data: {animation: 'c'}}
 ]
 

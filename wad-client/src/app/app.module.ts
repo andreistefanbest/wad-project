@@ -4,12 +4,12 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user.service';
-import {ProductsComponent} from './products/products.component';
+import {ProgrammingComponent} from './programming/programming.component';
 import {LoginComponent} from './login/login.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
-import {PhonesModule} from './phones/phones.module';
+import {HomeModule} from './phones/home.module';
 import {CommonsModule} from './commons.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
@@ -30,7 +30,7 @@ import {MDBRootModule} from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
+    ProgrammingComponent,
     LoginComponent,
     NoPageFoundComponent
   ],
@@ -44,7 +44,7 @@ import {MDBRootModule} from 'angular-bootstrap-md';
     MatCheckboxModule,
     MatChipsModule,
     HttpClientModule,
-    PhonesModule,
+    HomeModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatTableModule,

@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
           this.snackBar.open('Welcome, ' + result.fullName + '!', '', {
             duration: 2500,
           });
-          this.router.navigate(['/phones']);
+          this.router.navigate(['/home']);
         } else {
           // @ts-ignore
           this.snackBar.open('Wrong username of password!', '', {
@@ -126,7 +126,7 @@ export class LoginComponent implements OnInit {
         this.snackBar.open('Welcome, ' + result.fullName + '!', '', {
           duration: 2500,
         });
-        this.router.navigate(['/phones']);
+        this.router.navigate(['/home']);
       });
   }
 
