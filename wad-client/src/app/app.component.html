@@ -1,19 +1,4 @@
 <ngx-loading-bar></ngx-loading-bar>
-<nav mat-tab-nav-bar>
-  <a mat-tab-link
-     routerLink="/"
-     routerLinkActive="active"
-     [routerLinkActiveOptions]="{exact: true}">
-    <mat-icon class="m-r-3">home</mat-icon>
-    Home
-  </a>
-  <a mat-tab-link
-     routerLink="/programming"
-     routerLinkActive="active">Interested In programming</a>
-  <a mat-tab-link
-     routerLink="/login"
-     routerLinkActive="active">Log in / Sign in</a>
-</nav>
-<div [@routeAnimation]="getAnimationData(routerOutlet)" style="background-color: #fbfeff;">
-<router-outlet #routerOutlet="outlet"></router-outlet>
-</div>
+
+
+<div class="map" #viewDiv></div>

@@ -1,32 +1,22 @@
 
 package sw.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-import sw.user.dto.JobDTO;
-import sw.user.dto.PersonDTO;
-import sw.user.entities.User;
-
-import java.util.List;
+import sw.user.entities.UserRepository;
 
 /**
- *
  * @author Andrei Stefan
  * @since Mar 24, 2019
  */
 @Service
-public interface UserService {
+public class UserService {
 
-    User signIn(String name, String mail, String password) throws Exception;
-    User logIn(String mail, String password) throws Exception;
-    User getUser(Integer id) throws Exception;
+    @Autowired
+    private UserRepository userRepository;
 
-    List<PersonDTO> fetchPersons() throws Exception;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-    Integer numOfTechSubjects(String mail) throws Exception;
-
-    Integer numOfInterestedInProgramming() throws Exception;
-
-    void deleteJob(String mail, String jobTitle) throws Exception;
-
-    void addJob(String mail, JobDTO dto) throws Exception;
 }

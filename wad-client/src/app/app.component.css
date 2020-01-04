@@ -1,3 +1,4 @@
-.m-r-3 {
-  margin-right: 3px !important;
+.map {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
