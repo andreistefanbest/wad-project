@@ -26,13 +26,15 @@ import {
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MDBRootModule} from 'angular-bootstrap-md';
+import {RdfComponent} from './rdf/rdf.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgrammingComponent,
     LoginComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    RdfComponent
   ],
   imports: [
     CommonsModule,

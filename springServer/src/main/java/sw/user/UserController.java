@@ -3,6 +3,7 @@ package sw.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sw.user.dto.FileUploadDTO;
 import sw.user.dto.JobDTO;
 import sw.user.dto.PersonDTO;
 import sw.user.entities.User;
@@ -62,5 +63,10 @@ public class UserController {
     @PostMapping("add-job")
     public void addJob(@RequestParam String mail, @RequestBody JobDTO dto) throws Exception {
         userService.addJob(mail, dto);
+    }
+
+    @PostMapping("upload-file")
+    public void uploadFile(@RequestBody FileUploadDTO dto) throws Exception {
+        userService.uploadRDFFileAndReadAsGraph(dto);
     }
 }

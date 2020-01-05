@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="d-flex flex-wrap flex-column justify-content-around align-items-center">
+    <div class="m-t-10 item" style="text-align: center">
+      <input #csvInput hidden="true" type="file" onclick="this.value = null" (change)="rdfChosen($event)" accept=".rdf"/>
+      <button mat-flat-button color="primary" (click)="csvInput.click()">Choose RDF File</button>
+    </div>
+    <mat-accordion class="m-t-10 item">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Query for profession
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="m-t-10 d-flex flex-wrap flex-row justify-content-around align-items-center">
+          <mat-form-field class="input-with-button">
+            <input type="text" matInput placeholder="Profession">
+          </mat-form-field>
+          <button class="button-with-input m-l-5" color="primary" mat-flat-button>Query</button>
+        </div>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let it of whoHaveProfession"
+                         role="listitem">
+            {{it}}
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion class="m-t-10 item">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add / Edit Company
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Whose company to add/edit">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Company name">
+        </mat-form-field>
+        <br>
+        <button class="d-inline-block" color="primary" mat-flat-button>Add/Edit</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-card class="m-t-10 item">
+      <mat-card-header>
+        <mat-card-title>Graduated in last 5 years: {{gradInLast5Years}}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+    <mat-card class="m-t-10 item">
+      <mat-card-header>
+        <mat-card-title>Person with most interests: {{persWithMostInterests}}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>
+
+

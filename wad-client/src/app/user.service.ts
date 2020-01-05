@@ -53,4 +53,8 @@ export class UserService {
   public addJob(mail, job) {
     return this.http.post(this.PATH_TO_CONTROLLER + 'add-job', job, {params: new HttpParams().set('mail', mail)});
   }
+
+  public uploadFile(dto) {
+    return this.http.post(this.PATH_TO_CONTROLLER + 'upload-file', dto);
+  }
 }

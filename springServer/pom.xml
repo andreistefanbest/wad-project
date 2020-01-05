@@ -47,6 +47,13 @@
             <version>1.18.8</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.rootdev/JenaJung -->
+        <dependency>
+            <groupId>net.rootdev</groupId>
+            <artifactId>JenaJung</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+
     </dependencies>
 
     <properties>

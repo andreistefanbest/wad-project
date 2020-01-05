@@ -1,0 +1,24 @@
+.mat-expansion-panel-body {
+  text-align: center;
+}
+
+.item {
+  flex: 1 1 0;
+  width: 500px;
+}
+
+.input-with-button {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+}
+
+.button-with-input {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 0;
+}
+
+mat-form-field {
+  width: 100%;
+}
