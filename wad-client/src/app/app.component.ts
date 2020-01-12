@@ -1,10 +1,14 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
 import {loadModules} from 'esri-loader';
+import {DatePipe} from '@angular/common';
+import {AlertsComponent} from './alerts/alerts.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit {
   public Map;
@@ -19,6 +23,10 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild("viewDiv")
   private mapViewEl: ElementRef;
+
+  constructor(public datePipe: DatePipe,
+              public dialog: MatDialog) {
+  }
 
   private popupOpenspaces = {
     "title": "{PARK_NAME}",
@@ -81,14 +89,14 @@ export class AppComponent implements AfterViewInit {
     });
 
     let featureLayer = new this.FeatureLayer({
-      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads_Styled/FeatureServer/0",
+      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Control_points/FeatureServer/1",
     });
 
     let view = new this.MapView({
       container: this.mapViewEl.nativeElement,
       map: map,
-      center: [-118.80500, 34.02700], // longitude, latitude
-      zoom: 10
+      center: [26.083373, 44.463458], // longitude, latitude
+      zoom: 14
     });
 
     view.when(() => {
@@ -110,8 +118,13 @@ export class AppComponent implements AfterViewInit {
 
             if (!view.popup.features.length || view.popup.features.length && (view.popup.features[0].attributes.FID !== feature.attributes.FID)) {
               view.popup.open({
-                title: feature.attributes.TRL_NAME,
-                content: 'This a ' + feature.attributes.PARK_NAME + ' trail located in ' + feature.attributes.CITY_JUR + '.',
+                title: feature.attributes.TITLE,
+                content: `<STRONG> FLOW: </STRONG>` + feature.attributes.FLOW + `<br>` +
+                  `<STRONG> PRESSURE: </STRONG>` + feature.attributes.PRESSURE + `<br>` +
+                  `<STRONG> POWER CONSUMPTION: </STRONG>` + feature.attributes.POWER_CONS + `<br>` +
+                  `<STRONG> PROTECTION: </STRONG>` + feature.attributes.PROTECTION + `<br>` +
+                  `<STRONG> TEMPERATURE: </STRONG>` + feature.attributes.TEMPERATURE + `<br>` +
+                  `<span>Raportare Problema</span>`,
                 location: feature.geometry
               });
             }
@@ -121,14 +134,12 @@ export class AppComponent implements AfterViewInit {
     });
 
     view.when(() => {
-      let layer = map.layers.getItemAt(0);
-
       let legend = new this.Legend({
         view: view,
         layerInfos: [
           {
-            layer: layer,
-            title: "test"
+            layer: map.layers.getItemAt(1),
+            title: "Legend"
           }
         ]
       });
@@ -142,11 +153,21 @@ export class AppComponent implements AfterViewInit {
 
     view.ui.add(this.createBaseMapGallery(view), "top-right");
 
-    map.add(this.createPopupTrailHeads());
-    map.add(this.createTrailsFeatureLayer(),0);
-    map.add(this.graphicsLayer);
-    map.add(this.createParksAndOpenSpaceLayer(),0);
-    map.add(this.createTrailsLayer(), 0);
+    map.add(this.createWaterPipesLayer());
+
+    this.addAlertPopupCallback(view);
+
+    map.add(new this.FeatureLayer({
+      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Centre_de_control/FeatureServer/3",
+    }));
+
+    map.add(new this.FeatureLayer({
+      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Retea_de_Tevi/FeatureServer/2",
+    }));
+
+    map.add(new this.FeatureLayer({
+      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Service/FeatureServer",
+    }));
   }
 
   private createParksAndOpenSpaceLayer() {
@@ -209,32 +230,6 @@ export class AppComponent implements AfterViewInit {
     this.graphicsLayer = new this.GraphicsLayer();
   }
 
-  private createTrailsFeatureLayer() {
-    let popupTrails = {
-      title: 'Trail Information',
-      content: () => 'This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.'
-    };
-
-    return new this.FeatureLayer({
-      url: 'https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails_Styled/FeatureServer/0',
-      outFields: ['TRL_NAME', 'ELEV_GAIN'],
-      popupTemplate: popupTrails
-    });
-  }
-
-  private createPopupTrailHeads() {
-    let popupTrailheads = {
-      'title': 'Trailhead',
-      'content': '<b>Trail:</b> {TRL_NAME}<br><b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft'
-    };
-
-    return new this.FeatureLayer({
-      url: 'https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads_Styled/FeatureServer/0',
-      outFields: ['TRL_NAME', 'CITY_JUR', 'X_STREET', 'PARKING', 'ELEV_FT'],
-      popupTemplate: popupTrailheads
-    });
-  }
-
   private createBaseMapGallery(view) {
     return new this.BasemapGallery({
       view: view,
@@ -261,10 +256,6 @@ export class AppComponent implements AfterViewInit {
             color: [0, 255, 255],
           },
           size: '20px'
-        },
-        popupTemplate: {
-          title: '{TRL_NAME}',
-          content: 'This a {PARK_NAME} trail located in {CITY_JUR}.'
         }
       });
       graphicsLayer.add(g);
@@ -299,6 +290,21 @@ export class AppComponent implements AfterViewInit {
           this.addGraphics(this.graphicsLayer, result, this.Graphic);
         });
       }
+    });
+  }
+
+  private createWaterPipesLayer() {
+    return new this.FeatureLayer({
+      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Pipe_System/FeatureServer/2",
+    });
+  }
+
+  private addAlertPopupCallback(map: any) {
+    map.on('click', (event) => {
+      this.dialog.open(AlertsComponent, {
+        width: (window.innerWidth < 760 ? '100%' : '70%'),
+        data: { event }
+      });
     });
   }
 }
