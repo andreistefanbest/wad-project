@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF xmlns:rdf= "http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cd="http://example.org#">
-    
-    <rdf:Description rdf:ID="Ion_Popescu">
-        <cd:faculty>FILS</cd:faculty>
-        <cd:gradYear>2013</cd:gradYear>
-        <cd:company>Microsoft</cd:company>
-        <cd:job>programmer</cd:job>
-        <cd:interest>listening to 'Imagine Dragons'</cd:interest>
-        <cd:interest>traveling</cd:interest>
-    </rdf:Description>
-
-     <rdf:Description rdf:ID="Ana_Enache">
-        <cd:faculty>FILS</cd:faculty>
-        <cd:gradYear>2013</cd:gradYear>
-        <cd:company>Oracle</cd:company>
-        <cd:job>project manager</cd:job>
-        <cd:master>BAE</cd:master>
-        <cd:interest>listening to 'Imagine Dragons'</cd:interest>
-        <cd:interest>traveling</cd:interest>
-    </rdf:Description>
-
-
-     <rdf:Description rdf:ID="Mara_Iordache">
-        <cd:company>Oracle</cd:company>
-        <cd:gradYear>2019</cd:gradYear>
-        <cd:job>project manager</cd:job>
-        <cd:master>BAE</cd:master>
-        <cd:interest>listening to 'Imagine Dragons'</cd:interest>
-        <cd:interest>traveling</cd:interest>
-    </rdf:Description>
-
-     <rdf:Description rdf:ID="Vlad_Ionescu">
-        <cd:faculty>Tourism UniBuc</cd:faculty>
-        <cd:gradYear>2016</cd:gradYear>
-        <cd:job>CEO</cd:job>
-        <cd:interest>traveling</cd:interest>
-    </rdf:Description>
-        
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cd="http://example.org#">
+  <rdf:Description rdf:about="http://example.org#Ion_Popescu">
+    <cd:company>Apple</cd:company>
+    <cd:interest>listening to 'Imagine Dragons'</cd:interest>
+    <cd:job>programmer</cd:job>
+    <cd:interest>traveling</cd:interest>
+    <cd:gradyear>2013</cd:gradyear>
+    <cd:faculty>FILS</cd:faculty>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#Ana_Enache">
+    <cd:interest>traveling</cd:interest>
+    <cd:interest>listening to 'Imagine Dragons'</cd:interest>
+    <cd:master>BAE</cd:master>
+    <cd:job>project manager</cd:job>
+    <cd:company>Oracle</cd:company>
+    <cd:gradyear>2013</cd:gradyear>
+    <cd:faculty>FILS</cd:faculty>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#Mara_Iordache">
+    <cd:interest>traveling</cd:interest>
+    <cd:interest>listening to 'Imagine Dragons'</cd:interest>
+    <cd:master>BAE</cd:master>
+    <cd:job>project manager</cd:job>
+    <cd:gradyear>2019</cd:gradyear>
+    <cd:company>Oracle</cd:company>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#Vlad_Ionescu">
+    <cd:interest>traveling</cd:interest>
+    <cd:job>CEO</cd:job>
+    <cd:gradyear>2016</cd:gradyear>
+    <cd:faculty>Tourism UniBuc</cd:faculty>
+  </rdf:Description>
 </rdf:RDF>
