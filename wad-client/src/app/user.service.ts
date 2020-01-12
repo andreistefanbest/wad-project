@@ -57,4 +57,17 @@ export class UserService {
   public uploadFile(dto) {
     return this.http.post(this.PATH_TO_CONTROLLER + 'upload-file', dto);
   }
+
+  public addEditCompany(who, newCompany) {
+    let httpParams = new HttpParams().set("who", who).set('newCompany', newCompany);
+    return this.http.post(this.PATH_TO_CONTROLLER + 'company', null, {params: httpParams});
+  }
+
+  public queryProfessions(profession: string) {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'profession?profession=' + profession);
+  }
+
+  public info() {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'info');
+  }
 }

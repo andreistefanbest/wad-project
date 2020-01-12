@@ -5,6 +5,14 @@ public class FileUploadDTO {
     private String fileName;
     private byte[] fileContent;
 
+    public FileUploadDTO() {
+    }
+
+    public FileUploadDTO(String fileName, byte[] fileContent) {
+        this.fileName = fileName;
+        this.fileContent = fileContent;
+    }
+
     public String getFileName() {
         return fileName;
     }

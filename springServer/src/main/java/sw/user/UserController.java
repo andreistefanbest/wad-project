@@ -4,6 +4,7 @@ package sw.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sw.user.dto.FileUploadDTO;
+import sw.user.dto.GradAndMostInterestsDTO;
 import sw.user.dto.JobDTO;
 import sw.user.dto.PersonDTO;
 import sw.user.entities.User;
@@ -68,5 +69,21 @@ public class UserController {
     @PostMapping("upload-file")
     public void uploadFile(@RequestBody FileUploadDTO dto) throws Exception {
         userService.uploadRDFFileAndReadAsGraph(dto);
+    }
+
+    @PostMapping("company")
+    public void addEditCompany(@RequestParam String who,
+                               @RequestParam String newCompany) throws Exception {
+        userService.addEditCompany(who, newCompany);
+    }
+
+    @GetMapping("profession")
+    public List<String> getPersonsWithProfession(@RequestParam String profession) throws Exception {
+        return userService.getPersonsWithProfession(profession);
+    }
+
+    @GetMapping("info")
+    public GradAndMostInterestsDTO getOtherInfo() throws Exception {
+        return userService.getOtherInfo();
     }
 }

@@ -8,13 +8,21 @@ import {UserService} from '../user.service';
   encapsulation: ViewEncapsulation.None
 })
 export class RdfComponent implements OnInit {
-  gradInLast5Years = 4;
-  persWithMostInterests = 'Claudio';
-  whoHaveProfession = ['Andrei', 'Eugenia', 'Bobes'];
+  gradInLast5Years = [];
+  persWithMostInterests = [];
+  whoHaveProfession = [];
+
+  whose: string;
+  newCompany: string;
+  profession: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.info().subscribe((info: any) => {
+      this.gradInLast5Years = info.graduated;
+      this.persWithMostInterests = info.interests;
+    });
   }
 
   rdfChosen(event) {
@@ -48,5 +56,15 @@ export class RdfComponent implements OnInit {
     }
 
     return fileByteArray;
+  }
+
+  addEditCompany() {
+    this.userService.addEditCompany(this.whose, this.newCompany).subscribe();
+  }
+
+  queryProfession() {
+    this.userService.queryProfessions(this.profession).subscribe((professions: []) => {
+      this.whoHaveProfession = professions;
+    });
   }
 }

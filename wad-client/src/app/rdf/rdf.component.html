@@ -13,9 +13,13 @@
         </mat-expansion-panel-header>
         <div class="m-t-10 d-flex flex-wrap flex-row justify-content-around align-items-center">
           <mat-form-field class="input-with-button">
-            <input type="text" matInput placeholder="Profession">
+            <input type="text" matInput
+                   placeholder="Profession" [(ngModel)]="profession">
           </mat-form-field>
-          <button class="button-with-input m-l-5" color="primary" mat-flat-button>Query</button>
+          <button class="button-with-input m-l-5"
+                  color="primary"
+                  mat-flat-button
+                  (click)="queryProfession()">Query</button>
         </div>
         <mat-list role="list">
           <mat-list-item *ngFor="let it of whoHaveProfession"
@@ -33,26 +37,54 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-form-field>
-          <input type="text" matInput placeholder="Whose company to add/edit">
+          <input type="text"
+                 matInput
+                 placeholder="Whose company to add/edit"
+                 [(ngModel)]="whose">
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input matInput placeholder="Company name">
+          <input matInput
+                 placeholder="Company name"
+                 [(ngModel)]="newCompany">
         </mat-form-field>
         <br>
-        <button class="d-inline-block" color="primary" mat-flat-button>Add/Edit</button>
+        <button class="d-inline-block"
+                color="primary"
+                mat-flat-button
+                (click)="addEditCompany()">Add/Edit</button>
       </mat-expansion-panel>
     </mat-accordion>
-    <mat-card class="m-t-10 item">
-      <mat-card-header>
-        <mat-card-title>Graduated in last 5 years: {{gradInLast5Years}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-    <mat-card class="m-t-10 item">
-      <mat-card-header>
-        <mat-card-title>Person with most interests: {{persWithMostInterests}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
+    <mat-accordion class="m-t-10 item">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Graduated in last 5 years
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let it of gradInLast5Years"
+                         role="listitem">
+            {{it}}
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion class="m-t-10 item">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Person with most interests
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let it of persWithMostInterests"
+                         role="listitem">
+            {{it}}
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>
 
