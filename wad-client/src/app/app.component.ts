@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
 import {loadModules} from 'esri-loader';
-import {DatePipe} from '@angular/common';
 import {AlertsComponent} from './alerts/alerts.component';
 import {MatDialog} from '@angular/material';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,59 +22,12 @@ export class AppComponent implements AfterViewInit {
   public LayerList;
 
   @ViewChild("viewDiv")
-  private mapViewEl: ElementRef;
+  private mapContainer: ElementRef;
 
-  constructor(public datePipe: DatePipe,
-              public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              public datePipe: DatePipe) {
   }
 
-  private popupOpenspaces = {
-    "title": "{PARK_NAME}",
-    "content": [{
-      "type": "fields",
-      "fieldInfos": [
-        {
-          "fieldName": "AGNCY_NAME",
-          "label": "Agency",
-          "isEditable": true,
-          "tooltip": "",
-          "visible": true,
-          "format": null,
-          "stringFieldOption": "text-box"
-        },
-        {
-          "fieldName": "TYPE",
-          "label": "Type",
-          "isEditable": true,
-          "tooltip": "",
-          "visible": true,
-          "format": null,
-          "stringFieldOption": "text-box"
-        },
-        {
-          "fieldName": "ACCESS_TYP",
-          "label": "Access",
-          "isEditable": true,
-          "tooltip": "",
-          "visible": true,
-          "format": null,
-          "stringFieldOption": "text-box"
-        },
-        {
-          "fieldName": "GIS_ACRES",
-          "label": "Acres",
-          "isEditable": true,
-          "tooltip": "",
-          "visible": true,
-          "format": {
-            "places": 2,
-            "digitSeparator": true
-          },
-          "stringFieldOption": "text-box"
-        }
-      ]
-    }]
-  };
   private graphicsLayer;
 
   ngAfterViewInit(): void {
@@ -88,113 +41,149 @@ export class AppComponent implements AfterViewInit {
       basemap: "streets-navigation-vector"
     });
 
-    let featureLayer = new this.FeatureLayer({
-      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Control_points/FeatureServer/1",
-    });
-
     let view = new this.MapView({
-      container: this.mapViewEl.nativeElement,
+      container: this.mapContainer.nativeElement,
       map: map,
       center: [26.083373, 44.463458], // longitude, latitude
       zoom: 14
     });
 
-    view.when(() => {
-      view.ui.add(new this.LayerList({view}), "bottom-left");
+    this.addLayerListWidget(view);
+    this.addBaseMapWidget(view);
+    this.addLegend(view, map);
+    this.addAlertPopupCallback(view);
+
+    this.addControlPointsLayer(view, map);
+    this.addServiceLayer(view, map);
+    this.addControlAreasLayer(map);
+    this.addReteaTeviLayer(map);
+  }
+
+  private addServiceLayer(view, map) {
+    let featureLayer = new this.FeatureLayer({
+      url: 'https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Service_2/FeatureServer',
     });
 
     view.when(() => {
-      this.queryFeatureLayerView(map, featureLayer, view.center, 1500, "intersects", null, view);
+      this.queryFeatureLayerView(map, featureLayer, view.center, view);
     });
 
     view.when(() => {
-      view.whenLayerView(featureLayer).then((featureLayerView) => {
-        view.on("pointer-move", (event) => {
+      view.whenLayerView(featureLayer).then(() => {
+        view.on('pointer-move', (event) => {
           view.hitTest(event).then((response) => {
             let feature = response.results.filter((r) => r.graphic.layer === featureLayer)[0].graphic;
             if (!feature) {
               return;
             }
 
-            if (!view.popup.features.length || view.popup.features.length && (view.popup.features[0].attributes.FID !== feature.attributes.FID)) {
-              view.popup.open({
-                title: feature.attributes.TITLE,
-                content: `<STRONG> FLOW: </STRONG>` + feature.attributes.FLOW + `<br>` +
-                  `<STRONG> PRESSURE: </STRONG>` + feature.attributes.PRESSURE + `<br>` +
-                  `<STRONG> POWER CONSUMPTION: </STRONG>` + feature.attributes.POWER_CONS + `<br>` +
-                  `<STRONG> PROTECTION: </STRONG>` + feature.attributes.PROTECTION + `<br>` +
-                  `<STRONG> TEMPERATURE: </STRONG>` + feature.attributes.TEMPERATURE + `<br>` +
-                  `<span>Raportare Problema</span>`,
-                location: feature.geometry
-              });
+            let popup = view.popup;
+            if (!popup.features.length || popup.features.length && (popup.features[0].attributes.FID !== feature.attributes.FID)) {
+              popup.open(this.alertePopupTemplate(feature));
             }
           });
         });
       });
     });
+  }
 
+  private addReteaTeviLayer(map) {
+    map.add(new this.FeatureLayer({
+      url: 'https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Retea_de_Tevi/FeatureServer/2',
+    }));
+  }
+
+  private addControlAreasLayer(map) {
+    map.add(new this.FeatureLayer({
+      url: 'https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Centre_de_control/FeatureServer/3',
+    }));
+  }
+
+  private addBaseMapWidget(view) {
+    view.ui.add(new this.BasemapGallery({
+      view: view,
+      source: {
+        portal: {
+          url: 'https://www.arcgis.com',
+          useVectorBasemaps: true
+        }
+      }
+    }), 'top-right');
+  }
+
+  private addLayerListWidget(view) {
+    view.when(() => {
+      view.ui.add(new this.LayerList({view}), 'bottom-left');
+    });
+  }
+
+  private addLegend(view, map) {
     view.when(() => {
       let legend = new this.Legend({
         view: view,
         layerInfos: [
           {
-            layer: map.layers.getItemAt(1),
-            title: "Legend"
+            layer: map.layers.getItemAt(0),
+            title: 'Legend'
           }
         ]
       });
 
-      view.ui.add(legend, "bottom-right");
-    });
-
-    view.on("click", (event) => {
-      this.queryFeatureLayerView(map, featureLayer, event.mapPoint, 1500, "intersects", null, view);
-    });
-
-    view.ui.add(this.createBaseMapGallery(view), "top-right");
-
-    map.add(this.createWaterPipesLayer());
-
-    this.addAlertPopupCallback(view);
-
-    map.add(new this.FeatureLayer({
-      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Centre_de_control/FeatureServer/3",
-    }));
-
-    map.add(new this.FeatureLayer({
-      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Retea_de_Tevi/FeatureServer/2",
-    }));
-
-    map.add(new this.FeatureLayer({
-      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Service/FeatureServer",
-    }));
-  }
-
-  private createParksAndOpenSpaceLayer() {
-    return new this.FeatureLayer({
-      url: 'https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space_Styled/FeatureServer/0',
-      outFields: ['TYPE', 'PARK_NAME', 'AGNCY_NAME', 'ACCESS_TYP', 'GIS_ACRES', 'TRLS_MI', 'TOTAL_GOOD', 'TOTAL_FAIR', 'TOTAL_POOR'],
-      popupTemplate: this.popupOpenspaces
+      view.ui.add(legend, 'bottom-right');
     });
   }
 
-  private createTrailsLayer() {
-    return new this.FeatureLayer({
-      url: 'https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0',
-      renderer: {
-        type: 'simple',
-        symbol: {
-          type: 'simple-line',
-          color: 'red',
-          width: '2px'
-        }
-      },
-      outFields: ['TRL_NAME', 'ELEV_GAIN'],
-      popupTemplate: {
-        title: '{TRL_NAME}',
-        content: 'The trail elevation gain is {ELEV_GAIN} ft.'
-      }
+  private addControlPointsLayer(view, map) {
+    let featureLayer = new this.FeatureLayer({
+      url: 'https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Control_points/FeatureServer/1',
     });
+
+    view.when(() => {
+      this.queryFeatureLayerView(map, featureLayer, view.center, view);
+    });
+
+    view.when(() => {
+      view.whenLayerView(featureLayer).then(() => {
+        view.on('pointer-move', (event) => {
+          view.hitTest(event).then((response) => {
+            let feature = response.results.filter((r) => r.graphic.layer === featureLayer)[0].graphic;
+            if (!feature) {
+              return;
+            }
+
+            let popup = view.popup;
+            if (!popup.features.length || popup.features.length && (popup.features[0].attributes.FID !== feature.attributes.FID)) {
+              popup.open(this.punctControlPopupTemplate(feature));
+            }
+          });
+        });
+      });
+    });
+  }
+
+  private punctControlPopupTemplate(feature) {
+    return {
+      title: feature.attributes.TITLE,
+      content: `<STRONG> FLOW: </STRONG>` + feature.attributes.FLOW + `<br>` +
+        `<STRONG> PRESSURE: </STRONG>` + feature.attributes.PRESSURE + `<br>` +
+        `<STRONG> POWER CONSUMPTION: </STRONG>` + feature.attributes.POWER_CONS + `<br>` +
+        `<STRONG> PROTECTION: </STRONG>` + feature.attributes.PROTECTION + `<br>` +
+        `<STRONG> TEMPERATURE: </STRONG>` + feature.attributes.TEMPERATURE + `<br>` +
+        `<span>Raportare Problema</span>`,
+      location: feature.geometry
+    };
+  }
+
+  private alertePopupTemplate(feature) {
+    return {
+      title: 'Problema raportata in punctul ' + feature.attributes.LONGITUDE + ', ' + feature.attributes.LATITUDE,
+      content: `<STRONG> Nume Reclamant: </STRONG>` + feature.attributes.NAME + `<br>` +
+        `<STRONG> Nr. Telefon: </STRONG>` + feature.attributes.PHONE + `<br>` +
+        `<br><br>` +
+        `<STRONG> Data Raportare: </STRONG>` + this.datePipe.transform(feature.attributes.ENTRY_DATE, 'medium').toString() + `<br>` +
+        `<STRONG> Status: </STRONG>` + feature.attributes.STATUS + `<br>`,
+      location: feature.geometry
+    };
   }
 
   private async initESRIComponents() {
@@ -229,23 +218,10 @@ export class AppComponent implements AfterViewInit {
 
     this.graphicsLayer = new this.GraphicsLayer();
   }
-
-  private createBaseMapGallery(view) {
-    return new this.BasemapGallery({
-      view: view,
-      source: {
-        portal: {
-          url: 'https://www.arcgis.com',
-          useVectorBasemaps: true
-        }
-      }
-    });
-  }
-
-  private addGraphics(graphicsLayer, result, Graphic) {
+  private addGraphics(graphicsLayer, result) {
     graphicsLayer.removeAll();
     result.features.forEach(feature => {
-      let g = new Graphic({
+      let g = new this.Graphic({
         geometry: feature.geometry,
         attributes: feature.attributes,
         symbol: {
@@ -262,43 +238,36 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  private queryFeatureLayerView(map, featureLayer, point, distance, spatialRelationship, sqlExpression, view) {
+  private queryFeatureLayerView(map, featureLayer, point, view) {
     if (!map.findLayerById(featureLayer.id)) {
       featureLayer.outFields = ['*'];
       map.add(featureLayer, 0);
     }
     let query = {
       geometry: point,
-      distance: distance,
-      spatialRelationship: spatialRelationship,
+      distance: 1500,
+      spatialRelationship: 'íntersects',
       outFields: ['*'],
       returnGeometry: true,
-      where: sqlExpression
+      where: null
     };
     view.whenLayerView(featureLayer).then((featureLayerView) => {
       if (featureLayerView.updating) {
         let handle = featureLayerView.watch('updating', (isUpdating) => {
           if (!isUpdating) {
             featureLayerView.queryFeatures(query).then((result) => {
-              this.addGraphics(this.graphicsLayer, result, this.Graphic);
+              this.addGraphics(this.graphicsLayer, result);
             });
             handle.remove();
           }
         });
       } else {
         featureLayerView.queryFeatures(query).then((result) => {
-          this.addGraphics(this.graphicsLayer, result, this.Graphic);
+          this.addGraphics(this.graphicsLayer, result);
         });
       }
     });
   }
-
-  private createWaterPipesLayer() {
-    return new this.FeatureLayer({
-      url: "https://services7.arcgis.com/XJBrmLgIMyI2zI18/arcgis/rest/services/Pipe_System/FeatureServer/2",
-    });
-  }
-
   private addAlertPopupCallback(map: any) {
     map.on('click', (event) => {
       this.dialog.open(AlertsComponent, {
