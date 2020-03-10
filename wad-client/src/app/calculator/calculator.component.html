@@ -1,0 +1,68 @@
+  <div class="calculator">
+    <nav class="navbar navbar-expand-lg">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">Navbar</a>
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+              aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <!-- Links -->
+        <form class="form-inline">
+          <div class="md-form my-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </form>
+      </div>
+      <!-- Collapsible content -->
+    </nav>
+
+  <input type="text" class="calculator-screen" [value]="currentNumber" disabled />
+
+  <div class="calculator-keys">
+    <button type="button" (click)="getOperation('+')" class="operator" value="+">+</button>
+    <button type="button" (click)="getOperation('-')" class="operator" value="-">-</button>
+    <button type="button" (click)="getOperation('*')" class="operator" value="*">&times;</button>
+    <button type="button" (click)="getOperation('/')" class="operator" value="/">&divide;</button>
+
+    <button type="button" (click) = "getNumber('7')" value="7">7</button>
+    <button type="button" (click) = "getNumber('8')" value="8">8</button>
+    <button type="button" (click) = "getNumber('9')" value="9">9</button>
+    <button type="button" (click) = "getNumber('4')" value="4">4</button>
+    <button type="button" (click) = "getNumber('5')" value="5">5</button>
+    <button type="button" (click) = "getNumber('6')" value="6">6</button>
+    <button type="button" (click) = "getNumber('1')" value="1">1</button>
+    <button type="button" (click) = "getNumber('2')" value="2">2</button>
+    <button type="button" (click) = "getNumber('3')" value="3">3</button>
+    <button type="button" (click) = "getNumber('0')" value="0">0</button>
+
+    <button type="button" (click)="getDecimal()" class="decimal" value=".">.</button>
+    <button type="button" (click)="clear()" class="all-clear" value="all-clear">AC</button>
+    <button type="button" (click)="getOperation('=')" class="equal-sign" value="=">=</button>
+  </div>
+</div>

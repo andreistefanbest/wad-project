@@ -1,0 +1,80 @@
+<div class="contact">
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Create Contact Form
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Contact Name</mat-label>
+        <input matInput placeholder="Contact Name" [(ngModel)]="contactName" name="contactName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contact Address</mat-label>
+        <input matInput [(ngModel)]="contactAddress">
+      </mat-form-field>
+      <mat-checkbox [checked]="isDeleted">Is deleted?</mat-checkbox>
+      <br>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input [value]="date.value" matInput [matDatepicker]="myPicker" placeholder="date">
+        <mat-datepicker-toggle matSuffix [for]="myPicker"></mat-datepicker-toggle>
+        <mat-datepicker #myPicker></mat-datepicker>
+        <br>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Angular forms" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="Angular forms (w/ deserialization)" [formControl]="serializedDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker3" placeholder="Value binding" [formControl]="date.value">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-label>Gender</mat-label>
+      <mat-radio-group [value]="contactGender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+        <br><br>
+      <mat-form-field>
+        <mat-label>Source of Contact</mat-label>
+        <mat-select [(value)]="contactSource" placeholder="Source of contact">
+          <mat-option value="email">Email</mat-option>
+          <mat-option value="website">Website</mat-option>
+          <mat-option value="direct">Direct</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="saveContact()" color="primary">Save Contact</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
