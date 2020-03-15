@@ -20,6 +20,6 @@ public class Main {
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> System.err.println("Started.");
+        return args -> System.out.println("Started.");
     }
 }

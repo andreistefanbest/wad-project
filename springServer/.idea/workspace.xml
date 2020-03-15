@@ -1,82 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82238a4-6250-4509-9a3c-b2d8291959e0" name="Default Changelist" comment="">
+    <list default="true" id="c82238a4-6250-4509-9a3c-b2d8291959e0" name="Default Changelist" comment="implementari">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/alerts/alerts.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/alerts/alerts.component.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/alerts/alerts.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../wad-client/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../wad-client/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../wad-client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/app/commons.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../wad-client/src/app/commons/commons.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wad-client/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wad-client/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sw/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sw/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sw/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/entities/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sw/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/entities/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,93 +41,12 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>int</find>
-      <find>boolean</find>
-      <find>double</find>
-      <find>jdbc</find>
-      <find>jdbcTemplate</find>
-      <find>&lt;year&gt;2&lt;/year&gt;</find>
-      <find>&lt;year&gt;4&lt;/year&gt;</find>
-      <find>xpath</find>
-      <find>isInt</find>
-      <find>isIntere</find>
-      <find>fetch</find>
-      <find>profes</find>
-      <find>prof</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>Integer</replace>
-      <replace>Boolean</replace>
-      <replace>DOuble</replace>
-      <replace>Double</replace>
-      <replace>&lt;year&gt;2018&lt;/year&gt;</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="sw-homework" />
       </map>
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/wad/product/ProductService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/product/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/review/entities/ReviewRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/review/ReviewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/review/ReviewService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/phone/PhoneService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/phone/PhoneController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/statistics/StatisticsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/statistics/StatisticsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/entities/Purchase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/statistics/dto/Statistic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/utils/StringUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/utils/StringHasher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/utils/GenericService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/statistics/StatisticsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/entities/Address.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/product/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/review/dto/ReviewDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/review/entities/Review.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/entities/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/phone/PhoneServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/review/ReviewServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/da" />
-        <option value="$PROJECT_DIR$/src/main/resources/cvs" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/FormalBackgroundDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/MembershipDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/JobDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/utils/XMLReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/SchoolDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/AwardDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/utils/PersonReader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/persons.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/SubjectDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/facebook.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/CourseDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/transcript.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/dto/PersonDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/europass.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/entities/User.java" />
-        <option value="$PROJECT_DIR$/target/classes/europass.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/utils/PersonDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wad/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sw/utils/PersonDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sw/user/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sw/utils/GenericService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sw/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sw/user/UserService.java" />
-      </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
@@ -183,123 +57,38 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springServer" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springServer" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="127" />
-    <option name="width" value="1440" />
-    <option name="height" value="774" />
-  </component>
+  <component name="ProjectId" id="1Z9kLmrJUHl809RicVYpUy4yIZo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <hideEmptyPackages ProjectPane="false" />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sw" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="b4304164-86bd-46ae-900f-7c6ec5c7d48f" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Proiecte eDevize/edevize-desktop/edevize-desktop" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="sw.test" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="wad.user.dto" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.server">
     <configuration name="server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sw.Main" />
       <module name="springServer" />
@@ -307,6 +96,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="sw.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <option name="contentProportion" value="0.1680162" />
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:mysql datat source" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:mysql datat source" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@5835cc8" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -318,6 +137,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554636820986</updated>
+      <workItem from="1584258650424" duration="69000" />
+      <workItem from="1584258735849" duration="467000" />
+      <workItem from="1584259246027" duration="2566000" />
     </task>
     <task id="LOCAL-00001" summary="implementari">
       <created>1555963526515</created>
@@ -366,33 +188,8 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="1913" y="-516" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16533467" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3279678" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3279678" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" visible="true" weight="0.2776204" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32997987" />
-      <window_info anchor="bottom" id="SVN Repositories" order="7" weight="0.32962963" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32997987" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3279678" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.60056657" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32997987" />
-      <window_info anchor="bottom" id="SonarLint" order="12" weight="0.27565393" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.32917082" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-    </layout>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -400,20 +197,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -439,6 +223,88 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="implementari" />
     <option name="LAST_COMMIT_MESSAGE" value="implementari" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="617" y="214" key="#Assign_Data_Sources" timestamp="1584261242158">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="214" key="#Assign_Data_Sources/0.0.2048.1112@0.0.2048.1112" timestamp="1584261242158" />
+    <state x="617" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584260408569">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584260408569" />
+    <state x="754" y="331" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1584261190706">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="754" y="331" key="#com.intellij.ide.util.PackageChooserDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584261190706" />
+    <state x="697" y="480" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1584260592621">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="697" y="480" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath/0.0.2048.1112@0.0.2048.1112" timestamp="1584260592621" />
+    <state x="695" y="94" width="762" height="923" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog" timestamp="1584261194675">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="695" y="94" width="762" height="923" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584261194675" />
+    <state x="705" y="284" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584258696607">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="705" y="284" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584258696607" />
+    <state x="755" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584261089140">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="755" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584261089140" />
+    <state x="629" y="150" width="891" height="937" key="CommitChangelistDialog2" timestamp="1584261724348">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="629" y="150" width="891" height="937" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1584261724348" />
+    <state width="2005" height="319" key="GridCell.Tab.0.bottom" timestamp="1584261816757">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="319" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816757" />
+    <state width="2005" height="319" key="GridCell.Tab.0.center" timestamp="1584261816757">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="319" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816757" />
+    <state width="2005" height="319" key="GridCell.Tab.0.left" timestamp="1584261816757">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="319" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816757" />
+    <state width="2005" height="319" key="GridCell.Tab.0.right" timestamp="1584261816757">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="319" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816757" />
+    <state width="2005" height="433" key="GridCell.Tab.1.bottom" timestamp="1584261816750">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="433" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816750" />
+    <state width="2005" height="433" key="GridCell.Tab.1.center" timestamp="1584261816750">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="433" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816750" />
+    <state width="2005" height="433" key="GridCell.Tab.1.left" timestamp="1584261816750">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="433" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816750" />
+    <state width="2005" height="433" key="GridCell.Tab.1.right" timestamp="1584261816750">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="433" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1584261816750" />
+    <state x="817" y="329" key="RollbackChangesDialog" timestamp="1584261721286">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="817" y="329" key="RollbackChangesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584261721286" />
+    <state x="505" y="130" key="SettingsEditor" timestamp="1584261630526">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="505" y="130" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1584261630526" />
+    <state width="572" height="208" key="javadoc.popup.new" timestamp="1584259016821">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="572" height="208" key="javadoc.popup.new/0.0.2048.1112@0.0.2048.1112" timestamp="1584259016821" />
+    <state x="705" y="238" key="spring file set editor" timestamp="1584261610742">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="705" y="238" key="spring file set editor/0.0.2048.1112@0.0.2048.1112" timestamp="1584261610742" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -492,262 +358,6 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/statistics/StatisticsService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/phone/entities/Phones.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/phone/PhoneService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/user/entities/AddressBuilder.java" />
-    <entry file="jar://$USER_HOME$/Downloads/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Exception.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.1.6.RELEASE/spring-jdbc-5.1.6.RELEASE.jar!/org/springframework/jdbc/core/JdbcTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="258" column="98" lean-forward="true" selection-start-line="258" selection-start-column="98" selection-end-line="258" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/user/entities/AddressRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/review/dto/ReviewDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/review/entities/Review.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/user/entities/Address.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/user/entities/Product.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="14" column="131" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.6.RELEASE/spring-web-5.1.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.6.RELEASE/spring-data-jpa-2.1.6.RELEASE.jar!/org/springframework/data/jpa/repository/support/SimpleJpaRepository.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.6.RELEASE/spring-data-commons-2.1.6.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/statistics/dto/Statistic.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.8/lombok-1.18.8.jar!/lombok/Data.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/statistics/StatisticsServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/review/ReviewServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/review/ReviewController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/entities/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/product/ProductServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/da" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cvs" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/MembershipDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/AwardDTO.java" />
-    <entry file="jar://$USER_HOME$/Downloads/jdk-12.0.1/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="132" column="19" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/facebook.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/SchoolDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/SubjectDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/transcript.xml" />
-    <entry file="jar://$USER_HOME$/Downloads/jdk-12.0.1/lib/src.zip!/java.xml/org/w3c/dom/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/phone/PhoneServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/wad/user/entities/Purchase.java" />
-    <entry file="jar://$USER_HOME$/Downloads/jdk-12.0.1/lib/src.zip!/java.base/java/net/URL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="173" column="19" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk-12.0.1/lib/src.zip!/java.base/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="1663" column="18" lean-forward="true" selection-start-line="1663" selection-start-column="18" selection-end-line="1663" selection-end-column="18" />
-          <folding>
-            <element signature="e#66301#66302#0" expanded="true" />
-            <element signature="e#66364#66365#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/JobDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/PersonDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/europass.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/dto/CourseDTO.java" />
-    <entry file="file://$PROJECT_DIR$/target/classes/europass.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/utils/GenericService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/utils/StringHasher.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/utils/PersonDAO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/user/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sw/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>12</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>springServer</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
   <component name="mavenExecuteGoalHistory">
     <option value="$PROJECT_DIR$" />

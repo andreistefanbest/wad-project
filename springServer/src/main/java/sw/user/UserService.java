@@ -1,7 +1,6 @@
 
 package sw.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import sw.user.entities.UserRepository;
@@ -13,10 +12,12 @@ import sw.user.entities.UserRepository;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
+    public UserService(UserRepository userRepository, JdbcTemplate jdbcTemplate) {
+        this.userRepository = userRepository;
+        this.jdbcTemplate = jdbcTemplate;
+    }
 }
