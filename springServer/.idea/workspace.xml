@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82238a4-6250-4509-9a3c-b2d8291959e0" name="Default Changelist" comment="implementari">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sw/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sw/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sw/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="c82238a4-6250-4509-9a3c-b2d8291959e0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,6 +131,7 @@
       <workItem from="1584258650424" duration="69000" />
       <workItem from="1584258735849" duration="467000" />
       <workItem from="1584259246027" duration="2566000" />
+      <workItem from="1584262437006" duration="156000" />
     </task>
     <task id="LOCAL-00001" summary="implementari">
       <created>1555963526515</created>
@@ -176,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578835038943</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="idea ultimate">
+      <created>1584262501343</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584262501343</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -222,7 +221,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="implementari" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementari" />
+    <MESSAGE value="idea ultimate" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea ultimate" />
   </component>
   <component name="WindowStateProjectService">
     <state x="617" y="214" key="#Assign_Data_Sources" timestamp="1584261242158">
@@ -253,10 +253,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="755" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1584261089140" />
-    <state x="629" y="150" width="891" height="937" key="CommitChangelistDialog2" timestamp="1584261724348">
+    <state x="629" y="150" width="891" height="937" key="CommitChangelistDialog2" timestamp="1584262500160">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="629" y="150" width="891" height="937" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1584261724348" />
+    <state x="629" y="150" width="891" height="937" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1584262500160" />
     <state width="2005" height="319" key="GridCell.Tab.0.bottom" timestamp="1584261816757">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -301,6 +301,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="572" height="208" key="javadoc.popup.new/0.0.2048.1112@0.0.2048.1112" timestamp="1584259016821" />
+    <state x="465" y="176" key="new project wizard" timestamp="1584262592716">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="465" y="176" key="new project wizard/0.0.2048.1112@0.0.2048.1112" timestamp="1584262592716" />
     <state x="705" y="238" key="spring file set editor" timestamp="1584261610742">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

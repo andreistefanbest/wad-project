@@ -1,5 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 .m-t-10 {
   margin-top: 10px !important;
@@ -75,4 +76,10 @@ html {
   padding: 0;
   box-sizing: inherit;
 }
+
+body {
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
+}
+
 

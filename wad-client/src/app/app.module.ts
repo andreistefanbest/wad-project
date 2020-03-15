@@ -19,13 +19,15 @@ import {
 import { CalculatorComponent } from './calculator/calculator.component';
 import {CommonsModule} from './commons/commons.module';
 import { ContactComponent } from './contact/contact.component';
-import { RoutingModule } from './routing.module';
+import { RoutingModule } from './routing/routing.module';
 import {Lab3Component} from './lab3/lab3.component';
 import {RouterModule} from '@angular/router';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {DataService} from './data.service';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductDetaislComponent} from './product-detaisl/product-detaisl.component';
+import {AdminComponent} from './admin/admin.component';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {ProductDetaislComponent} from './product-detaisl/product-detaisl.compone
     ContactComponent,
     Lab3Component,
     ProductListComponent,
-    ProductDetaislComponent
+    ProductDetaislComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     CommonsModule,
