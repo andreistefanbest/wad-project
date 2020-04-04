@@ -1,7 +1,0 @@
-<ng-container *ngIf="submitted && formControl.errors">
-  <ng-container *ngFor="let validator of validators">
-    <ng-container *ngIf="formControl.errors[validator.name]">
-      <p>{{validator.message}}</p>
-    </ng-container>
-  </ng-container>
-</ng-container>

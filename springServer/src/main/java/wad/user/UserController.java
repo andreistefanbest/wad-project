@@ -1,12 +1,8 @@
 
 package wad.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wad.user.entities.Purchase;
 import wad.user.entities.User;
-
-import java.util.List;
 
 /**
  *
@@ -17,9 +13,12 @@ import java.util.List;
 @RequestMapping("/user/")
 public class UserController {
     
-    @Autowired
-    private UserService userService;
-    
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @PutMapping(value="signIn", produces = "application/json")
     public User signIn(@RequestParam String name,
                         @RequestParam String mail,
@@ -36,15 +35,5 @@ public class UserController {
     @GetMapping("getUser")
     public User getUser(@RequestParam Integer id) throws Exception {
         return userService.getUser(id);
-    }
-
-    @PutMapping("buyPhone")
-    public Purchase buyPhone(@RequestBody Purchase purchase) throws Exception {
-        return userService.buyPhone(purchase);
-    }
-
-    @GetMapping("purchases")
-    public List<Purchase> getPurchases(@RequestParam Integer userId) throws Exception {
-        return userService.getPurchases(userId);
     }
 }
