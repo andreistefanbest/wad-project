@@ -17,12 +17,17 @@ import {MatDialogModule} from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MDBRootModule} from 'angular-bootstrap-md';
+import { HomeComponent } from './home/home.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import { PatientDetailsComponent } from './home/patient-details/patient-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    HomeComponent,
+    PatientDetailsComponent
   ],
   imports: [
     CommonsModule,
@@ -37,11 +42,13 @@ import {MDBRootModule} from 'angular-bootstrap-md';
     MatDatepickerModule,
     MatNativeDateModule,
     LoadingBarHttpClientModule,
-    MDBRootModule
+    MDBRootModule,
+    MatExpansionModule
   ],
   exports: [
   ],
   entryComponents: [
+    PatientDetailsComponent
   ],
   providers: [
     UserService,

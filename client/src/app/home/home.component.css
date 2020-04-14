@@ -1,0 +1,9 @@
+.person {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 300px;
+}
+
+.m-b-30 {
+  margin-bottom: 30px !important;
+}

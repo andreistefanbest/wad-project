@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Patient report</h1>
+
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-3">
+      <img class="imag"
+           src="{{patientData.imageLink}}">
+    </div>
+    <div class="col-9 report">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{patientData.name}}</mat-card-title>
+          <mat-card-subtitle>{{patientData.age + ' years old'}}</mat-card-subtitle>
+        </mat-card-header>
+        <ul>
+          <li *ngFor="let item of patientData.report | keyvalue">
+            {{item.key}}: {{item.value}}
+          </li>
+        </ul>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions class="m-t-20 ml-auto">
+  <button mat-raised-button color="warn" [mat-dialog-close]="null">Cancel</button>
+</div>

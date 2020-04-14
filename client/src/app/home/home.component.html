@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+    <div *ngFor="let person of personsDS" class="m-t-35 person">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{person.name}}</mat-card-title>
+          <mat-card-subtitle>{{person.age + ' years old'}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{person.imageLink}}">
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              {{person.diagnostic}}
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-raised-button color="primary" (click)="moreDetails(person)">More</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
