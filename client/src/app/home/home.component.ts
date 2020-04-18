@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     name: 'Boris Johnson',
     age: 74,
     imageLink: 'https://www.meme-arsenal.com/memes/2fbd653ecba0d0f3caab8a9963589a61.jpg',
-    diagnostic: 'Multiple types of brain and foot cancer',
+    diagnostic: 'Diagnosed with type 2 diabetes.',
     report: {
       "Inclusion": "yes",
       "Gender": "M",
@@ -89,10 +89,10 @@ export class HomeComponent implements OnInit {
     }
   },
     {
-      name: 'Maria Popovici',
+      name: 'Gica Elveth',
       age: 68,
       imageLink: 'https://i.imgflip.com/271xx1.jpg',
-      diagnostic: 'Multiple types of brain and foot cancer',
+      diagnostic: 'Diagnosed with type 2 diabetes.',
       report: {
         "Inclusion": "yes",
         "Gender": "F",
@@ -172,7 +172,7 @@ export class HomeComponent implements OnInit {
       name: 'Krakova Iasmin',
       age: 67,
       imageLink: 'https://drkernisan.net/wp-content/uploads/bigstock-Beautiful-Portrait-Of-An-Elder-5884730-e1395250928579.jpg',
-      diagnostic: 'Multiple types of brain and foot cancer',
+      diagnostic: 'Diagnosed with type 2 diabetes.',
       report: {
         "Inclusion": "yes",
         "Gender": "F",
@@ -252,7 +252,7 @@ export class HomeComponent implements OnInit {
       name: 'Eustus Borning',
       age: 67,
       imageLink: 'https://previews.123rf.com/images/dtiberio/dtiberio1802/dtiberio180203067/97265241-insane-bearded-old-person.jpg',
-      diagnostic: 'Multiple types of brain and foot cancer',
+      diagnostic: 'Diagnosed with type 2 diabetes.',
       report: {
         "Inclusion": "yes",
         "Gender": "M",
@@ -331,8 +331,8 @@ export class HomeComponent implements OnInit {
     {
       name: 'Justus Joseph',
       age: 69,
-      imageLink: 'https://lh3.googleusercontent.com/proxy/xtofL1SxcTnvqGfEvwxiaudP4nKjzgpWpA-neW9sbNBRnrqvCksZxULKaHqIqYkuJhuAAoV1vb5xCydEKK9Q7zVXXmokmCwCvWeqji8xxkFjD4sXNKKkJMMtojdNQi_QQdlpsTAhCkOmvkyoSw',
-      diagnostic: 'Multiple types of brain and foot cancer',
+      imageLink: 'https://www.theleidencollection.com/wp-content/uploads/2018/03/GD-107-Gerrit-Dou-Old-Man-Praying-768x1073.jpg',
+      diagnostic: 'Diagnosed with type 2 diabetes.',
       report: {
         "Inclusion": "yes",
         "Gender": "M",
@@ -412,7 +412,7 @@ export class HomeComponent implements OnInit {
       name: 'Mathilda Johnsonin',
       age: 70,
       imageLink: 'https://www.demilked.com/magazine/wp-content/uploads/2018/05/5b0d102872024-old-women-transformation-pin-up-models-dollhouse-photography-1-5b0be7547e953__700.jpg',
-      diagnostic: 'Multiple types of brain and foot cancer',
+      diagnostic: 'Diagnosed with type 2 diabetes.',
       report: {
         "Inclusion": "yes",
         "Gender": "F",
