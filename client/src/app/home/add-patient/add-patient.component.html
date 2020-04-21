@@ -1,0 +1,173 @@
+<h1 mat-dialog-title>Add Patient</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="nameFormGroup" class="m-t-10">
+    <mat-card class="m-t-20 m-b-20">
+      <mat-card-header>
+        <mat-card-title>Fill in all required fields</mat-card-title>
+        <mat-card-subtitle>quickly</mat-card-subtitle>
+      </mat-card-header>
+      <div class="d-flex flex-row flex-wrap">
+        <div class="m-r2">
+          <mat-form-field class="m-b-30">
+            <input matInput
+                   placeholder="Full Name"
+                   formControlName="nameCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <br><br>
+        <div>
+          <mat-form-field>
+            <input matInput
+                   placeholder="Age"
+                   formControlName="ageCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="m-t-20 m-b-20">
+      <mat-card-header>
+        <mat-card-title>Patient Details</mat-card-title>
+        <mat-card-subtitle>more stuff</mat-card-subtitle>
+      </mat-card-header>
+      <div class="d-flex flex-row flex-wrap">
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Subject no."
+                   formControlName="subjectCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <br><br>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Gender"
+                   formControlName="genderCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Height"
+                   formControlName="heightCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Weight"
+                   formControlName="weightCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Smoking"
+                   formControlName="smokeCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Alcohol"
+                   formControlName="alcoholCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Hypertension"
+                   formControlName="hyperCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Numbness"
+                   formControlName="numbCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Diabetic renopathy"
+                   formControlName="diabeticRenopathyCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Retinopathy grade"
+                   formControlName="retiGradeCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Eye Exam"
+                   formControlName="eyeCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Glucose"
+                   formControlName="glucoseCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="White cell #"
+                   formControlName="whiteCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="CO2"
+                   formControlName="co2Ctrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="MRI Coefficient"
+                   formControlName="mriCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+        <div class="m-r">
+          <mat-form-field>
+            <input matInput
+                   placeholder="Profile Picture"
+                   formControlName="picCtrl"
+                   required>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>
+
+<div mat-dialog-actions class="m-t-20 ml-auto">
+  <button mat-raised-button color="warn" [mat-dialog-close]="patient">Add</button>
+</div>

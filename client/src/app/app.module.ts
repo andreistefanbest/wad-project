@@ -20,6 +20,7 @@ import {MDBRootModule} from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { PatientDetailsComponent } from './home/patient-details/patient-details.component';
+import { AddPatientComponent } from './home/add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PatientDetailsComponent } from './home/patient-details/patient-details.
     LoginComponent,
     NoPageFoundComponent,
     HomeComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    AddPatientComponent
   ],
   imports: [
     CommonsModule,
@@ -48,7 +50,8 @@ import { PatientDetailsComponent } from './home/patient-details/patient-details.
   exports: [
   ],
   entryComponents: [
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    AddPatientComponent
   ],
   providers: [
     UserService,
