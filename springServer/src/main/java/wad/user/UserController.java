@@ -19,14 +19,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PutMapping(value="signIn", produces = "application/json")
+    @PutMapping(value = "signIn", produces = "application/json")
     public User signIn(@RequestParam String name,
-                        @RequestParam String mail,
-                        @RequestParam String password) throws Exception {
-        
+                       @RequestParam String mail,
+                       @RequestParam String password) throws Exception {
+
         return userService.signIn(name, mail, password);
     }
-    
+
     @PostMapping("logIn")
     public User logIn(@RequestParam String mail, @RequestParam String password) throws Exception {
         return userService.logIn(mail, password);
