@@ -8,9 +8,15 @@
     Home
   </a>
   <a mat-tab-link
+     routerLink="/news"
+     routerLinkActive="active">
+    <mat-icon class="m-r-3">fiber_new</mat-icon>
+    Latest News</a>
+
+  <a mat-tab-link
      routerLink="/login"
      routerLinkActive="active">Log/Sign in</a>
 </nav>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
-<router-outlet #routerOutlet="outlet"></router-outlet>
+  <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

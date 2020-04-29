@@ -28,12 +28,13 @@ public class UserController {
     }
 
     @PostMapping("logIn")
-    public User logIn(@RequestParam String mail, @RequestParam String password) throws Exception {
+    public User logIn(@RequestParam String mail,
+                      @RequestParam String password) throws Exception {
         return userService.logIn(mail, password);
     }
 
     @GetMapping("getUser")
-    public User getUser(@RequestParam Integer id) throws Exception {
+    public User getUser(@RequestParam Integer id) {
         return userService.getUser(id);
     }
 }

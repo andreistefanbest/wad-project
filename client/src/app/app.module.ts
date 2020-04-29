@@ -12,15 +12,16 @@ import {CommonsModule} from './commons.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort'
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {MatDialogModule} from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MDBRootModule} from 'angular-bootstrap-md';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {MatExpansionModule} from "@angular/material/expansion";
-import { PatientDetailsComponent } from './home/patient-details/patient-details.component';
-import { AddPatientComponent } from './home/add-patient/add-patient.component';
+import {PatientDetailsComponent} from './home/patient-details/patient-details.component';
+import {AddPatientComponent} from './home/add-patient/add-patient.component';
+import {NewsComponent} from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddPatientComponent } from './home/add-patient/add-patient.component';
     NoPageFoundComponent,
     HomeComponent,
     PatientDetailsComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    NewsComponent
   ],
   imports: [
     CommonsModule,
