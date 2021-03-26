@@ -5,12 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wad.review.dto.ReviewDTO;
 import wad.review.entities.Review;
-import wad.review.entities.ReviewRepository;
-import wad.user.entities.UserRepository;
-import wad.utils.GenericService;
+import wad.review.repositories.ReviewRepository;
+import wad.user.entities.User;
+import wad.user.repositories.user.UserRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
@@ -21,16 +22,12 @@ public class ReviewServiceImpl implements ReviewService{
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private GenericService genericService;
-
     @Override
     public List<ReviewDTO> getReviews(Integer phoneId) {
-        return genericService.fetchEntities(reviewRepository)
+        return reviewRepository.findByPhoneId(phoneId)
                 .stream()
-                .filter(review -> review.getPhoneId().equals(phoneId))
                 .map(this::dtoFromReview)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     @Override
@@ -42,14 +39,10 @@ public class ReviewServiceImpl implements ReviewService{
         ReviewDTO dto = new ReviewDTO();
         BeanUtils.copyProperties(r, dto);
 
-//        userRepository.findById(r.getUserId())
-//                .ifPresent(user -> dto.setUserName(user.getFullName()));
+        userRepository.findById(r.getUserId())
+                .map(User::getFullName)
+                .ifPresent(dto::setUserName);
 
-        genericService.fetchEntities(userRepository)
-                .stream()
-                .filter(u -> u.getUserId().equals(r.getUserId()))
-                .findFirst()
-                .ifPresent(user -> dto.setUserName(user.getFullName()));
         return dto;
     }
 }

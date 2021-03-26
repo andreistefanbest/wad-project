@@ -15,27 +15,27 @@ public class PhoneController {
     private PhoneService phoneService;
 
     @GetMapping("getPhones")
-    private List<Phones> getPhones() throws Exception {
+    private List<Phones> getPhones() {
         return phoneService.getPhones();
     }
 
     @PostMapping("phone")
-    public Phones add(@RequestBody Phones p) throws Exception {
+    public Phones add(@RequestBody Phones p) {
         return phoneService.add(p);
     }
 
     @PutMapping("phone")
-    public Phones update(@RequestBody Phones p) throws Exception {
+    public Phones update(@RequestBody Phones p) {
         return phoneService.update(p);
     }
 
     @DeleteMapping("phone")
-    public void delete(@RequestParam Integer id) throws Exception {
+    public void delete(@RequestParam Integer id) {
         phoneService.delete(id);
     }
 
     @GetMapping("brands")
-    public List<Brands> getBrands() throws Exception {
+    public List<Brands> getBrands() {
         return phoneService.getBrands();
     }
 }

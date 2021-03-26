@@ -1,19 +1,15 @@
 
 package wad.product;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wad.product.entities.Purchase2;
 import wad.product.entities.Purchase2Repository;
 import wad.user.entities.Product;
-import wad.user.entities.ProductRepository;
-import wad.utils.GenericService;
+import wad.user.repositories.ProductRepository;
 
-import static java.util.stream.Collectors.toList;
+import java.util.List;
 
 /**
  *
@@ -29,24 +25,18 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private Purchase2Repository purchase2Repository;
 
-    @Autowired
-    private GenericService genericService;
-
     @Override
-    public List<Product> getProducts() throws Exception {
-        return genericService.fetchEntities(productRepository);
+    public List<Product> getProducts() {
+        return IterableUtils.toList(productRepository.findAll());
     }
 
     @Override
-    public void buy(Purchase2 purchase) throws Exception {
+    public void buy(Purchase2 purchase) {
         purchase2Repository.save(purchase);
     }
 
     @Override
-    public List<Purchase2> history(Integer userID) throws Exception {
-        return genericService.fetchEntities(purchase2Repository)
-                .stream()
-                .filter(e -> e.getUserId() == userID)
-                .collect(toList());
+    public List<Purchase2> history(Integer userID) {
+        return purchase2Repository.findByUserId(userID);
     }
 }

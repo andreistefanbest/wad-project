@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA} from '@angular/material';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcherImpl} from '../../utils/error-state-matcher-impl';
 import {UserService} from '../../user.service';
@@ -27,10 +27,12 @@ export class BuyPhoneComponent implements OnInit {
 
   ngOnInit() {
     this.matcher = new ErrorStateMatcherImpl();
+
     this.nameFormGroup = this.formBuilder.group({
       nameCtrl: ['', Validators.required],
       phoneCrtl: ['', [Validators.required, Validators.pattern(/^07\d{8}$/)]]
     });
+
     this.addressFormGroup = this.formBuilder.group({
       countryCrtl: ['', Validators.required],
       countyCrtl: ['', Validators.required],
@@ -57,13 +59,16 @@ export class BuyPhoneComponent implements OnInit {
         street: string,
         building: string
       }}) => {
-      if (user.fullName != null) {
+
+      if (user.fullName) {
         this.nameFormGroup.controls.nameCtrl.setValue(user.fullName);
       }
-      if (user.phone != null) {
+
+      if (user.phone) {
         this.nameFormGroup.controls.phoneCrtl.setValue('0' + user.phone);
       }
-      if (user.address != null) {
+
+      if (user.address) {
         this.addressFormGroup.controls.countryCrtl.setValue(user.address.country);
         this.addressFormGroup.controls.countyCrtl.setValue(user.address.county);
         this.addressFormGroup.controls.cityCrtl.setValue(user.address.city);

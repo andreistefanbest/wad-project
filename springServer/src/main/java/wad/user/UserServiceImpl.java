@@ -1,24 +1,25 @@
-
 package wad.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import wad.phone.entities.PhonesRepository;
-import wad.user.entities.*;
-import wad.utils.GenericService;
+import org.springframework.transaction.annotation.Transactional;
+import wad.phone.repositories.PhonesRepository;
+import wad.user.entities.Purchase;
+import wad.user.entities.User;
+import wad.user.repositories.AddressRepository;
+import wad.user.repositories.PurchaseRepository;
+import wad.user.repositories.user.UserRepository;
 import wad.utils.StringHasher;
 
-import javax.transaction.Transactional;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author Andrei Stefan
  * @since Mar 24, 2019
  */
-@Component()
+@Component
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -34,13 +35,7 @@ public class UserServiceImpl implements UserService {
     private PhonesRepository phonesRepository;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
     private StringHasher stringHasher;
-
-    @Autowired
-    private GenericService genericService;
 
     @Override
     public User signIn(String name, String mail, String password) throws Exception {
@@ -70,32 +65,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(Integer id) throws Exception {
+    public User getUser(Integer id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    @Transactional()
-    public Purchase buyPhone(Purchase purchase) throws Exception {
+    @Transactional
+    public Purchase buyPhone(Purchase purchase) {
         purchase.setAddressId(addressRepository.save(purchase.getAddress()).getId());
         updateUserPurchaseDetails(purchase);
 
         return purchaseRepository.save(purchase);
     }
 
-    private int updateUserPurchaseDetails(Purchase purchase) {
-        return jdbcTemplate.update("UPDATE USER SET ADDRESS_ID = "
-                + purchase.getAddressId() + ", PHONE = " + purchase.getReceiverPhone()
-                + " WHERE USER_ID = " + purchase.getUserId());
+    private void updateUserPurchaseDetails(Purchase purchase) {
+        userRepository.updateUserPurchaseDetails(purchase.getUserId(), purchase.getAddressId(), purchase.getReceiverPhone());
     }
 
     @Override
-    public List<Purchase> getPurchases(Integer userId) throws Exception {
-        return genericService.fetchEntities(purchaseRepository)
+    public List<Purchase> getPurchases(Integer userId) {
+        return purchaseRepository.findByUserId(userId)
                 .stream()
-                .filter(p -> p.getUserId().equals(userId))
                 .map(this::withPhone)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     private Purchase withPhone(Purchase p) {
