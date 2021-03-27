@@ -41,15 +41,17 @@ public class PurchaseService {
         }
 
         Address address = userAddress.get();
-        return LastPurchaseDTO.builder()
-                .fullName(user.getFullName())
-                .phone(user.getPhone())
-                .building(address.getBuilding())
-                .city(address.getCity())
-                .country(address.getCountry())
-                .county(address.getCounty())
-                .street(address.getStreet())
-                .build();
+
+        LastPurchaseDTO lastPurchaseDTO = new LastPurchaseDTO();
+        lastPurchaseDTO.setFullName(user.getFullName());
+        lastPurchaseDTO.setPhone(user.getPhone());
+        lastPurchaseDTO.setBuilding(address.getBuilding());
+        lastPurchaseDTO.setCity(address.getCity());
+        lastPurchaseDTO.setCountry(address.getCountry());
+        lastPurchaseDTO.setCounty(address.getCounty());
+        lastPurchaseDTO.setStreet(address.getStreet());
+
+        return lastPurchaseDTO;
     }
 
     public List<PurchaseHistoryDTO> getPurchasesHistory(Integer userId) {

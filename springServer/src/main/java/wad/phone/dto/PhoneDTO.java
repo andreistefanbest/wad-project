@@ -1,6 +1,5 @@
 package wad.phone.dto;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import wad.phone.entity.Brand;
@@ -11,7 +10,6 @@ import java.util.Date;
 
 @Data
 @NoArgsConstructor
-@Builder
 public class PhoneDTO {
     private Integer id;
 
