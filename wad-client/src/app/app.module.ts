@@ -16,11 +16,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort'
 import {HistoryComponent} from './products/history/history.component';
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {PurchaseHistoryComponent} from './purchase-history/purchase-history.component';
 import {ManagementComponent} from './management/management.component';
 import {AddEditPhoneComponent} from './management/add-edit-phone/add-edit-phone.component';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MDBRootModule} from 'angular-bootstrap-md';

@@ -5,7 +5,7 @@ import {take} from 'rxjs/operators';
 import {ErrorStateMatcherImpl} from '../utils/error-state-matcher-impl';
 import {GlobalConstants} from '../utils/GlobalConstants';
 import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({

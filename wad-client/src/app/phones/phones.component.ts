@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {PhonesService} from './phones.service';
 import {take} from 'rxjs/operators';
-import {MatBottomSheet, MatBottomSheetRef, MatCheckboxChange, MatDialog, MatSnackBar} from '@angular/material';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import {MatCheckboxChange} from '@angular/material/checkbox';
+import {MatDialog} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {BuyPhoneComponent} from './buy-phone/buy-phone.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import {UserService} from '../user.service';

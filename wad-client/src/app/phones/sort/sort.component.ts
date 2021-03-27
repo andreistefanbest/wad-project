@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatBottomSheetRef} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-sort',
@@ -8,7 +8,8 @@ import {MatBottomSheetRef} from '@angular/material';
 })
 export class SortComponent implements OnInit {
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<SortComponent>) { }
+  constructor(private bottomSheetRef: MatBottomSheetRef<SortComponent>) {
+  }
 
   ngOnInit() {
   }

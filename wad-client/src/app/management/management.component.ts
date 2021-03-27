@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PhonesService} from '../phones/phones.service';
 import {take} from 'rxjs/operators';
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 import {AddEditPhoneComponent} from './add-edit-phone/add-edit-phone.component';
 
 @Component({
