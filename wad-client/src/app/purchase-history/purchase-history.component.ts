@@ -10,7 +10,7 @@ import {take} from 'rxjs/operators';
 })
 export class PurchaseHistoryComponent implements OnInit {
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = ['phone', 'receiverName', 'receiverPhone', 'purchaseDate'];
 
