@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {UserService} from '../../user.service';
 import {ReviewsService} from './reviews.service';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-reviews',
@@ -21,7 +20,7 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    this.reviewsService.getReviews(this.phone.phone.id).pipe(take(1)).subscribe((reviews) => {
+    this.reviewsService.getReviews(this.phone.phone.id).subscribe((reviews) => {
       this.reviewsDS = reviews;
     });
   }
@@ -34,7 +33,7 @@ export class ReviewsComponent implements OnInit {
       content: this.content,
       phoneId: this.phone.phone.id
     }
-    this.reviewsService.addReview(review).pipe(take(1)).subscribe(() => {
+    this.reviewsService.addReview(review).subscribe(() => {
       this.reviewsDS.push(review);
       this.content = null;
     });

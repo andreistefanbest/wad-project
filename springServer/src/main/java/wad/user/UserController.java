@@ -3,10 +3,8 @@ package wad.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wad.user.entities.Purchase;
-import wad.user.entities.User;
-
-import java.util.List;
+import wad.purchase.dto.NewPurchaseDTO;
+import wad.user.entity.User;
 
 /**
  *
@@ -27,7 +25,7 @@ public class UserController {
         
         return userService.signIn(name, mail, password);
     }
-    
+
     @PostMapping("logIn")
     public User logIn(@RequestParam String mail, @RequestParam String password) throws Exception {
         return userService.logIn(mail, password);
@@ -38,13 +36,8 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @PutMapping("buyPhone")
-    public Purchase buyPhone(@RequestBody Purchase purchase) throws Exception {
-        return userService.buyPhone(purchase);
-    }
-
-    @GetMapping("purchases")
-    public List<Purchase> getPurchases(@RequestParam Integer userId) throws Exception {
-        return userService.getPurchases(userId);
+    @PostMapping("buyPhone")
+    public Integer buyPhone(@RequestBody NewPurchaseDTO newPurchaseDTO) throws Exception {
+        return userService.buyPhone(newPurchaseDTO);
     }
 }

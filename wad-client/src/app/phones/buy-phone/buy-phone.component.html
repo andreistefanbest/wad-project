@@ -106,6 +106,7 @@
     </mat-horizontal-stepper>
     <div mat-dialog-actions class="ml-auto">
       <button mat-button color="warn" [mat-dialog-close]="undefined">Cancel</button>
-      <button mat-raised-button color="primary" [disabled]="!canPurchase" [mat-dialog-close]="purchase">Ok</button>
+      <button [disabled]="!canPurchase" [mat-dialog-close]="newPurchaseDTO" color="primary" mat-raised-button>Ok
+      </button>
     </div>
   </div>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductsService} from '../products.service';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-history',
@@ -14,7 +13,7 @@ export class HistoryComponent implements OnInit {
   constructor(private productService: ProductsService) { }
 
   ngOnInit() {
-    this.productService.history(1).pipe(take(1)).subscribe((history) => {
+    this.productService.history(1).subscribe((history) => {
       this.purchases = history;
     });
   }

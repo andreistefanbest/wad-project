@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewsService {
-  private PATH_TO_CONTROLLER = 'http://localhost:1337/localhost:8080/review/';
+  private PATH_TO_CONTROLLER = 'http://localhost:8080/review/';
 
   constructor(private http: HttpClient) { }
 

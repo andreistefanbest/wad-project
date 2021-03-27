@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcherImpl} from '../../utils/error-state-matcher-impl';
 import {PhonesService} from '../../phones/phones.service';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-edit-phone',
@@ -32,7 +31,7 @@ export class AddEditPhoneComponent implements OnInit {
 
   ngOnInit() {
     this.matcher = new ErrorStateMatcherImpl();
-    this.phoneService.getBrands().pipe(take(1)).subscribe((brands) => {
+    this.phoneService.getBrands().subscribe((brands) => {
       this.brandsDS = brands;
     });
 
@@ -54,18 +53,18 @@ export class AddEditPhoneComponent implements OnInit {
 
     if (this.phone) {
       this.addEditFormGroup.controls.nameCtrl.setValue(this.phone.name);
-      this.addEditFormGroup.controls.phoneCtrl.setValue(this.phone.brandId);
+      this.addEditFormGroup.controls.phoneCtrl.setValue(this.phone.brand);
       this.addEditFormGroup.controls.photoCtrl.setValue(this.phone.imageLink);
       this.addEditFormGroup.controls.priceCtrl.setValue(this.phone.price);
-      this.addEditFormGroup.controls.ramCtrl.setValue(this.phone.specsId.ramCapacity);
-      this.addEditFormGroup.controls.ramTypeCtrl.setValue(this.phone.specsId.ramType);
-      this.addEditFormGroup.controls.cpuCtrl.setValue(this.phone.specsId.cpu);
-      this.addEditFormGroup.controls.clockSpeedCtrl.setValue(this.phone.specsId.clockSpeed);
-      this.addEditFormGroup.controls.bluetoothCtrl.setValue(this.phone.specsId.bluetooth ? 1 : 0);
-      this.addEditFormGroup.controls.networkCtrl.setValue(this.phone.specsId.networkSupport);
-      this.addEditFormGroup.controls.storageCtrl.setValue(this.phone.specsId.storageCapacity);
+      this.addEditFormGroup.controls.ramCtrl.setValue(this.phone.specs.ramCapacity);
+      this.addEditFormGroup.controls.ramTypeCtrl.setValue(this.phone.specs.ramType);
+      this.addEditFormGroup.controls.cpuCtrl.setValue(this.phone.specs.cpu);
+      this.addEditFormGroup.controls.clockSpeedCtrl.setValue(this.phone.specs.clockSpeed);
+      this.addEditFormGroup.controls.bluetoothCtrl.setValue(this.phone.specs.bluetooth ? 1 : 0);
+      this.addEditFormGroup.controls.networkCtrl.setValue(this.phone.specs.networkSupport);
+      this.addEditFormGroup.controls.storageCtrl.setValue(this.phone.specs.storageCapacity);
       this.addEditFormGroup.controls.dateCtrl.setValue(new Date(this.phone.releaseDate));
-      this.addEditFormGroup.controls.typeCtrl.setValue(this.phone.typeId);
+      this.addEditFormGroup.controls.typeCtrl.setValue(this.phone.phoneType);
     }
 
     this.addEditFormGroup.valueChanges.subscribe(() => {
@@ -84,13 +83,13 @@ export class AddEditPhoneComponent implements OnInit {
     this.result = {
       id: this.phone ? this.phone.id : null,
       name: this.addEditFormGroup.controls.nameCtrl.value,
-      brandId: this.addEditFormGroup.controls.phoneCtrl.value,
+      brand: this.addEditFormGroup.controls.phoneCtrl.value,
       imageLink: this.addEditFormGroup.controls.photoCtrl.value,
       price: this.addEditFormGroup.controls.priceCtrl.value,
       releaseDate: Date.parse(this.addEditFormGroup.controls.dateCtrl.value),
-      typeId: this.addEditFormGroup.controls.typeCtrl.value,
-      specsId: {
-        id: this.phone ? this.phone.specsId.id : null,
+      phoneType: this.addEditFormGroup.controls.typeCtrl.value,
+      specs: {
+        id: this.phone ? this.phone.specs.id : null,
         ramCapacity: this.addEditFormGroup.controls.ramCtrl.value,
         ramType: this.addEditFormGroup.controls.ramTypeCtrl.value,
         cpu: this.addEditFormGroup.controls.cpuCtrl.value,

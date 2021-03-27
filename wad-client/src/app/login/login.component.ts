@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {FormControl, Validators} from '@angular/forms';
-import {take} from 'rxjs/operators';
 import {ErrorStateMatcherImpl} from '../utils/error-state-matcher-impl';
 import {GlobalConstants} from '../utils/GlobalConstants';
 import {Router} from '@angular/router';
@@ -79,7 +78,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loginService.logIn(this.emailFormControlLogIn.value, this.passLogInControl.value).pipe(take(1))
+    this.loginService.logIn(this.emailFormControlLogIn.value, this.passLogInControl.value)
       .subscribe((result) => {
         if (result != null) {
           localStorage.setItem(GlobalConstants.LOGGED_USER_KEY, JSON.stringify(result));
@@ -121,7 +120,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loginService.signIn(this.nameControl.value, this.emailFormControlSignIn.value, this.passSignInControl.value).pipe(take(1))
+    this.loginService.signIn(this.nameControl.value, this.emailFormControlSignIn.value, this.passSignInControl.value)
       .subscribe((result) => {
         localStorage.setItem(GlobalConstants.LOGGED_USER_KEY, JSON.stringify(result));
         this.loginService.userChanged.emit();

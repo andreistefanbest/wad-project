@@ -1,17 +1,21 @@
 package wad.phone;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wad.phone.entities.Brands;
-import wad.phone.entities.PhoneTypes;
-import wad.phone.entities.Phones;
-import wad.phone.entities.Specs;
-import wad.phone.repositories.BrandsRepository;
-import wad.phone.repositories.PhoneTypesRepository;
-import wad.phone.repositories.PhonesRepository;
-import wad.phone.repositories.SpecsRepository;
+import wad.phone.dto.PhoneDTO;
+import wad.phone.entity.Brand;
+import wad.phone.entity.Phone;
+import wad.phone.entity.PhoneType;
+import wad.phone.entity.Specs;
+import wad.phone.repository.BrandsRepository;
+import wad.phone.repository.PhoneTypesRepository;
+import wad.phone.repository.PhonesRepository;
+import wad.phone.repository.SpecsRepository;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class PhoneService {
@@ -28,36 +32,60 @@ public class PhoneService {
     @Autowired
     private SpecsRepository specsRepository;
 
-    public List<Brands> getBrands() {
+    public List<Brand> getBrands() {
         return brandsRepository.findAll();
     }
 
-    public List<Phones> getPhones() {
-        return phonesRepository.findAll();
+    public List<PhoneDTO> getPhones() {
+        return phonesRepository.findAll()
+                .stream()
+                .map(this::phoneDTOFromPhone)
+                .collect(toList());
     }
 
-    public List<PhoneTypes> getPhoneTypes() {
-        return phoneTypesRepository.findAll();
+    private PhoneDTO phoneDTOFromPhone(Phone phone) {
+        Specs specs = specsRepository.findById(phone.getSpecsId()).orElseThrow();
+        Brand brand = brandsRepository.findById(phone.getBrandId()).orElseThrow();
+        PhoneType phoneType = phoneTypesRepository.findById(phone.getTypeId()).orElseThrow();
+
+        PhoneDTO phoneDTO = new PhoneDTO();
+        BeanUtils.copyProperties(phone, phoneDTO);
+        phoneDTO.setSpecs(specs);
+        phoneDTO.setBrand(brand);
+        phoneDTO.setPhoneType(phoneType);
+
+        return phoneDTO;
     }
 
-    public List<Specs> getSpecs() {
-        return specsRepository.findAll();
+    private Phone phoneFromPhoneDTO(PhoneDTO phoneDTO) {
+        Phone phone = new Phone();
+        BeanUtils.copyProperties(phoneDTO, phone);
+
+        phone.setSpecsId(phoneDTO.getSpecs().getId());
+        phone.setBrandId(phoneDTO.getBrand().getId());
+        phone.setTypeId(phoneDTO.getPhoneType().getId());
+
+        return phone;
     }
 
-    public Phones add(Phones p) {
-        return addUpdate(p);
+
+    public PhoneDTO add(PhoneDTO phoneDTO) {
+        return addUpdate(phoneDTO);
     }
 
-    public Phones update(Phones p) {
-        return addUpdate(p);
+    public PhoneDTO update(PhoneDTO phoneDTO) {
+        return addUpdate(phoneDTO);
     }
 
     public void delete(Integer id) {
         phonesRepository.deleteById(id);
     }
 
-    private Phones addUpdate(Phones p) {
-        p.setSpecsId(specsRepository.save(p.getSpecsId()));
-        return phonesRepository.save(p);
+    private PhoneDTO addUpdate(PhoneDTO phoneDTO) {
+        Specs newSpecs = specsRepository.save(phoneDTO.getSpecs());
+        phoneDTO.setSpecs(newSpecs);
+
+        Phone newPhone = phonesRepository.save(phoneFromPhoneDTO(phoneDTO));
+        return phoneDTOFromPhone(newPhone);
     }
 }

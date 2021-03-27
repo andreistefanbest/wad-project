@@ -1,7 +1,7 @@
 package wad.review;
 
 import wad.review.dto.ReviewDTO;
-import wad.review.entities.Review;
+import wad.review.entity.Review;
 
 import java.util.List;
 

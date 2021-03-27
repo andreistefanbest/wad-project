@@ -2,7 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {UserService} from '../user.service';
-import {take} from 'rxjs/operators';
+import {PurchaseService} from '../phones/buy-phone/purchase.service';
+import {PurchaseHistoryDTO} from './PurchaseHistoryDTO';
 
 @Component({
   selector: 'app-purchase-history',
@@ -11,15 +12,17 @@ import {take} from 'rxjs/operators';
 })
 export class PurchaseHistoryComponent implements OnInit {
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatSort) sort: MatSort;
+  dataSource: MatTableDataSource<PurchaseHistoryDTO>;
   displayedColumns: string[] = ['phone', 'receiverName', 'receiverPhone', 'purchaseDate'];
 
-  constructor(private userService: UserService) { }
+  constructor(private purchaseService: PurchaseService,
+              private userService: UserService) {
+  }
 
   ngOnInit() {
-    this.userService.getPurchases(this.userService.getCurrentUser().userId).pipe(take(1)).subscribe((purchases: any[]) => {
-      this.dataSource = new MatTableDataSource<any>(purchases);
+    this.purchaseService.getPurchaseHistory(this.userService.getCurrentUser().userId).subscribe((purchaseHistory: PurchaseHistoryDTO[]) => {
+      this.dataSource = new MatTableDataSource<PurchaseHistoryDTO>(purchaseHistory);
       this.dataSource.sort = this.sort;
     });
   }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StatisticsService} from './statistics.service';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-statistics',
@@ -20,7 +19,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.statisticsService.getMonthlySales().pipe(take(1)).subscribe((sales: [{xAxis, yAxis}]) => {
+    this.statisticsService.getMonthlySales().subscribe((sales: [{ xAxis, yAxis }]) => {
       this.chartDatasets = [
         {
           data: sales.map(sale => sale.yAxis),

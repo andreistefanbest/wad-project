@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PhonesService} from '../phones/phones.service';
-import {take} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {AddEditPhoneComponent} from './add-edit-phone/add-edit-phone.component';
 
@@ -17,7 +16,7 @@ export class ManagementComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.phonesService.getPhones().pipe(take(1)).subscribe((phones) => {
+    this.phonesService.getPhones().subscribe((phones) => {
       this.phonesDS = phones;
     });
   }
@@ -33,7 +32,7 @@ export class ManagementComponent implements OnInit {
         return;
       }
 
-      this.phonesService.add(result).pipe(take(1)).subscribe((phone) => {
+      this.phonesService.add(result).subscribe((phone) => {
         this.phonesDS.push(phone);
       });
     });
@@ -41,7 +40,7 @@ export class ManagementComponent implements OnInit {
 
   delete(phone) {
     if (confirm('Are you sure you want to delete ' + phone.name + '?')) {
-      this.phonesService.delete(phone.id).pipe(take(1)).subscribe(() => {
+      this.phonesService.delete(phone.id).subscribe(() => {
         const index = this.phonesDS.findIndex(x => x === phone);
         this.phonesDS.splice(index, 1);
       });
@@ -59,7 +58,7 @@ export class ManagementComponent implements OnInit {
         return;
       }
 
-      this.phonesService.update(result).pipe(take(1)).subscribe((updatedPhone) => {
+      this.phonesService.update(result).subscribe((updatedPhone) => {
         const index = this.phonesDS.findIndex(x => x === phone);
         this.phonesDS[index] = updatedPhone;
       });

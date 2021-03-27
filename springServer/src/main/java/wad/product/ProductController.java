@@ -1,11 +1,12 @@
 
 package wad.product;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wad.product.entities.Purchase2;
-import wad.user.entities.Product;
+import wad.product.entity.Purchase2;
+import wad.user.entity.Product;
+
+import java.util.List;
 
 /**
  *

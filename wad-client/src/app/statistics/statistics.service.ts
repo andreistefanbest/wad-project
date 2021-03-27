@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class StatisticsService {
-  private PATH_TO_CONTROLLER = 'http://localhost:1337/localhost:8080/statistics/';
+  private PATH_TO_CONTROLLER = 'http://localhost:8080/statistics/';
 
   constructor(private http: HttpClient) {
 

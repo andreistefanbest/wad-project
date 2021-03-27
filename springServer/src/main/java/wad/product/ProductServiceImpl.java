@@ -4,9 +4,9 @@ package wad.product;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wad.product.entities.Purchase2;
-import wad.product.entities.Purchase2Repository;
-import wad.user.entities.Product;
+import wad.product.entity.Purchase2;
+import wad.product.entity.Purchase2Repository;
+import wad.user.entity.Product;
 import wad.user.repositories.ProductRepository;
 
 import java.util.List;

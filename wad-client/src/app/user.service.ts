@@ -1,10 +1,11 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {GlobalConstants} from './utils/GlobalConstants';
+import {NewPurchaseDTO} from './phones/buy-phone/dto/NewPurchaseDTO';
 
 @Injectable()
 export class UserService {
-  private PATH_TO_CONTROLLER = 'http://localhost:1337/localhost:8080/user/';
+  private PATH_TO_CONTROLLER = 'http://localhost:8080/user/';
 
   public userChanged: EventEmitter<any> = new EventEmitter();
 
@@ -21,6 +22,7 @@ export class UserService {
     return this.http.put(this.PATH_TO_CONTROLLER + 'signIn',
       undefined, {params: httpParams});
   }
+
   public logIn(mail, password) {
     let httpParams: HttpParams = new HttpParams();
     httpParams = httpParams.set('mail', mail);
@@ -30,16 +32,12 @@ export class UserService {
       undefined, {params: httpParams});
   }
 
-  public buyPhone(purchase: {}) {
-    return this.http.put(this.PATH_TO_CONTROLLER + 'buyPhone', purchase);
+  public buyPhone(purchase: NewPurchaseDTO) {
+    return this.http.post(this.PATH_TO_CONTROLLER + 'buyPhone', purchase);
   }
 
   public getUser(id: number) {
     return this.http.get(this.PATH_TO_CONTROLLER + 'getUser?id=' + id);
-  }
-
-  public getPurchases(userId: number) {
-    return this.http.get(this.PATH_TO_CONTROLLER + 'purchases?userId=' + userId);
   }
 
   public getCurrentUser() {

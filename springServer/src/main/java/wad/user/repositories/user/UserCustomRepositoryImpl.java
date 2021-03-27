@@ -2,7 +2,7 @@ package wad.user.repositories.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import wad.user.entities.User;
+import wad.user.entity.User;
 
 @Component
 public class UserCustomRepositoryImpl implements UserCustomRepository {

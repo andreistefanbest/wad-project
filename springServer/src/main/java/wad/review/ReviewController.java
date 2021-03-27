@@ -3,7 +3,7 @@ package wad.review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wad.review.dto.ReviewDTO;
-import wad.review.entities.Review;
+import wad.review.entity.Review;
 
 import java.util.List;
 

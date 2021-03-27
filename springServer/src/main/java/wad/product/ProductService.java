@@ -1,10 +1,10 @@
 
 package wad.product;
 
-import java.util.List;
+import wad.product.entity.Purchase2;
+import wad.user.entity.Product;
 
-import wad.product.entities.Purchase2;
-import wad.user.entities.Product;
+import java.util.List;
 
 /**
  *

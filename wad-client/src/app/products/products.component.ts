@@ -1,7 +1,6 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ProductsService} from './products.service';
-import {count, take} from 'rxjs/operators';
 import {UserService} from '../user.service';
 
 @Component({
@@ -58,6 +57,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
       }
       counter += item * 1;
     });
-    this.productsService.buy({userId: 1, numOfItems: counter, totalPrice: this.sum}).pipe(take(1)).subscribe();
+    this.productsService.buy({userId: 1, numOfItems: counter, totalPrice: this.sum}).subscribe();
   }
 }

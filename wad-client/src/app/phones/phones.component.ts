@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PhonesService} from './phones.service';
-import {take} from 'rxjs/operators';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {MatCheckboxChange} from '@angular/material/checkbox';
 import {MatDialog} from '@angular/material/dialog';
@@ -11,6 +10,7 @@ import {UserService} from '../user.service';
 import {SortComponent} from './sort/sort.component';
 import {GlobalConstants} from '../utils/GlobalConstants';
 import {CompareComponent} from './compare/compare.component';
+import {NewPurchaseDTO} from './buy-phone/dto/NewPurchaseDTO';
 
 @Component({
   selector: 'app-phones',
@@ -35,7 +35,7 @@ export class PhonesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.phonesService.getPhones().pipe(take(1)).subscribe((phones) => {
+    this.phonesService.getPhones().subscribe((phones) => {
       this.phonesDS = phones;
     });
   }
@@ -50,14 +50,13 @@ export class PhonesComponent implements OnInit {
       data: phone
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined) {
+    dialogRef.afterClosed().subscribe((newPurchaseDTO: NewPurchaseDTO) => {
+      if (newPurchaseDTO === undefined) {
         return;
       }
 
-      this.userService.buyPhone(result).pipe(take(1)).subscribe((purchase) => {
-        // @ts-ignore
-        this.snackBar.open('Purchase successful! Id: ' + purchase.id, '', {
+      this.userService.buyPhone(newPurchaseDTO).subscribe((purchaseId: number) => {
+        this.snackBar.open('Purchase successful! Id: ' + purchaseId, '', {
           duration: 3500,
         });
       });

@@ -4,6 +4,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcherImpl} from '../../utils/error-state-matcher-impl';
 import {UserService} from '../../user.service';
 import {GlobalConstants} from '../../utils/GlobalConstants';
+import {PurchaseService} from './purchase.service';
+import {LastPurchaseDTO} from './dto/LastPurchaseDTO';
+import {NewPurchaseDTO} from './dto/NewPurchaseDTO';
+import {Purchase} from './dto/Purchase';
+import {Address} from './dto/Address';
 
 @Component({
   selector: 'app-buy-phone',
@@ -16,12 +21,13 @@ export class BuyPhoneComponent implements OnInit {
   addressFormGroup: FormGroup;
   matcher: ErrorStateMatcherImpl;
 
-  purchase: {};
+  newPurchaseDTO: NewPurchaseDTO;
   canPurchase: boolean;
 
   constructor(@Inject(MAT_DIALOG_DATA) private phone,
               private formBuilder: FormBuilder,
-              private userService: UserService) {
+              private userService: UserService,
+              private purchaseService: PurchaseService) {
 
   }
 
@@ -49,49 +55,35 @@ export class BuyPhoneComponent implements OnInit {
       this.updatePurchase();
     });
 
-    this.userService.getUser(JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY)).userId).subscribe((user: {
-      fullName: string,
-      phone: string,
-      address: {
-        country: string,
-        county: string,
-        city: string,
-        street: string,
-        building: string
-      }}) => {
-
-      if (user.fullName) {
-        this.nameFormGroup.controls.nameCtrl.setValue(user.fullName);
-      }
-
-      if (user.phone) {
-        this.nameFormGroup.controls.phoneCrtl.setValue('0' + user.phone);
-      }
-
-      if (user.address) {
-        this.addressFormGroup.controls.countryCrtl.setValue(user.address.country);
-        this.addressFormGroup.controls.countyCrtl.setValue(user.address.county);
-        this.addressFormGroup.controls.cityCrtl.setValue(user.address.city);
-        this.addressFormGroup.controls.streetCrtl.setValue(user.address.street);
-        this.addressFormGroup.controls.buildingCrtl.setValue(user.address.building);
-      }
-    });
+    this.purchaseService.getLastPurchase(JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY)).userId)
+      .subscribe((lastPurchase: LastPurchaseDTO) => {
+        this.nameFormGroup.controls.nameCtrl.setValue(lastPurchase.fullName);
+        this.nameFormGroup.controls.phoneCrtl.setValue('0' + lastPurchase.phone);
+        this.addressFormGroup.controls.countryCrtl.setValue(lastPurchase.country);
+        this.addressFormGroup.controls.countyCrtl.setValue(lastPurchase.county);
+        this.addressFormGroup.controls.cityCrtl.setValue(lastPurchase.city);
+        this.addressFormGroup.controls.streetCrtl.setValue(lastPurchase.street);
+        this.addressFormGroup.controls.buildingCrtl.setValue(lastPurchase.building);
+      });
   }
 
   updatePurchase() {
-    this.purchase = {
-      phoneId: this.phone.id,
-      userId: JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY)).userId,
-      receiverName: this.nameFormGroup.controls.nameCtrl.value,
-      receiverPhone: this.nameFormGroup.controls.phoneCrtl.value,
-      address: {
-        country: this.addressFormGroup.controls.countryCrtl.value,
-        county: this.addressFormGroup.controls.countyCrtl.value,
-        city: this.addressFormGroup.controls.cityCrtl.value,
-        street: this.addressFormGroup.controls.streetCrtl.value,
-        building: this.addressFormGroup.controls.buildingCrtl.value,
-      }
-    };
+    const purchase = new Purchase();
+    purchase.receiverName = this.nameFormGroup.controls.nameCtrl.value;
+    purchase.receiverPhone = this.nameFormGroup.controls.phoneCrtl.value;
+    purchase.phoneId = this.phone.id;
+    purchase.userId = JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY)).userId;
+
+    const address = new Address();
+    address.country = this.addressFormGroup.controls.countryCrtl.value;
+    address.county = this.addressFormGroup.controls.countyCrtl.value;
+    address.city = this.addressFormGroup.controls.cityCrtl.value;
+    address.street = this.addressFormGroup.controls.streetCrtl.value;
+    address.building = this.addressFormGroup.controls.buildingCrtl.value;
+
+    this.newPurchaseDTO = new NewPurchaseDTO();
+    this.newPurchaseDTO.purchase = purchase;
+    this.newPurchaseDTO.address = address;
   }
 
   cantPurchase($event: MouseEvent) {

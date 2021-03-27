@@ -3,9 +3,11 @@ package wad.statistics;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wad.statistics.dto.Statistic;
-import wad.user.entities.Purchase;
-import wad.user.repositories.PurchaseRepository;
+import wad.phone.entity.Phone;
+import wad.phone.repository.PhonesRepository;
+import wad.purchase.entity.Purchase;
+import wad.purchase.repository.PurchaseRepository;
+import wad.statistics.dto.StatisticDTO;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -26,11 +28,14 @@ public class StatisticsService {
     @Autowired
     private PurchaseRepository purchaseRepository;
 
-    public List<Statistic<String, Double>> getMonthlySales() throws Exception {
+    @Autowired
+    private PhonesRepository phonesRepository;
+
+    public List<StatisticDTO<String, Double>> getMonthlySales() {
         return IterableUtils.toList(purchaseRepository.findAll())
                 .stream()
                 .map(this::statisticFromPurchase)
-                .collect(groupingBy(Statistic::getXAxis))
+                .collect(groupingBy(StatisticDTO::getXAxis))
                 .entrySet().stream()
                 .map(this::statisticFromEntry)
                 .sorted(comparingInt(determineMonthOfStatistic()))
@@ -38,14 +43,16 @@ public class StatisticsService {
 
     }
 
-    private ToIntFunction<Statistic<String, Double>> determineMonthOfStatistic() {
+    private ToIntFunction<StatisticDTO<String, Double>> determineMonthOfStatistic() {
         return a -> Month.valueOf(a.getXAxis().toUpperCase()).getValue();
     }
 
-    private Statistic<String, Double> statisticFromPurchase(Purchase p) {
-        var s = new Statistic<String, Double>();
+    private StatisticDTO<String, Double> statisticFromPurchase(Purchase p) {
+        var s = new StatisticDTO<String, Double>();
         s.setXAxis(monthNameOfPurchase(p));
-        s.setYAxis(p.getPrice());
+
+        Phone purchasedPhone = phonesRepository.findById(p.getPhoneId()).orElseThrow();
+        s.setYAxis(purchasedPhone.getPrice());
 
         return s;
     }
@@ -56,14 +63,14 @@ public class StatisticsService {
                 .getDisplayName(TextStyle.FULL, Locale.ENGLISH);
     }
 
-    private Statistic<String, Double> statisticFromEntry(Entry<String, List<Statistic<String, Double>>> entry) {
-        var s = new Statistic<String, Double>();
+    private StatisticDTO<String, Double> statisticFromEntry(Entry<String, List<StatisticDTO<String, Double>>> entry) {
+        var s = new StatisticDTO<String, Double>();
         s.setXAxis(entry.getKey());
         s.setYAxis(yAxisSumOfStatistics(entry.getValue()));
         return s;
     }
 
-    private Double yAxisSumOfStatistics(List<Statistic<String, Double>> statistics) {
-        return statistics.stream().map(Statistic::getYAxis).reduce(Double::sum).get();
+    private Double yAxisSumOfStatistics(List<StatisticDTO<String, Double>> statisticDTOs) {
+        return statisticDTOs.stream().map(StatisticDTO::getYAxis).reduce(Double::sum).get();
     }
 }

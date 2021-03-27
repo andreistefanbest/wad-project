@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class ProductsService {
-  private PATH_TO_CONTROLLER = 'http://localhost:1337/localhost:8080/product/';
+  private PATH_TO_CONTROLLER = 'http://localhost:8080/product/';
 
   constructor(private http: HttpClient) {
 

@@ -2,7 +2,7 @@
 package wad.user.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import wad.user.entities.Product;
+import wad.user.entity.Product;
 
 /**
  *

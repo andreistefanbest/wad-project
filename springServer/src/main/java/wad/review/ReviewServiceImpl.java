@@ -4,9 +4,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wad.review.dto.ReviewDTO;
-import wad.review.entities.Review;
-import wad.review.repositories.ReviewRepository;
-import wad.user.entities.User;
+import wad.review.entity.Review;
+import wad.review.repository.ReviewRepository;
+import wad.user.entity.User;
 import wad.user.repositories.user.UserRepository;
 
 import java.util.List;

@@ -2,8 +2,8 @@ package wad.phone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wad.phone.entities.Brands;
-import wad.phone.entities.Phones;
+import wad.phone.dto.PhoneDTO;
+import wad.phone.entity.Brand;
 
 import java.util.List;
 
@@ -15,17 +15,17 @@ public class PhoneController {
     private PhoneService phoneService;
 
     @GetMapping("getPhones")
-    private List<Phones> getPhones() {
+    private List<PhoneDTO> getPhones() {
         return phoneService.getPhones();
     }
 
     @PostMapping("phone")
-    public Phones add(@RequestBody Phones p) {
+    public PhoneDTO add(@RequestBody PhoneDTO p) {
         return phoneService.add(p);
     }
 
     @PutMapping("phone")
-    public Phones update(@RequestBody Phones p) {
+    public PhoneDTO update(@RequestBody PhoneDTO p) {
         return phoneService.update(p);
     }
 
@@ -35,7 +35,7 @@ public class PhoneController {
     }
 
     @GetMapping("brands")
-    public List<Brands> getBrands() {
+    public List<Brand> getBrands() {
         return phoneService.getBrands();
     }
 }
