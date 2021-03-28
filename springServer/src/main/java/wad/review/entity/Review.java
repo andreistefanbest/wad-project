@@ -15,11 +15,11 @@ import java.util.Date;
 public class Review {
 
     @Id
-    private Integer id;
+    private String id;
 
-    private Integer phoneId;
+    private String phoneId;
 
-    private Integer userId;
+    private String userId;
 
     private String content;
 

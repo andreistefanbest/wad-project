@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import wad.phone.entity.Specs;
 
 @Repository
-public interface SpecsRepository extends MongoRepository<Specs, Integer> {
+public interface SpecsRepository extends MongoRepository<Specs, String> {
 }

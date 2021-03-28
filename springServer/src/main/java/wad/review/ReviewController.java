@@ -15,7 +15,7 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @GetMapping("review")
-    public List<ReviewDTO> getReviews(@RequestParam Integer phoneId) throws Exception {
+    public List<ReviewDTO> getReviews(@RequestParam String phoneId) throws Exception {
         return reviewService.getReviews(phoneId);
     }
 

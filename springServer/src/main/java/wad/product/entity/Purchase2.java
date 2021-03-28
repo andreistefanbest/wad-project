@@ -20,7 +20,7 @@ import java.util.Date;
 public class Purchase2 {
 
     @Id
-    private Integer id;
+    private String id;
 
     private int userId;
 

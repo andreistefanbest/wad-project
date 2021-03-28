@@ -30,7 +30,7 @@ public class PhoneController {
     }
 
     @DeleteMapping("phone")
-    public void delete(@RequestParam Integer id) {
+    public void delete(@RequestParam String id) {
         phoneService.delete(id);
     }
 

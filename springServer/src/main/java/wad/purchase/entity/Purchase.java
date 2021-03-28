@@ -20,7 +20,7 @@ import java.util.Date;
 public class Purchase {
 
     @Id
-    private Integer id;
+    private String id;
 
     private String receiverName;
 
@@ -28,9 +28,9 @@ public class Purchase {
 
     private Date purchaseDate;
 
-    private Integer phoneId;
+    private String phoneId;
 
-    private Integer addressId;
+    private String addressId;
 
-    private Integer userId;
+    private String userId;
 }

@@ -17,7 +17,7 @@ public class StatisticsController {
 
 
     @GetMapping("monthly-sales")
-    public List<StatisticDTO<String, Double>> getMonthlySales() throws Exception {
+    public List<StatisticDTO<String, Double>> getMonthlySales() {
         return statisticsService.getMonthlySales();
     }
 

@@ -21,17 +21,17 @@ public class ProductController {
     private ProductService productService;
     
     @GetMapping("/product/getProducts")
-    public List<Product> getProducts() throws Exception {
+    public List<Product> getProducts() {
         return productService.getProducts();
     }
 
     @PutMapping("/product/buy")
-    public void buy(@RequestBody Purchase2 purchase) throws Exception {
+    public void buy(@RequestBody Purchase2 purchase) {
         this.productService.buy(purchase);
     }
 
     @GetMapping("/product/history")
-    public List<Purchase2> history(@RequestParam Integer userId) throws Exception {
+    public List<Purchase2> history(@RequestParam String userId) {
         return productService.history(userId);
     }
 }

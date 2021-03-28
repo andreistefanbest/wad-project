@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Brand {
 
     @Id
-    private Integer id;
+    private String id;
 
     private String name;
 

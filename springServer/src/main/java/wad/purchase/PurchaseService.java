@@ -32,7 +32,7 @@ public class PurchaseService {
     @Autowired
     private PhonesRepository phonesRepository;
 
-    public LastPurchaseDTO getLastPurchaseDTO(Integer userId) {
+    public LastPurchaseDTO getLastPurchaseDTO(String userId) {
         User user = userRepository.findById(userId).orElseThrow();
         Optional<Address> userAddress = addressRepository.findById(user.getAddressId());
 
@@ -54,7 +54,7 @@ public class PurchaseService {
         return lastPurchaseDTO;
     }
 
-    public List<PurchaseHistoryDTO> getPurchasesHistory(Integer userId) {
+    public List<PurchaseHistoryDTO> getPurchasesHistory(String userId) {
         return purchaseRepository.findByUserId(userId)
                 .stream()
                 .map(this::purchaseHistoryDTOFromPurchase)

@@ -12,7 +12,6 @@ import wad.user.repositories.user.UserRepository;
 import wad.utils.StringHasher;
 
 import java.util.Objects;
-
 /**
  * @author Andrei Stefan
  * @since Mar 24, 2019
@@ -39,7 +38,7 @@ public class UserService {
         user.setPassword(stringHasher.getHash(password));
         user.setUserType("basic");
 
-        return userRepository.save(user);
+        return userRepository.insert(user);
     }
 
     public User logIn(String mail, String password) throws Exception {
@@ -57,15 +56,15 @@ public class UserService {
                 Objects.equals(user.getPassword(), stringHasher.getHash(password));
     }
 
-    public User getUser(Integer id) {
+    public User getUser(String id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @Transactional
-    public Integer buyPhone(NewPurchaseDTO newPurchaseDTO) {
+    public String buyPhone(NewPurchaseDTO newPurchaseDTO) {
         Purchase purchase = newPurchaseDTO.getPurchase();
 
-        Integer newAddressId = addressRepository.save(newPurchaseDTO.getAddress()).getId();
+        String newAddressId = addressRepository.save(newPurchaseDTO.getAddress()).getId();
         purchase.setAddressId(newAddressId);
 
         updateUserPurchaseDetails(purchase);

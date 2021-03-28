@@ -22,14 +22,14 @@ public class PurchaseController {
     private PurchaseService purchaseService;
 
     @GetMapping("last-purchase")
-    public String getLastPurchase(@RequestParam Integer userId) throws JsonProcessingException {
+    public String getLastPurchase(@RequestParam String userId) throws JsonProcessingException {
         LastPurchaseDTO lastPurchaseDTO = purchaseService.getLastPurchaseDTO(userId);
 
         return URLEncoder.encode(new ObjectMapper().writeValueAsString(lastPurchaseDTO), StandardCharsets.UTF_8);
     }
 
     @GetMapping("history")
-    public List<PurchaseHistoryDTO> getPurchases(@RequestParam Integer userId) {
+    public List<PurchaseHistoryDTO> getPurchases(@RequestParam String userId) {
         return purchaseService.getPurchasesHistory(userId);
     }
 }

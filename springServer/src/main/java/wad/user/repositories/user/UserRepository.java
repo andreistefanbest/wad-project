@@ -10,6 +10,6 @@ import wad.user.entity.User;
  * @since Mar 24, 2019
  */
 @Repository
-public interface UserRepository extends MongoRepository<User, Integer>, UserCustomRepository {
+public interface UserRepository extends MongoRepository<User, String>, UserRepositoryCustom {
 
 }

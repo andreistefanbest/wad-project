@@ -9,9 +9,9 @@ import java.util.Date;
 @NoArgsConstructor
 public class ReviewDTO {
 
-    private Integer id;
-    private Integer phoneId;
-    private Integer userId;
+    private String id;
+    private String phoneId;
+    private String userId;
     private String content;
     private Date date;
 

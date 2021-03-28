@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PhoneType {
 
     @Id
-    private Integer id;
+    private String id;
 
     private String name;
 

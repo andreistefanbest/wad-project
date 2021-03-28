@@ -4,12 +4,12 @@ package wad.user.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author Andrei Stefan
@@ -23,7 +23,7 @@ public class User {
 
     @Id
     @NotNull
-    private Integer userId;
+    private String userId;
 
     @NotNull
     private String fullName;
@@ -31,11 +31,11 @@ public class User {
     @Email
     private String mail;
 
-    private Integer addressId;
+    private String addressId;
 
     private String phone;
 
-    @Length(min = 6, max = 32)
+    @Size(min = 6, max = 32)
     private String password;
 
     @NotNull

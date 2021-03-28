@@ -32,12 +32,12 @@ public class UserController {
     }
 
     @GetMapping("getUser")
-    public User getUser(@RequestParam Integer id) throws Exception {
+    public User getUser(@RequestParam String id) {
         return userService.getUser(id);
     }
 
     @PostMapping("buyPhone")
-    public Integer buyPhone(@RequestBody NewPurchaseDTO newPurchaseDTO) throws Exception {
+    public String buyPhone(@RequestBody NewPurchaseDTO newPurchaseDTO) {
         return userService.buyPhone(newPurchaseDTO);
     }
 }

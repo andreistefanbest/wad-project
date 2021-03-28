@@ -77,7 +77,7 @@ public class PhoneService {
         return addUpdate(phoneDTO);
     }
 
-    public void delete(Integer id) {
+    public void delete(String id) {
         phonesRepository.deleteById(id);
     }
 

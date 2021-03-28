@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class PhoneDTO {
-    private Integer id;
+    private String id;
 
     private String name;
 

@@ -1,9 +1,9 @@
 package wad.product.entity;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface Purchase2Repository extends CrudRepository<Purchase2, Integer> {
-    List<Purchase2> findByUserId(Integer userID);
+public interface Purchase2Repository extends MongoRepository<Purchase2, String> {
+    List<Purchase2> findByUserId(String userID);
 }

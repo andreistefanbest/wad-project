@@ -19,7 +19,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Phone {
     @Id
-    private Integer id;
+    private String id;
 
     private String name;
 
@@ -27,14 +27,11 @@ public class Phone {
 
     private Date releaseDate;
 
-    //    private PhoneTypes typeId;
-    private Integer typeId;
+    private String typeId;
 
-    //    private Specs specsId;
-    private Integer specsId;
+    private String specsId;
 
-    //    private Brands brandId;
-    private Integer brandId;
+    private String brandId;
 
     private Double price;
 

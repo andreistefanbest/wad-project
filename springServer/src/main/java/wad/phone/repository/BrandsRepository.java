@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import wad.phone.entity.Brand;
 
 @Repository
-public interface BrandsRepository extends MongoRepository<Brand, Integer> {
+public interface BrandsRepository extends MongoRepository<Brand, String> {
 }
