@@ -55,7 +55,7 @@ export class PhonesComponent implements OnInit {
         return;
       }
 
-      this.userService.buyPhone(newPurchaseDTO).subscribe((purchaseId: number) => {
+      this.userService.buyPhone(newPurchaseDTO).subscribe((purchaseId: string) => {
         this.snackBar.open('Purchase successful! Id: ' + purchaseId, '', {
           duration: 3500,
         });
@@ -84,7 +84,7 @@ export class PhonesComponent implements OnInit {
           this.phonesDS = this.phonesDS.sort((p1, p2) => p2.price - p1.price);
           break;
         case 'bluetooth':
-          this.phonesDS = this.phonesDS.sort((p1, p2) => p1.typeId.name.localeCompare(p2.typeId.name));
+          this.phonesDS = this.phonesDS.sort((p1, p2) => p1.phoneType.name.localeCompare(p2.phoneType.name));
           break;
         case 'compare':
           this.comparisonMode = true;

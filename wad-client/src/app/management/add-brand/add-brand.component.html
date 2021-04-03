@@ -1,0 +1,23 @@
+<div class="d-flex flex-column">
+  <h1 mat-dialog-title>Add brand</h1>
+  <mat-dialog-content>
+    <form [formGroup]="addEditFormGroup" class="m-t-10">
+      <mat-card class="m-b-20">
+        <div>
+          <mat-icon class="m-r-10">insights</mat-icon>
+          <mat-form-field class="m-b-30">
+            <input [errorStateMatcher]="matcher"
+                   formControlName="nameCtrl"
+                   matInput
+                   placeholder="Brand Name"
+                   required>
+          </mat-form-field>
+        </div>
+      </mat-card>
+    </form>
+  </mat-dialog-content>
+  <div class="ml-auto" mat-dialog-actions>
+    <button [mat-dialog-close]="null" color="warn" mat-button>Cancel</button>
+    <button [disabled]="!canClose" [mat-dialog-close]="brandName" color="primary" mat-raised-button>Add</button>
+  </div>
+</div>

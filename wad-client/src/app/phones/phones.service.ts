@@ -9,23 +9,27 @@ export class PhonesService {
 
   }
 
-  public getPhones() {
-    return this.http.get(this.PATH_TO_CONTROLLER + 'getPhones');
+  getPhones() {
+    return this.http.get(this.PATH_TO_CONTROLLER + 'phones');
   }
 
-  public getBrands() {
+  getBrands() {
     return this.http.get(this.PATH_TO_CONTROLLER + 'brands');
   }
 
-  public add(phone) {
+  add(phone) {
     return this.http.post(this.PATH_TO_CONTROLLER + 'phone', phone);
   }
 
-  public update(phone) {
+  update(phone) {
     return this.http.put(this.PATH_TO_CONTROLLER + 'phone', phone);
   }
 
-  public delete(id: number) {
+  delete(id: number) {
     return this.http.delete(this.PATH_TO_CONTROLLER + 'phone?id=' + id);
+  }
+
+  addBrand(newBrandName: string) {
+    return this.http.post(this.PATH_TO_CONTROLLER + 'brand', newBrandName);
   }
 }

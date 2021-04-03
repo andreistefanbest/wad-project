@@ -2,18 +2,38 @@ import {Component, OnInit} from '@angular/core';
 import {PhonesService} from '../phones/phones.service';
 import {MatDialog} from '@angular/material/dialog';
 import {AddEditPhoneComponent} from './add-edit-phone/add-edit-phone.component';
+import {AddButtonModel} from './add-button.model';
+import {AddBrandComponent} from './add-brand/add-brand.component';
 
 @Component({
   selector: 'app-management',
   templateUrl: './management.component.html',
-  styleUrls: ['./management.component.css']
+  styleUrls: ['./management.component.scss']
 })
 export class ManagementComponent implements OnInit {
+
+  availableButtons: AddButtonModel[] = [
+    {
+      icon: 'insights',
+      caption: 'Brand',
+      fn: 'addBrand'
+    },
+    {
+      icon: 'phone',
+      caption: 'Phone',
+      fn: 'add'
+    },
+  ];
+
+  buttons: AddButtonModel[] = [];
+
+  fabToggleState = 'inactive';
 
   phonesDS: any;
 
   constructor(private phonesService: PhonesService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.phonesService.getPhones().subscribe((phones) => {
@@ -63,5 +83,38 @@ export class ManagementComponent implements OnInit {
         this.phonesDS[index] = updatedPhone;
       });
     });
+  }
+
+  showItems() {
+    this.fabToggleState = 'active';
+    this.buttons = this.availableButtons;
+  }
+
+  hideItems() {
+    this.fabToggleState = 'inactive';
+    this.buttons = [];
+  }
+
+  onToggleFab() {
+    this.buttons.length ? this.hideItems() : this.showItems();
+  }
+
+  addBrand() {
+    const dialogRef = this.dialog.open(AddBrandComponent, {
+      width: (window.innerWidth < 760 ? '100%' : '70%'),
+      data: null
+    });
+
+    dialogRef.afterClosed().subscribe((newBrandName: string) => {
+      if (newBrandName == null) {
+        return;
+      }
+
+      this.phonesService.addBrand(newBrandName).subscribe();
+    });
+  }
+
+  onFabClick(fn) {
+    this[fn]();
   }
 }

@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcherImpl} from '../../utils/error-state-matcher-impl';
 import {UserService} from '../../user.service';
-import {GlobalConstants} from '../../utils/GlobalConstants';
 import {PurchaseService} from './purchase.service';
 import {LastPurchaseDTO} from './dto/LastPurchaseDTO';
 import {NewPurchaseDTO} from './dto/NewPurchaseDTO';
@@ -24,7 +23,7 @@ export class BuyPhoneComponent implements OnInit {
   newPurchaseDTO: NewPurchaseDTO;
   canPurchase: boolean;
 
-  constructor(@Inject(MAT_DIALOG_DATA) private phone,
+  constructor(@Inject(MAT_DIALOG_DATA) public phone,
               private formBuilder: FormBuilder,
               private userService: UserService,
               private purchaseService: PurchaseService) {
@@ -55,16 +54,16 @@ export class BuyPhoneComponent implements OnInit {
       this.updatePurchase();
     });
 
-    this.purchaseService.getLastPurchase(JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY)).userId)
-      .subscribe((lastPurchase: LastPurchaseDTO) => {
-        this.nameFormGroup.controls.nameCtrl.setValue(lastPurchase.fullName);
-        this.nameFormGroup.controls.phoneCrtl.setValue('0' + lastPurchase.phone);
-        this.addressFormGroup.controls.countryCrtl.setValue(lastPurchase.country);
-        this.addressFormGroup.controls.countyCrtl.setValue(lastPurchase.county);
-        this.addressFormGroup.controls.cityCrtl.setValue(lastPurchase.city);
-        this.addressFormGroup.controls.streetCrtl.setValue(lastPurchase.street);
-        this.addressFormGroup.controls.buildingCrtl.setValue(lastPurchase.building);
-      });
+    const userId = this.userService.getCurrentUser().userId;
+    this.purchaseService.getLastPurchase(userId).subscribe((lastPurchase: LastPurchaseDTO) => {
+      this.nameFormGroup.controls.nameCtrl.setValue(lastPurchase.fullName);
+      this.nameFormGroup.controls.phoneCrtl.setValue(lastPurchase.phone);
+      this.addressFormGroup.controls.countryCrtl.setValue(lastPurchase.country);
+      this.addressFormGroup.controls.countyCrtl.setValue(lastPurchase.county);
+      this.addressFormGroup.controls.cityCrtl.setValue(lastPurchase.city);
+      this.addressFormGroup.controls.streetCrtl.setValue(lastPurchase.street);
+      this.addressFormGroup.controls.buildingCrtl.setValue(lastPurchase.building);
+    });
   }
 
   updatePurchase() {
@@ -72,7 +71,7 @@ export class BuyPhoneComponent implements OnInit {
     purchase.receiverName = this.nameFormGroup.controls.nameCtrl.value;
     purchase.receiverPhone = this.nameFormGroup.controls.phoneCrtl.value;
     purchase.phoneId = this.phone.id;
-    purchase.userId = JSON.parse(localStorage.getItem(GlobalConstants.LOGGED_USER_KEY)).userId;
+    purchase.userId = this.userService.getCurrentUser().userId;
 
     const address = new Address();
     address.country = this.addressFormGroup.controls.countryCrtl.value;

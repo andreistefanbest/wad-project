@@ -16,7 +16,10 @@ export class AddEditPhoneComponent implements OnInit {
   addEditFormGroup: FormGroup;
   matcher: ErrorStateMatcherImpl;
   brandsDS: any;
-  phoneTypeDS = [{id: 1, name: 'smartphone'}, {id: 2, name: 'dumb phone'}];
+  phoneTypeDS = [{id: '6060b57613406a09e170b3ea', name: 'Smartphone'}, {
+    id: '6060b80e13406a09e170b3ed',
+    name: 'Dumb phone'
+  }];
   bluetoothDS = [1, 0];
   canClose: boolean;
   result: any;

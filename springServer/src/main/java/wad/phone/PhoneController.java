@@ -14,7 +14,7 @@ public class PhoneController {
     @Autowired
     private PhoneService phoneService;
 
-    @GetMapping("getPhones")
+    @GetMapping("phones")
     private List<PhoneDTO> getPhones() {
         return phoneService.getPhones();
     }
@@ -22,6 +22,16 @@ public class PhoneController {
     @PostMapping("phone")
     public PhoneDTO add(@RequestBody PhoneDTO p) {
         return phoneService.add(p);
+    }
+
+    @PostMapping("brand")
+    public void addBrand(@RequestBody String brandName) {
+        phoneService.addBrand(brandName);
+    }
+
+    @PostMapping("type")
+    public void addPhoneType(@RequestBody String type) {
+        phoneService.addPhoneType(type);
     }
 
     @PutMapping("phone")

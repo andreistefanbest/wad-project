@@ -7,16 +7,16 @@
   flex-direction: column-reverse;
   align-items: center;
 
-> div {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  margin-bottom: 5px;
+  > div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 5px;
 
-button {
-  margin-bottom: 17px;
-}
-}
+    button {
+      margin-bottom: 17px;
+    }
+  }
 }
 
 .fab-toggler {

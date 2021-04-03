@@ -88,4 +88,18 @@ public class PhoneService {
         Phone newPhone = phonesRepository.save(phoneFromPhoneDTO(phoneDTO));
         return phoneDTOFromPhone(newPhone);
     }
+
+    public void addBrand(String brandName) {
+        Brand newBrand = new Brand();
+        newBrand.setName(brandName);
+
+        brandsRepository.insert(newBrand);
+    }
+
+    public void addPhoneType(String type) {
+        PhoneType phoneType = new PhoneType();
+        phoneType.setName(type);
+
+        phoneTypesRepository.insert(phoneType);
+    }
 }

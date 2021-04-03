@@ -11,16 +11,17 @@ import {ReviewsService} from './reviews.service';
 export class ReviewsComponent implements OnInit {
 
   user: any;
-  reviewsDS: any;
+  reviewsDS: any[];
   content: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) private phone,
+  constructor(@Inject(MAT_DIALOG_DATA) public phone,
               private userService: UserService,
-              private reviewsService: ReviewsService) { }
+              private reviewsService: ReviewsService) {
+  }
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    this.reviewsService.getReviews(this.phone.phone.id).subscribe((reviews) => {
+    this.reviewsService.getReviews(this.phone.phone.id).subscribe((reviews: any[]) => {
       this.reviewsDS = reviews;
     });
   }

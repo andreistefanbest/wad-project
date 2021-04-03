@@ -19,7 +19,7 @@ export class UserService {
     httpParams = httpParams.set('mail', mail);
     httpParams = httpParams.set('password', password);
 
-    return this.http.put(this.PATH_TO_CONTROLLER + 'signIn',
+    return this.http.post(this.PATH_TO_CONTROLLER + 'signIn',
       undefined, {params: httpParams});
   }
 
@@ -33,7 +33,7 @@ export class UserService {
   }
 
   public buyPhone(purchase: NewPurchaseDTO) {
-    return this.http.post(this.PATH_TO_CONTROLLER + 'buyPhone', purchase);
+    return this.http.post(this.PATH_TO_CONTROLLER + 'buyPhone', purchase, {responseType: 'text'});
   }
 
   public getUser(id: number) {

@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     
-    @PutMapping(value="signIn", produces = "application/json")
+    @PostMapping(value = "signIn", produces = "application/json")
     public User signIn(@RequestParam String name,
                         @RequestParam String mail,
                         @RequestParam String password) throws Exception {
@@ -36,7 +36,7 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @PostMapping("buyPhone")
+    @PostMapping(value = "buyPhone", produces = "text/plain")
     public String buyPhone(@RequestBody NewPurchaseDTO newPurchaseDTO) {
         return userService.buyPhone(newPurchaseDTO);
     }

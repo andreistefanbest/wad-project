@@ -34,7 +34,9 @@ public class PurchaseService {
 
     public LastPurchaseDTO getLastPurchaseDTO(String userId) {
         User user = userRepository.findById(userId).orElseThrow();
-        Optional<Address> userAddress = addressRepository.findById(user.getAddressId());
+
+        Optional<Address> userAddress = Optional.ofNullable(user.getAddressId())
+                .flatMap(addressId -> addressRepository.findById(addressId));
 
         if (userAddress.isEmpty()) {
             return new LastPurchaseDTO(user.getFullName(), user.getPhone());

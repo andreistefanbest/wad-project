@@ -14,7 +14,17 @@
 
 <div class="fab-container">
   <button mat-fab color="accent" class="fab-toggler"
-          (click)="add()">
+          (click)="onToggleFab()">
     <mat-icon>add</mat-icon>
   </button>
+  <div>
+    <ng-container *ngFor="let btn of buttons">
+      <button (click)="onFabClick(btn.fn)"
+              class="fab-secondary"
+              color="secondary" mat-mini-fab>
+        <mat-icon>{{btn.icon}}</mat-icon>
+      </button>
+      <div>{{btn.caption}}</div>
+    </ng-container>
+  </div>
 </div>

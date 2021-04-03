@@ -11,6 +11,7 @@ import wad.user.repositories.AddressRepository;
 import wad.user.repositories.user.UserRepository;
 import wad.utils.StringHasher;
 
+import java.util.Date;
 import java.util.Objects;
 /**
  * @author Andrei Stefan
@@ -63,6 +64,7 @@ public class UserService {
     @Transactional
     public String buyPhone(NewPurchaseDTO newPurchaseDTO) {
         Purchase purchase = newPurchaseDTO.getPurchase();
+        purchase.setPurchaseDate(new Date());
 
         String newAddressId = addressRepository.save(newPurchaseDTO.getAddress()).getId();
         purchase.setAddressId(newAddressId);

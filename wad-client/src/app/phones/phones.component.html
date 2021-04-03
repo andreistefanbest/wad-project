@@ -5,7 +5,7 @@
         <mat-card-header>
           <mat-checkbox *ngIf="comparisonMode" (change)="onCompareSelect(phone, $event)" class="ml-auto"></mat-checkbox>
           <mat-card-title>{{phone.name}}</mat-card-title>
-          <mat-card-subtitle>{{phone.brandId.name + ' ' + phone.typeId.name}}</mat-card-subtitle>
+          <mat-card-subtitle>{{phone.brand.name + ' ' + phone.phoneType.name}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="{{phone.imageLink}}">
         <mat-card-content>
@@ -18,26 +18,26 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <mat-list role="list">
-                <mat-list-item *ngIf="phone.specsId.ramType" role="listitem">
-                  {{'Ram Type: ' + phone.specsId.ramType}}
+                <mat-list-item *ngIf="phone.specs.ramType" role="listitem">
+                  {{'Ram Type: ' + phone.specs.ramType}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.ramCapacity" role="listitem">
-                  {{'Ram Capacity: ' + phone.specsId.ramCapacity}}
+                <mat-list-item *ngIf="phone.specs.ramCapacity" role="listitem">
+                  {{'Ram Capacity: ' + phone.specs.ramCapacity}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.cpu" role="listitem">
-                  {{'CPU: ' + phone.specsId.cpu}}
+                <mat-list-item *ngIf="phone.specs.cpu" role="listitem">
+                  {{'CPU: ' + phone.specs.cpu}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.clockSpeed" role="listitem">
-                  {{'Clock Speed: ' + phone.specsId.clockSpeed}}
-                </mat-list-item>
-                <mat-list-item role="listitem">
-                  {{'Bluetooth: ' + (phone.specsId.bluetooth ? 'yes' : 'no')}}
+                <mat-list-item *ngIf="phone.specs.clockSpeed" role="listitem">
+                  {{'Clock Speed: ' + phone.specs.clockSpeed}}
                 </mat-list-item>
                 <mat-list-item role="listitem">
-                  {{'Network Support: ' + phone.specsId.networkSupport}}
+                  {{'Bluetooth: ' + (phone.specs.bluetooth ? 'yes' : 'no')}}
                 </mat-list-item>
-                <mat-list-item *ngIf="phone.specsId.storageCapacity" role="listitem">
-                  {{'Storage Capacity: ' + phone.specsId.storageCapacity}}
+                <mat-list-item role="listitem">
+                  {{'Network Support: ' + phone.specs.networkSupport}}
+                </mat-list-item>
+                <mat-list-item *ngIf="phone.specs.storageCapacity" role="listitem">
+                  {{'Storage Capacity: ' + phone.specs.storageCapacity}}
                 </mat-list-item>
               </mat-list>
             </mat-expansion-panel>
