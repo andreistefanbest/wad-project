@@ -5,12 +5,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.reactive.config.EnableWebFlux;
 
 /**
  *
  * @author Andrei Stefan
  * @since Mar 24, 2019
  */
+@EnableWebFlux
 @SpringBootApplication
 public class Main {
 

@@ -1,22 +1,24 @@
 package wad.user.repositories.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
-import wad.user.entity.User;
 
 @Repository
 public class UserRepositoryImpl implements UserRepositoryCustom {
 
+    private final UserRepository userRepository;
+
     @Lazy
-    @Autowired
-    private UserRepository userRepository;
+    public UserRepositoryImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public void updateUserPurchaseDetails(String userId, String addressId, String receiverPhone) {
-        User user = userRepository.findById(userId).orElseThrow();
-        user.setAddressId(addressId);
-        user.setPhone(receiverPhone);
-        userRepository.save(user);
+        userRepository.findById(userId).subscribe(user -> {
+            user.setAddressId(addressId);
+            user.setPhone(receiverPhone);
+            userRepository.save(user);
+        });
     }
 }

@@ -1,12 +1,11 @@
 package wad.purchase.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import reactor.core.publisher.Flux;
 import wad.purchase.entity.Purchase;
-
-import java.util.List;
 
 public interface PurchaseRepository extends MongoRepository<Purchase, String> {
 
-    List<Purchase> findByUserId(String userID);
+    Flux<Purchase> findByUserId(String userID);
 
 }
