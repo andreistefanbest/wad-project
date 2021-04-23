@@ -1,0 +1,24 @@
+POST http://localhost:8080/phones/type
+
+Dumb phone
+
+###
+
+POST http://localhost:8080/phones/type
+
+Smartphone
+
+###
+
+POST http://localhost:8080/phones/type
+
+"Smartphone"
+
+###
+
+POST http://localhost:8080/phones/type
+
+"Smartphone"
+
+###
+
