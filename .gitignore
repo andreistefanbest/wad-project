@@ -22,12 +22,12 @@ release.properties
 ##########################
 ## IntelliJ
 ##########################
-#*.iml
+*.iml
 .idea/sonarlint
-#*.ipr
-#*.iws
-#out/
-#.idea_modules/
+*.ipr
+*.iws
+out/
+.idea_modules/
 
 ##########################
 ## Eclipse

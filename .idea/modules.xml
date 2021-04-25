@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/nginx/nginx.iml" filepath="$PROJECT_DIR$/nginx/nginx.iml" />
       <module fileurl="file://$PROJECT_DIR$/springServer/springServer.iml" filepath="$PROJECT_DIR$/springServer/springServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/wad-client/wad-client.iml" filepath="$PROJECT_DIR$/wad-client/wad-client.iml" />
     </modules>
