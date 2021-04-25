@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class PhonesService {
-  private PATH_TO_CONTROLLER = 'http://localhost:8080/phones/';
+  private PATH_TO_CONTROLLER = environment.backend + '/phones/';
 
   constructor(private http: HttpClient) {
 

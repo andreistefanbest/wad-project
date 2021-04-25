@@ -8,7 +8,8 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class CompareComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private phones) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public phones) {
+  }
 
   ngOnInit() {
   }

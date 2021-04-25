@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  mymongo:
+    image: 'mongo'
+    restart: on-failure
+
+  api:
+    build:
+      context: springServer
+    depends_on:
+      - mymongo
+
+  client:
+    build:
+      context: wad-client
+    depends_on:
+      - api
+    volumes:
+      - /app/node_modules
+
+  nginx:
+    restart: always
+    build:
+      context: nginx
+    ports:
+      - "3000:80"
+    depends_on:
+      - client
+

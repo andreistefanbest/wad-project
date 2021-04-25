@@ -1,0 +1,7 @@
+dist
+e2e
+.dockerignore
+.editorconfig
+Dockerfile
+wad-client.iml
+node_modules

@@ -2,12 +2,12 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {GlobalConstants} from './utils/GlobalConstants';
 import {NewPurchaseDTO} from './phones/buy-phone/dto/NewPurchaseDTO';
+import {environment} from '../environments/environment';
 
 @Injectable()
 export class UserService {
-  private PATH_TO_CONTROLLER = 'http://localhost:8080/user/';
-
-  public userChanged: EventEmitter<any> = new EventEmitter();
+  public userChanged: EventEmitter<void> = new EventEmitter();
+  private PATH_TO_CONTROLLER = environment.backend + '/user/';
 
   constructor(private http: HttpClient) {
 
