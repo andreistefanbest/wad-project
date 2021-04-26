@@ -1,0 +1,6 @@
+.idea
+springServer.iml
+target
+.dockerignore
+Dockerfile
+nbactions.xml

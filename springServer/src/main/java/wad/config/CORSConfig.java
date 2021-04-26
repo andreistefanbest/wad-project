@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CORSConfig {
 
     @Bean
-    public WebMvcConfigurer corsConfigurer(@Value("${angular.container.name}") String angularContainerName) {
+    public WebMvcConfigurer corsConfigurer(@Value("${allowed.origins}") String allowedOrigins) {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
@@ -21,7 +21,7 @@ public class CORSConfig {
                                         "POST, GET, OPTIONS, PUT, DELETE",
                                         "Access-Control-Allow-Headers",
                                         "Origin, X-Requested-With, Content-Type, Accept")
-//                        .allowedOrigins("http://" + angularContainerName + ":4200")
+                        .allowedOrigins("http://" + allowedOrigins)
                         .allowedMethods("*");
             }
         };

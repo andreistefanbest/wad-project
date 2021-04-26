@@ -8,6 +8,8 @@ services:
   api:
     build:
       context: springServer
+    environment:
+      spring.profiles.active: prod
     depends_on:
       - mymongo
 
@@ -27,4 +29,5 @@ services:
       - "3000:80"
     depends_on:
       - client
+      - api
 

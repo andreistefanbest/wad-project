@@ -2,8 +2,10 @@ FROM openjdk:15-oracle
 
 WORKDIR /app
 
-COPY ./target/springServer-1.0-SNAPSHOT.jar ./server.jar
+COPY . .
+
+RUN ./mvnw clean install
 
 EXPOSE 8080
 
-CMD ["java",  "-jar", "server.jar"]
+CMD ["java",  "-jar", "./target/springServer-1.0-SNAPSHOT.jar"]
